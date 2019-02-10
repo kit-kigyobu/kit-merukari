@@ -1,0 +1,8 @@
+<h1><%= @title %></h1>
+<p><%= @main_text %></p>
+
+<%= form_tag(controller: "index", action: "index" ) do %>
+  <%= text_field_tag("name") %>
+  <%= submit_tag("Clock") %>
+<% end %>
+</form>
