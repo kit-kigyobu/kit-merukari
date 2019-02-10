@@ -1,6 +1,7 @@
 class IndexController < ApplicationController
 
   def index
+    #hihihi
     if request.post? then
       @title = "RESULT"
       @main_text = "you typed : " + params['name']
