@@ -5,6 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
+  url: postgres://dzoyzqstbhmbbd:729f3f5f2fbafbaf65a012c1f0953f820a5991383a687e5e9fc71add4f675833@ec2-23-21-244-254.compute-1.amazonaws.com:5432/d6fsklqka321kn
   adapter: postgresql
   database: d6fsklqka321kn
   username: dzoyzqstbhmbbd
