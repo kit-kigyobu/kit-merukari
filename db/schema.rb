@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_080405) do
+ActiveRecord::Schema.define(version: 2019_03_02_032504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2019_03_01_080405) do
     t.string "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_name1"
+    t.string "image_name2"
+    t.string "image_name3"
+    t.integer "category"
+    t.integer "price"
   end
 
   create_table "test_kesites", force: :cascade do |t|
@@ -38,7 +43,15 @@ ActiveRecord::Schema.define(version: 2019_03_01_080405) do
     t.string "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_degist"
+    t.string "password_digest"
+    t.string "club"
+    t.integer "entry_year"
+    t.integer "course_id"
+    t.integer "exhibition_num"
+    t.integer "purchase_num"
+    t.integer "love_num"
+    t.boolean "is_ban", default: false, null: false
+    t.boolean "is_suspend", default: false, null: false
   end
 
 end
