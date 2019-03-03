@@ -34,6 +34,9 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.content = params[:content]
+    @user.club = params[:club]
+    @user.entry_year = params[:entry_year]
+
 
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
@@ -41,11 +44,14 @@ class UsersController < ApplicationController
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
 
+    @user
+    binding.pry
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
+      flash[:notice] = "編集できていません"
     end
 
   end
