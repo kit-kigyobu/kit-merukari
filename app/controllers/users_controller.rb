@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
+    @transactions = Transaction.where(parchase_user_id: @current_user.id)
   end
 
   def new

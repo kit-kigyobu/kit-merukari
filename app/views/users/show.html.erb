@@ -6,3 +6,8 @@
 <% if @user.id == @current_user.id %>
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <% end %>
+
+<% @transactions.each do |transaction| %>
+  <%= link_to("取引id: #{transaction.id}","/chats/#{transaction.id}/chat") %><br/>
+<% end %>
+<%= link_to("新規チャット（本id:1001)", "/chats/1001/start",{method:"post"})%>
