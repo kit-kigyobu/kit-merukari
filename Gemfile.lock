@@ -84,6 +84,8 @@ GEM
     crass (1.0.4)
     debug_inspector (0.0.3)
     duktape (2.0.1.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0-x64-mingw32)
@@ -213,6 +215,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   duktape
+  enum_help
   jbuilder (~> 2.5)
   pg
   pry-byebug

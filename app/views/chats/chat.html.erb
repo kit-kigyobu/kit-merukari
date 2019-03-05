@@ -1,0 +1,18 @@
+<p>Chat room</p>
+<p>取引ID：<%= @transaction.id %></p>
+
+<% @chats.each do |chat| %>
+  <!--<% if chat.message_type == :chat_parchase %>
+    <p style="background-color:orange;color:white;">購入側：<%= @parchase_user.name %></p>
+    <p><%= chat.message %></p><br/>
+  <% else %>
+    <p style="background-color:blue;color:white;">出品側：<%= @exhibit_user.name %></p>
+    <p><%= chat.message %></p><br/>
+  <% end %>
+<% end %>-->
+
+<%= form_tag("/chats/#{@transaction.id}/send_chat") do %>
+  <%= text_area_tag("message","",{:cols=>"80", :rows=>"8"}) %><br/>
+  0or1:<%= select_tag("test_num",options_for_select(["購入側","販売側"])) %>
+  <%= submit_tag("send") %>
+<% end %>

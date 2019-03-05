@@ -1,10 +1,13 @@
 <h1>ユーザ詳細画面</h1>
 <img src="<%= "/user_images/#{@user.image_name}" %>">
 <h2><%= @user.name %></h2>
+<p><%= @user.email %></p>
 <p><%=@user.gender %></p>
-<p><%=@user.club%></p>
-<p><%=@user.entry_year%></p>
-<p><%=@user.content%></p>
 <% if @user.id == @current_user.id %>
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <% end %>
+
+<% @transactions.each do |transaction| %>
+  <%= link_to("取引id: #{transaction.id}","/chats/#{transaction.id}/chat") %><br/>
+<% end %>
+<%= link_to("新規チャット（本id:1001)", "/chats/1001/start",{method:"post"})%>

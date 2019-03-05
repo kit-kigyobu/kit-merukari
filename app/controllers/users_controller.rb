@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @transactions = Transaction.where(parchase_user_id: @current_user.id)
   end
 
   def new
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    
+
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
