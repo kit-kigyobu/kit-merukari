@@ -13,6 +13,6 @@
 
 <%= form_tag("/chats/#{@transaction.id}/send_chat") do %>
   <%= text_area_tag("message","",{:cols=>"80", :rows=>"8"}) %><br/>
-  0or1:<%= select_tag("test_num",options_for_select(["購入側","販売側"])) %>
+  <%= select_tag("chat_type", options_for_select(Chat.chat_types_i18n.keys), {class: "select-default"}) %>
   <%= submit_tag("send") %>
 <% end %>
