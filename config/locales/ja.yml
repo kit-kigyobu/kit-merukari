@@ -1,0 +1,6 @@
+ja:
+  enums:
+    chat:
+      chat_send_type:
+        parchase: 購入側
+        exhibit: 出品側
