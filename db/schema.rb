@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_131019) do
   enable_extension "plpgsql"
 
   create_table "chats", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.integer "message_type"
+    t.integer "transaction_id", null: false
+    t.integer "message_type", default: 0, null: false
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 2019_03_05_131019) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "parchase_user_id"
-    t.integer "exhibit_user_id"
+    t.integer "book_id", null: false
+    t.integer "parchase_user_id", null: false
+    t.integer "exhibit_user_id", null: false
     t.integer "parchase_status", default: 0, null: false
-    t.integer "exhibit_status"
+    t.integer "exhibit_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

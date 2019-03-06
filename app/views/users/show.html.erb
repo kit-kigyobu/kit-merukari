@@ -2,12 +2,27 @@
 <img src="<%= "/user_images/#{@user.image_name}" %>">
 <h2><%= @user.name %></h2>
 <p><%= @user.email %></p>
-<p><%=@user.sex %></p>
 <% if @user.id == @current_user.id %>
     <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <% end %>
 
-<% @transactions.each do |transaction| %>
-  <%= link_to("取引id: #{transaction.id}","/chats/#{transaction.id}/chat") %><br/>
+<br/>
+<br/>
+<span style="background-color:black;color:white;">購入側取引</span><br/>
+<% @parchase_transactions.each do |transaction| %>
+    <%= link_to("#{transaction.exhibit_user.name}さんとの取引",
+      "/chats/#{transaction.id}/chat") %> |
+    <%= link_to("[購入中止]","/chats/#{transaction.id}/cansel_parchase",{method:"post"}) %><br/>
 <% end %>
-<%= link_to("新規チャット（本id:1001)", "/chats/1001/start",{method:"post"})%>
+<br/>
+<span style="background-color:black;color:white;">出品側取引</span><br/>
+<% @exhibit_transactions.each do |transaction| %>
+    <%= link_to("#{transaction.parchase_user.name}さんとの取引",
+      "/chats/#{transaction.id}/chat") %> | 
+    <%= link_to("[出品中止]","/chats/#{transaction.id}/cansel_exhibit",{method:"post"}) %><br/>
+<% end %>
+
+<%= form_tag("/chats/1001/start") do %>
+  取引相手：<%= select_tag("exhibit_user_id",options_for_select(User.all.map {|item| [item.name, item.id]})) %>
+  <%= submit_tag("新規チャット開始!") %>
+<% end %>

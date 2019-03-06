@@ -3,7 +3,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
 
-    @transactions = Transaction.where(parchase_user_id: @current_user.id)
+    #取引一覧表示用
+    @parchase_transactions = Transaction
+    .where(parchase_user_id: @current_user.id)
+    .where(parchase_status: Transaction.parchase_statuses[:parchase_normal])
+    @exhibit_transactions = Transaction
+    .where(exhibit_user_id: @current_user.id)
+    .where(exhibit_status: Transaction.exhibit_statuses[:exhibit_normal])
+
   end
 
   def new

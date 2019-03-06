@@ -2,17 +2,20 @@
 <p>取引ID：<%= @transaction.id %></p>
 
 <% @chats.each do |chat| %>
-  <!--<% if chat.message_type == :chat_parchase %>
-    <p style="background-color:orange;color:white;">購入側：<%= @parchase_user.name %></p>
-    <p><%= chat.message %></p><br/>
+  <% if chat.parchase? %>
+    <span style="background-color:orange;color:white;">購入側：<%= @parchase_user.name %></span><br/>
+    <p><%= chat.message %></p>
   <% else %>
-    <p style="background-color:blue;color:white;">出品側：<%= @exhibit_user.name %></p>
-    <p><%= chat.message %></p><br/>
+    <span style="background-color:blue;color:white;">出品側：<%= @exhibit_user.name %></span><br/>
+    <p><%= chat.message %></p>
   <% end %>
-<% end %>-->
+<% end %>
 
 <%= form_tag("/chats/#{@transaction.id}/send_chat") do %>
   <%= text_area_tag("message","",{:cols=>"80", :rows=>"8"}) %><br/>
-  <%= select_tag("chat_type", options_for_select(Chat.chat_types_i18n.keys), {class: "select-default"}) %>
+  <%= select_tag("message_type",
+    options_for_select(Chat.message_types.map{|k,v| [I18n.t("enums.chat.message_type.#{k}"),v]}),
+    {class: "select-default"})
+  %>
   <%= submit_tag("send") %>
 <% end %>

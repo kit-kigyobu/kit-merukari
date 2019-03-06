@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "chats/:book_id/start"             => "chats#start"
   post "chats/:transaction_id/send_chat"  => "chats#send_chat"
   get "chats/:transaction_id/chat"        => "chats#chat"
+  post "chats/:transaction_id/cansel_exhibit"  => "chats#cansel_exhibit"
+  post "chats/:transaction_id/cansel_parchase" => "chats#cansel_parchase"
 
   get "/" => 'home#top'
   get "/about" => 'home#about'
