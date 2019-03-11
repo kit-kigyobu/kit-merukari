@@ -2,15 +2,13 @@
 <%= form_tag("/users/create") do %>
          <p>ユーザー名</p>
          <input name="name" value="<%= @user.name %>">
+         <p>性別</p>
+         <%= select_tag("gender_type",
+         options_for_select(User.gender_types.map { |key, value| [I18n.t("enums.user.gender_type.#{key}"), value] }),
+         {class: "select-default"})%>
          <p>メールアドレス</p>
          <input name="email" value="<%= @user.email %>">
          <p>パスワード</p>
          <input type="password" name="password" value="<%= @user.password %>">
          <input type="submit" value="新規登録">
-<% end %>
-
-<%= form_for @user, :url => {:action => 'create'} do |f| %>
-  <%= f.radio_button :gender, :man, label: "男", inline: true %>男
-  <%= f.radio_button :gender, :woman, label: "女", inline: true %>女
-  <%= f.radio_button :gender, :other, label: "その他", inline: true %>その他
 <% end %>
