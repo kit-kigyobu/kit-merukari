@@ -1,12 +1,16 @@
 <h1>ユーザ編集画面</h1>
 <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
           <p>ユーザー名</p>
-          <input name="user_name" value="<%= @user.name %>">
+          <input name="name" value="<%= @user.name %>">
           <p>画像</p>
           <input name="image" type="file">
           <p>メールアドレス</p>
           <input name="email" value="<%= @user.email %>">
+          <p>サークル名</p>
+          <input name="club" value="<%= @user.club%>">
+          <p>入学年度</p>
+          <input name="entry_year" value="<%= @user.entry_year%>">
           <p>自己紹介文</p>
-          <textarea name="content" rows="8" cols="80"></textarea>
+          <textarea name="content" rows="8" cols="80"><%=@user.content%></textarea>
           <input type="submit" value="保存">
 <% end %>

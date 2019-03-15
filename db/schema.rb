@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_02_032504) do
+ActiveRecord::Schema.define(version: 2019_03_05_131019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "transaction_id", null: false
+    t.integer "message_type", default: 0, null: false
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "book_name"
@@ -35,10 +43,19 @@ ActiveRecord::Schema.define(version: 2019_03_02_032504) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "parchase_user_id", null: false
+    t.integer "exhibit_user_id", null: false
+    t.integer "parchase_status", default: 0, null: false
+    t.integer "exhibit_status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "sex"
     t.text "content"
     t.string "image_name"
     t.datetime "created_at", null: false
@@ -52,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_03_02_032504) do
     t.integer "love_num"
     t.boolean "is_ban", default: false, null: false
     t.boolean "is_suspend", default: false, null: false
+    t.integer "gender"
   end
 
 end

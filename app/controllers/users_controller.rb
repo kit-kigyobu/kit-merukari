@@ -2,6 +2,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
+    #取引一覧表示用
+    @parchase_transactions = Transaction
+    .where(parchase_user_id: @current_user.id)
+    .where(parchase_status: Transaction.parchase_statuses[:parchase_normal])
+    @exhibit_transactions = Transaction
+    .where(exhibit_user_id: @current_user.id)
+    .where(exhibit_status: Transaction.exhibit_statuses[:exhibit_normal])
   end
 
   def new
@@ -11,6 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(
      name: params[:name],
+     gender: params[:gender_type],
      email: params[:email],
      image_name: "default_user.jpg",
      password: params[:password]
@@ -30,10 +39,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
+
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
     @user.content = params[:content]
+    @user.club = params[:club]
+    @user.entry_year = params[:entry_year]
+
 
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
@@ -46,6 +59,7 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
+      flash[:notice] = "編集できていません"
     end
 
   end

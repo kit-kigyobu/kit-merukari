@@ -1,0 +1,14 @@
+ja:
+  enums:
+    chat:
+      message_type:
+        parchase: 購入側
+        exhibit: 出品側
+
+ja:
+  enums:
+    user:
+      gender_type:
+        man: 男
+        woman: 女
+        other: その他

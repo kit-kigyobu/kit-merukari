@@ -2,8 +2,10 @@
 <%= form_tag("/users/create") do %>
          <p>ユーザー名</p>
          <input name="name" value="<%= @user.name %>">
-         <input type="radio" name="sex" value="男">男
-         <input type="radio" name="sex" value="女">女
+         <p>性別</p>
+         <%= select_tag("gender_type",
+         options_for_select(User.gender_types.map { |key, value| [I18n.t("enums.user.gender_type.#{key}"), value] }),
+         {class: "select-default"})%>
          <p>メールアドレス</p>
          <input name="email" value="<%= @user.email %>">
          <p>パスワード</p>
