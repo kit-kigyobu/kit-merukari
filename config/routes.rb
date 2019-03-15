@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'admin/user'
+  get 'admin/post'
+  get 'admin/transaction'
   post "users/:id/update"  => "users#update"
   get "users/:id/edit"     => "users#edit"
   post "users/create"      => "users#create"
@@ -22,6 +25,9 @@ Rails.application.routes.draw do
   get "chats/:transaction_id/chat"        => "chats#chat"
   post "chats/:transaction_id/cansel_exhibit"  => "chats#cansel_exhibit"
   post "chats/:transaction_id/cansel_parchase" => "chats#cansel_parchase"
+
+  get "admin/user" => "admin#user"
+  post "admin/user/:user_id/ban" =>"admin#userBan"
 
   get "/" => 'home#top'
   get "/about" => 'home#about'
