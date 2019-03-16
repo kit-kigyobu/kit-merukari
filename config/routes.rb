@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
+
   get 'admin/user'
   get 'admin/post'
   get 'admin/transaction'
