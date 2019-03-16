@@ -10,6 +10,8 @@ class AdminController < ApplicationController
     @serch_entry_year = params[:serch_entry_year]
     @serch_ban = params[:serch_ban]
     @serch_suspend = params[:serch_suspend]
+    @serch_create_data_below = params[:serch_create_data_below]
+    @serch_create_data_upper = params[:serch_create_data_upper]
 
     if @serch_id.present? then
        @users = @users.where(id: @serch_id)
@@ -31,6 +33,12 @@ class AdminController < ApplicationController
     end
     if @serch_suspend.present? then
        @users = @users.where(is_suspend: @serch_suspend)
+    end
+    if @serch_create_data_below.present? then
+       @users = @users.where("created_at >= ?",@serch_create_data_below)
+    end
+    if @serch_create_data_upper.present? then
+       @users = @users.where("created_at <= ?",@serch_create_data_upper)
     end
 
 
