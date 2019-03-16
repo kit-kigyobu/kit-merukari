@@ -13,8 +13,8 @@
   <tr><th>club</th>       <td><%= text_field_tag( :serch_club ) %></td><tr/>
   <tr><th>entry_year</th> <td><%= number_field_tag( :serch_entry_year ) %></td><tr/>
   <tr><th>create_date</th><td><%= text_field_tag( :serch_create_data_below ) %>~<%= text_field_tag( :serch_create_data_upper ) %></td><tr/>
-  <tr><th>BAN</th>        <td><%= select_tag( :serch_ban, options_for_select([0,1])) %></td><tr/>
-  <tr><th>SUSPEND</th>    <td><%= select_tag( :serch_ban, options_for_select([0,1])) %></td><tr/>
+  <tr><th>BAN</th>        <td><%= select_tag( :serch_ban, options_for_select([false,true]),{include_blank: true}) %></td><tr/>
+  <tr><th>SUSPEND</th>    <td><%= select_tag( :serch_suspend, options_for_select([false,true]),{include_blank: true}) %></td><tr/>
   <tr><th></th>           <td><%= submit_tag("検索") %></td><tr/>
 </table>
 
