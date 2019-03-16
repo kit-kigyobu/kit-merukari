@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@charset "UTF-8";
+
 /** {
   box-sizing: border-box;
 }
@@ -25,8 +25,9 @@
     padding: 0;
 }
 body {
-    background-color: #212121;
+    /*background-color: #212121;*/
     width: auto;
+    margin: 0px;
     font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
 }
 a {
@@ -44,6 +45,9 @@ li a:hover {
 }
 a img {
     border: none;
+}
+section {
+    text-align: center;
 }
 .clearfix:after {
     display: block;
@@ -111,7 +115,8 @@ a img {
     background: #F5F5F5;
 }
 .wrapper {
-    background-color: white;
+    background-color: #212121;
+    /*background-color: white;*/
     width: 100%;
 }
 /*-----slim head----*/
@@ -215,6 +220,7 @@ a img {
 /*-----container-----*/
 
 .container {
+    background-color: white;
     min-height: 600px;
 }
 /*-----contents-----*/
@@ -224,6 +230,105 @@ a img {
     padding: 20px 0px;
     width: auto;
     text-align: center;
+}
+/*-----registerStyle-----*/
+.reghead {
+    padding: 15px 0px;
+    text-align: center;
+    background-color: #F5F5F5;
+}
+.contents>h2 {
+    margin-top: 0px;
+    padding: 20px 8px;
+    font-size: 20px;
+    color: black;
+    border-bottom: 1px solid #F5F5F5;
+    text-align: center;
+}
+/*-----mainForm-----*/
+
+.mainForm {
+    margin: 0px auto;
+    padding: 10px;
+    width: 300px;
+}
+.mainForm form {
+    text-align: left;
+    margin: auto;
+    padding-bottom: 21px;
+}
+.form-element-wrapper {
+    margin: 26px 0px;
+}
+.mainForm label {
+    color: #777;
+}
+.mainForm strong {
+    margin-left: 8px;
+    padding: 2px 4px;
+    font-size: 13px;
+    color: white;
+    background-color: red;
+    border-radius: 2px;
+}
+.form-field {
+    margin: 10px 0px;
+    height: 48px;
+    color: black;
+    border: 1px solid #B7B7B7;
+}
+.form-element {
+    width: 100%;
+    padding: 15px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-element-wrapper .button {
+    margin: 10px 0px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.form-radio-wrapper {
+    margin-top: 10px;
+    padding: 4px 0px;
+}
+.form-radio {
+    margin-left: 15px;
+    margin-right: 0px;
+    background: white;
+}
+.form-radio:hover {
+    cursor: pointer;
+}
+.caution {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.caution a {
+    color: #4DB0DC;
+}
+.caution a:hover {
+    border-bottom: 2px solid #4DB0DC;
+}
+.loginhelp {
+    text-align: left;
+    margin: auto;/*    width: 295px;
+    padding-bottom: 21px;*/
+}
+.loginhelp ul {
+    list-style: square;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+}
+.loginhelp li {
+    margin: 4px;
+    padding: 4px 8px;
+}
+.loginhelp a {
+    color: #777;
 }
 /*-----contents-itemBox-----*/
 
@@ -270,7 +375,6 @@ a img {
     padding: 2px 0px;
     height: 50px;
 }
-
 .item-price {
     padding: 2px 0px;
     height: 10px;
