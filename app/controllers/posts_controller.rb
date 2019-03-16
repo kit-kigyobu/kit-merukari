@@ -8,9 +8,8 @@ class PostsController < ApplicationController
     end
   end
 
-
-  def index
-    @posts = Post.all.order(created_at: :desc)
+  def search
+   @posts = Post.where('book_name LIKE ?', "%#{params[:search]}%")
   end
 
   def show
@@ -62,5 +61,5 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
-  
+
 end

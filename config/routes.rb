@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   post "logout"            => "users#logout"
   get "login"              => "users#login_form"
 
+  get "posts/search" => "posts#search"
+  get "posts/index" => "posts#index"
+  get "posts/new" => "posts#new"
+  get "posts/:id" => "posts#show"
+  post "posts/create" => "posts#create"
+  get "posts/:id/edit" => "posts#edit"
+  post "posts/:id/update" => "posts#update"
+  post "posts/:id/destroy" => "posts#destroy"
+
   post "chats/:book_id/start"             => "chats#start"
   post "chats/:transaction_id/send_chat"  => "chats#send_chat"
   get "chats/:transaction_id/chat"        => "chats#chat"
@@ -22,7 +31,7 @@ Rails.application.routes.draw do
   post "admin/user" => "admin#user"
   post "admin/user/:user_id/ban" =>"admin#userBan"
 
-  get "/" => 'home#top'
+  root 'home#top'
   get "/about" => 'home#about'
   get "/policy" => 'home#policy'
 
