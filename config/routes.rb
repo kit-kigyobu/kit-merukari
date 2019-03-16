@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post "chats/:transaction_id/cansel_parchase" => "chats#cansel_parchase"
 
   get "admin/user" => "admin#user"
+  post "admin/user" => "admin#user"
   post "admin/user/:user_id/ban" =>"admin#userBan"
 
   get "/" => 'home#top'

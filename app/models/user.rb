@@ -4,6 +4,6 @@ class User < ApplicationRecord
   # validates :password, {presence: true}
   # validates :name, {presence: true}
 
-  enum gender_type: { man: 0, woman: 1, other: 2}
+  enum gender: { man: 0, woman: 1, other: 2}
 
 end

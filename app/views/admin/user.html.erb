@@ -1,6 +1,27 @@
 <h3>ユーザー管理画面</h3>
 <hr>
 
+<%= form_tag(controller: "admin", action: "user") do %>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr><th>ID</th>         <td><%= text_field_tag( :serch_id ) %></td><tr/>
+  <tr><th>nickname</th>   <td><%= text_field_tag( :serch_name ) %></td><tr/>
+  <tr><th>email</th>      <td><%= text_field_tag( :serch_email ) %></td><tr/>
+  <tr><th>gender</th>     <td><%= select_tag("message_type",
+    options_for_select(User.genders.map{|k,v| [I18n.t("enums.user.gender.#{k}"),v]}),
+    {class: "select-default",include_blank: true})
+  %></td><tr/>
+  <tr><th>club</th>       <td><%= text_field_tag( :serch_club ) %></td><tr/>
+  <tr><th>entry_year</th> <td><%= number_field_tag( :serch_entry_year ) %></td><tr/>
+  <tr><th>create_date</th><td><%= text_field_tag( :serch_create_data_below ) %>~<%= text_field_tag( :serch_create_data_upper ) %></td><tr/>
+  <tr><th>BAN</th>        <td><%= select_tag( :serch_ban, options_for_select([0,1])) %></td><tr/>
+  <tr><th>SUSPEND</th>    <td><%= select_tag( :serch_ban, options_for_select([0,1])) %></td><tr/>
+  <tr><th></th>           <td><%= submit_tag("検索") %></td><tr/>
+</table>
+
+
+<% end %>
+
+
 <table border="1" cellpadding="5" cellspacing="0">
   <tr>
     <th>ID</th>
@@ -26,7 +47,7 @@
     <td><%= user.id %></td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= I18n.t("enums.user.gender_type.#{user.gender}") %></td>
+    <td><%= I18n.t("enums.user.gender.#{user.gender}") %></td>
     <td><%= user.club %></td>
     <td><%= user.entry_year %></td>
     <td><%= user.course_id %></td>

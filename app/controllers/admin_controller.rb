@@ -1,6 +1,15 @@
 class AdminController < ApplicationController
   def user
     @users = User.all.order(:id)
+
+    if params[:serch_id].present? then
+       @users = @users.where(id: params[:serch_id])
+    end
+    if params[:serch_name].present? then
+       @users = @users.where("name like ?", "%"+params[:serch_name]+"%")
+    end
+
+
   end
 
   def userBan

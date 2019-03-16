@@ -28,6 +28,7 @@
   [100012,'マンガ'],
   [200000,'公務員資格']
 ].each do |c, n |
-Category.create!(
-{ category_id: c, name: n }
-)
+  Category.create!(
+    { category_id: c, name: n }
+  )
+end

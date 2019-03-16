@@ -5,7 +5,7 @@ ja:
         parchase: 購入側
         exhibit: 出品側
     user:
-      gender_type:
+      gender:
         man: 男
         woman: 女
         other: その他
