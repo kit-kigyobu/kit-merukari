@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def search
-   @posts = Post.where(name: params[])
+   @posts = Post.where('book_name LIKE ?', "%#{params[:search]}%")
   end
 
   def show

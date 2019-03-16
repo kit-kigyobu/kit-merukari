@@ -2,7 +2,7 @@
 <html lang="ja">
 <html>
   <head>
-    <title>KIT-OFF</title>
+    <title>OSAGARI</title>
     <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,7 @@
 
   <header>
       <div class="header-logo">
-          <%= link_to("KIT-OFF", "/") %>
+          <%= link_to("OSAGARI", "/") %>
       </div>
       <ul class="header-menus">
         <% if @current_user %>
@@ -25,7 +25,7 @@
           </li>
         <% else %>
           <li>
-            <%= link_to("KIT-OFFとは", "/about") %>
+            <%= link_to("OSAGARIとは", "/about") %>
           </li>
           <li>
           <%=link_to("利用規約","/policy")%>
@@ -47,7 +47,10 @@
    <% end %>
 
   <body>
-
+    <%=form_tag("/posts/search") do%>
+      <p>検索</p>
+      <input name="search">
+    <%end%>
     <%= yield %>
   </body>
 </html>

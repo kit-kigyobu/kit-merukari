@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "logout"            => "users#logout"
   get "login"              => "users#login_form"
 
+  get "posts/search" => "posts#search"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   get "admin/user" => "admin#user"
   post "admin/user/:user_id/ban" =>"admin#userBan"
 
-  get "/" => 'home#top'
+  root 'home#top'
   get "/about" => 'home#about'
   get "/policy" => 'home#policy'
 
