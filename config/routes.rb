@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of b46e738... [develop] revert HEAD^3?
-  devise_for :users
-=======
->>>>>>> parent of 07f4158... [devise2] add devise
+
+  devise_for :accounts
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
