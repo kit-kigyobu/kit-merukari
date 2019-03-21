@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :accounts
+  devise_for :accounts, :controllers =>{:registrations => 'accounts/registrations',:confirmations => 'accounts/confirmations'}
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post "login"             => "users#login"
   post "logout"            => "users#logout"
   get "login"              => "users#login_form"
+  get "signup2"            => "users#signup2", as: 'signup2'
+  get "signup3"            => "users#signup3", as: 'signup3'
+  get "signup4"            => "users#signup4"
 
   get "posts/search" => "posts#search"
   get "posts/index" => "posts#index"

@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <main class="container">
+      <div class= "contents">
+        <h2>ログイン</h2>
+        <div class="mainForm">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <%= form_tag("/login") do %>
+            <div class="form-element-wrapper">
+              <label for="UserEmail">メールアドレス</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"form-element form-field" %>
+            </div>
+            <div class="form-element-wrapper">
+              <label for="UserPassword">パスワード</label>
+              <%= f.password_field :password, autocomplete: "current-password", :class=>"form-element form-field" %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
+        </div>
+<% end %>
+
+
+<%= render "devise/shared/links" %>
+      </div>
+
+    </main>
+    <footer class="pageFoot">
+        <div class="footer-bottom">
+            <div class="kigyologo">
+                <a href="/top"><img src="#" alt="OSAGARI"></a>
+            </div>
+            <div class="copyright">
+                <small>&copy; <span>2019</span>京都学生起業部</small>
+            </div>
+        </div>
+    </footer>
+</div>

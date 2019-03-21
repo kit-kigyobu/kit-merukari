@@ -16,20 +16,24 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def signup3
+    @user = User.new
+  end
+
   def create
-    @user = User.new(
+   @user = User.new(
+     account_id: @current_account_id,
      name: params[:name],
-     gender: params[:gender_type],
-     email: params[:email],
+     gender: params[:gender_type].to_i,
      image_name: "default_user.jpg",
-     password: params[:password]
    )
    if @user.save
      session[:user_id] = @user.id
      flash[:notice] = "ユーザー登録が完了しました"
      redirect_to("/users/#{@user.id}")
    else
-     render("users/new")
+     flash[:notice] = @user.errors.full_messages
+     render("users/signup3")
    end
   end
 

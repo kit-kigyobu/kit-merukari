@@ -1,0 +1,10 @@
+<h1>ユーザ新規登録画面</h1>
+<%= form_tag("/users/create") do %>
+         <p>ユーザー名</p>
+         <input name="name" value="<%= @user.name %>">
+         <p>性別</p>
+         <%= select_tag("gender_type",
+         options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }),
+         {class: "select-default"})%>
+         <input type="submit" value="新規登録">
+<% end %>
