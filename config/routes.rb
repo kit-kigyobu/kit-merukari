@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
+=======
+>>>>>>> parent of f327fed... [develop]add:likes_table and controller, posts views
   get 'admin/user'
   get 'admin/post'
   get 'admin/transaction'
