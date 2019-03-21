@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
   devise_for :users
+=======
+>>>>>>> parent of 07f4158... [devise2] add devise
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
