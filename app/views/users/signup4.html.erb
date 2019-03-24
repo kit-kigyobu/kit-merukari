@@ -1,0 +1,19 @@
+<h1>ユーザ新規登録確認</h1>
+<%= form_tag("/signup4") do %>
+         <p>ニックネーム</p>
+         <%= @user.name%>
+
+         <p>所属課程・専攻</p>
+         <%= @course_name %>
+
+         <p>サークル・部活動</p>
+         <%= @user.club %>
+
+         <p>入学年度</p>
+         <%= @user.entry_year %>
+
+         <p>性別</p>
+         <%= @user.gender_i18n %>
+
+         <%= submit_tag("確認画面へ") %>
+<% end %>

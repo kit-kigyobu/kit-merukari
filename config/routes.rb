@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "login"              => "users#login_form"
   get "signup2"            => "users#signup2", as: 'signup2'
   get "signup3"            => "users#signup3", as: 'signup3'
+  post "signup4"           => "users#signup4"
   get "signup4"            => "users#signup4"
 
   get "posts/search" => "posts#search"
