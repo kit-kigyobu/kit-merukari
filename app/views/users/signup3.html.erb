@@ -1,5 +1,5 @@
 <h1>ユーザ新規登録</h1>
-<%= form_tag("/signup4") do %>
+<%= form_tag("/signup4",{:multipart => true}) do %>
          <p>ニックネーム</p>
          <%= text_field_tag("name",@user.name)%>
 
@@ -20,6 +20,9 @@
          <%= select_tag("gender",
          options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }),
          {class: "select-default"})%>
+
+         <p>アイコン</p>
+         <%= file_field_tag( 'icon', :class =>'page_fine_name') %>
 
          <%= submit_tag("確認画面へ") %>
 <% end %>

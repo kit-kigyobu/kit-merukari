@@ -36,6 +36,9 @@ class UsersController < ApplicationController
     @user_great = entry_year_to_great(@user.entry_year)
     @user.club = params[:club]
     @user.gender = params[:gender].to_i
+    @user.icon = params[:icon]
+    @user.icon.cache!
+
 
     user_course = Course.find_by(course_id: @user.course_id)
     @course_name = user_course.name
@@ -46,23 +49,51 @@ class UsersController < ApplicationController
     if !@user.valid? then
       render("users/signup3")
     end
+
   end
 
   def create
-   @user = User.new(
-     account_id: @current_account_id,
-     name: params[:name],
-     gender: params[:gender_type].to_i,
-     image_name: "default_user.jpg",
-   )
-   if @user.save
-     session[:user_id] = @user.id
-     flash[:notice] = "ユーザー登録が完了しました"
-     redirect_to("/users/#{@user.id}")
-   else
-     flash[:notice] = @user.errors.full_messages
-     render("users/signup3")
-   end
+    @user = User.new
+    @user.name = params[:name]
+    @user.course_id = params[:course_id].to_i
+    @user.entry_year = params[:entry_year].to_i
+    @user.club = params[:club]
+    @user.gender = params[:gender].to_i
+    @user.icon.retrieve_from_cache! params[:cache][:icon]
+
+    if params[:back] then
+      @select_course = get_select_course()
+      @select_entry_year = get_select_entry_year()
+      render("users/signup3")
+      return
+    end
+
+    @user.account_id = @current_account_id
+
+    if !@user.save then
+      flash[:notice] = @user.errors.full_messages
+      render("users/signup3")
+      return
+    end
+
+    flash[:notice] = "ユーザー登録が完了しました"
+    redirect_to("/")
+
+
+  # @user = User.new(
+  #   account_id: @current_account_id,
+  #   name: params[:name],
+  #   gender: params[:gender_type].to_i,
+  #   image_name: "default_user.jpg",
+  # )
+  # if @user.save
+  #   session[:user_id] = @user.id
+  #   flash[:notice] = "ユーザー登録が完了しました"
+  #   redirect_to("/users/#{@user.id}")
+  # else
+  #   flash[:notice] = @user.errors.full_messages
+  #   render("users/signup3")
+  # end
   end
 
   def edit
@@ -78,6 +109,7 @@ class UsersController < ApplicationController
     @user.content = params[:content]
     @user.club = params[:club]
     @user.entry_year = params[:entry_year]
+
 
 
     if params[:image]

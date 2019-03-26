@@ -1,5 +1,5 @@
 <h1>ユーザ新規登録確認</h1>
-<%= form_tag("/create") do %>
+<%= form_tag("/users/create",{:multipart => true}) do %>
          <p>ニックネーム</p>
          <%= @user.name%>
          <%= hidden_field_tag "name", @user.name %>
@@ -18,7 +18,11 @@
 
          <p>性別</p>
          <%= @user.gender_i18n %>
-         <%= hidden_field_tag "gender", @user.gender %>
+         <%= hidden_field_tag "gender", User.genders[@user.gender] %>
+
+         <p>アイコン</p>
+         <%= image_tag @user.icon.url %>
+         <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name %>
 
          <%= submit_tag("修正する",name: 'back') %>
          <%= submit_tag("登録") %>
