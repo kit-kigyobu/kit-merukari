@@ -1,19 +1,25 @@
 <h1>ユーザ新規登録確認</h1>
-<%= form_tag("/signup4") do %>
+<%= form_tag("/create") do %>
          <p>ニックネーム</p>
          <%= @user.name%>
+         <%= hidden_field_tag "name", @user.name %>
 
          <p>所属課程・専攻</p>
          <%= @course_name %>
+         <%= hidden_field_tag "course_id", @user.course_id %>
 
          <p>サークル・部活動</p>
          <%= @user.club %>
+         <%= hidden_field_tag "club", @user.club %>
 
-         <p>入学年度</p>
-         <%= @user.entry_year %>
+         <p>学年</p>
+         <%= @user_great %>
+         <%= hidden_field_tag "entry_year", @user.entry_year %>
 
          <p>性別</p>
          <%= @user.gender_i18n %>
+         <%= hidden_field_tag "gender", @user.gender %>
 
-         <%= submit_tag("確認画面へ") %>
+         <%= submit_tag("修正する",name: 'back') %>
+         <%= submit_tag("登録") %>
 <% end %>
