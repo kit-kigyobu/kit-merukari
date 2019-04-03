@@ -9,8 +9,12 @@
          <%= hidden_field_tag "course_id", @user.course_id %>
 
          <p>サークル・部活動</p>
-         <%= @user.club %>
-         <%= hidden_field_tag "club", @user.club %>
+         <% if @user.club.present? then %>
+           <%= @user.club %>
+           <%= hidden_field_tag "club", @user.club %>
+         <% else %>
+            <p>選択されていません</p>
+         <% end %>
 
          <p>学年</p>
          <%= @user_great %>
@@ -21,8 +25,10 @@
          <%= hidden_field_tag "gender", User.genders[@user.gender] %>
 
          <p>アイコン</p>
-         <%= image_tag @user.icon.url %>
-         <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name %>
+         <% if @user.icon.url then %>
+           <%= image_tag @user.icon.url %>
+           <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name %>
+         <% end %>
 
          <%= submit_tag("修正する",name: 'back') %>
          <%= submit_tag("登録") %>

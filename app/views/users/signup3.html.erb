@@ -18,7 +18,7 @@
 
          <p>性別</p>
          <%= select_tag("gender",
-         options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }),
+         options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }, :selected => User.genders[@user.gender]),
          {class: "select-default"})%>
 
          <p>アイコン</p>

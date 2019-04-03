@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @entry_year = today.year
     @course_id = 1001
 
+
     @select_course = get_select_course()
     @select_entry_year = get_select_entry_year()
   end
@@ -36,8 +37,11 @@ class UsersController < ApplicationController
     @user_great = entry_year_to_great(@user.entry_year)
     @user.club = params[:club]
     @user.gender = params[:gender].to_i
-    @user.icon = params[:icon]
-    @user.icon.cache!
+    if params[:icon] then
+      @user.icon = params[:icon]
+      @user.icon.cache!
+    end
+
 
 
     user_course = Course.find_by(course_id: @user.course_id)
@@ -59,7 +63,9 @@ class UsersController < ApplicationController
     @user.entry_year = params[:entry_year].to_i
     @user.club = params[:club]
     @user.gender = params[:gender].to_i
-    @user.icon.retrieve_from_cache! params[:cache][:icon]
+    if params[:cache].present? && params[:cache][:icon].present? then
+      @user.icon.retrieve_from_cache! params[:cache][:icon]
+    end
 
     if params[:back] then
       @select_course = get_select_course()
