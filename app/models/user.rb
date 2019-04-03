@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :icon, PictureUploader
+  mount_uploader :image_name, PictureUploader
 
   # validates :email, {presence: true, uniqueness: true}
   # validates :password, {presence: true}
