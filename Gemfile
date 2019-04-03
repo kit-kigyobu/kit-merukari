@@ -66,9 +66,4 @@ gem 'enum_help'
 gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
-<<<<<<< HEAD
-
 gem 'coffee-script-source', '1.8.0'
-=======
-gem 'bootstrap'
->>>>>>> 26effe56c7c2cb9a329f448a5ae2b4e103e0053f
