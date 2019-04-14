@@ -31,11 +31,16 @@
           <%=link_to("利用規約","/policy")%>
           </li>
           <li>
-            <%= link_to("新規登録", "/signup") %>
+            <%= link_to("新規登録", "/accounts/sign_up") %>
           </li>
 
           <% if @current_account_id %>
-          こんにちわ<%= @current_user.name %>さん!
+            <% if @current_user %>
+              こんにちわ<%= @current_user.name %>さん!
+            <% else %>
+              まだユーザ登録が完了していません！<br/>
+              <%= link_to("ユーザ登録", "/signup3") %>
+            <% end %>
             <li>
               <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
             </li>
