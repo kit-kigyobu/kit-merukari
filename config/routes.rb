@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get "signup"             => "users#new"
   get "users/index"        => "users#index"
   get "users/:id"          => "users#show"
-  post "login"             => "users#login"
-  post "logout"            => "users#logout"
+  post "login"             => "home#login"
+  post "logout"            => "home#logout"
   get "login"              => "users#login_form"
   get "signup2"            => "users#signup2", as: 'signup2'
   get "signup3"            => "users#signup3", as: 'signup3'

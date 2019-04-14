@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  before_action :authenticate_account!
+  before_action :authenticate_account!, only:[:login]
 
   def top
     @posts = Post.all.order(created_at: :desc)
@@ -10,6 +10,10 @@ class HomeController < ApplicationController
   end
 
   def policy
+  end
+
+  def login
+    redirect_to("/home/top")
   end
 
 end
