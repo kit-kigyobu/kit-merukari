@@ -67,6 +67,3 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'coffee-script-source', '1.8.0'
-
-gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
