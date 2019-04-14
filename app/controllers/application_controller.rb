@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
       redirect_to("/signup3")
     end
   end
+
   #
   # def authenticate_user
   #   if @current_user == nil
