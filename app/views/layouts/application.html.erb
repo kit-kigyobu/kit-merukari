@@ -33,12 +33,17 @@
           <li>
             <%= link_to("新規登録", "/signup") %>
           </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
-          </li>
+
+          <% if @current_account_id %>
+          こんにちわ<%= @current_user.name %>さん!
+            <li>
+              <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to("ログイン", "/login") %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </header>

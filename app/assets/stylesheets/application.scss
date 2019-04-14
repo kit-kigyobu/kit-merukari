@@ -86,7 +86,7 @@ section {
 }
 .button-smallPrimary {
     display: block;
-    background: #033794;
+    background: #45c8ff;
     color: #fff;
     height: 32px;
     padding: 5px 8px;
@@ -99,14 +99,14 @@ section {
 }
 .button-borderAlert {
     display: block;
-    color: darkorange;
+    color: #ffb259;
     height: 50px;
     padding: 15px 12px;
-    border: 1px solid darkorange;
+    border: 1px solid #ffb259;
 }
 .button-Primary {
     display: block;
-    background: #033794;
+    background: #45c8ff;
     color: #fff;
     height: 50px;
     padding: 15px 12px;
@@ -115,7 +115,7 @@ section {
 }
 .button-Alert {
     display: block;
-    background: darkorange;
+    background: #ffb259;
     color: #fff;
     height: 50px;
     padding: 15px 12px;
@@ -492,7 +492,7 @@ section {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background: darkorange;
+    background: #45c8ff;
     color: #fff;
     box-shadow: 0px 0px 24px -6px rgba(0,0,0,0.6);
     text-align: center;
@@ -529,7 +529,7 @@ section {
 .search-button {
     width: 80px;
     left: 550px;
-    background: #033794;
+    background: #45c8ff;
 }
 .search-button .fa-search {
     left: 40%;
