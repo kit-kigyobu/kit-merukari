@@ -1,28 +1,63 @@
-<h1>ユーザ新規登録</h1>
-<%= form_tag("/signup4",{:multipart => true}) do %>
-         <p>ニックネーム</p>
-         <%= text_field_tag("name",@user.name)%>
+<div class="wrapper">
+	<header class="slimHead"><!-- ボタン無しヘッダー -->
+        <div class="logo">
+			<a href="#"><img src="#" alt="OSAGARY"></a>
+			<!-- <%= link_to("OSAGARI", "/") %> -->
+        </div>
+    </header>
+    <main class="container">
+  		<div class="contents"><!-- ここまで定型 -->
+            <div class="cttHead"><!-- コンテンツの見出し -->
+				<h2>ユーザー情報登録</h2>		  				
+		  	</div>
+            <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+                <%= form_tag("/signup4",{:multipart => true}) do %>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>ニックネーム</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%# <input class="form-element form-field" name="username" type="email" id="#" required="required"><!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける --> %>
+                        <%= text_field_tag("name",@user.name, :class =>'form-element form-field')%>
+                    </div>
 
-         <p>所属課程・専攻</p>
-         <%= select_tag("course_id",
-         options_for_select(@select_course,:selected => @user.course_id),
-         {class: "select-default"})%>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>所属課程・専攻</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%# <input class="form-element form-field" name="username" type="email" id="#" required="required"><!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける --> %>
+                        <%= select_tag("course_id",
+                        options_for_select(@select_course,:selected => @user.course_id),
+                        {class: "form-element"})%>
+                    </div>
 
-         <p>サークル・部活動</p>
-         <%= text_field_tag("club",@user.club)%>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>サークル・部活動</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= text_field_tag("club",@user.club, :class =>'form-element form-field')%>
+                    </div>
 
-         <p>学年</p>
-         <%= select_tag("entry_year",
-         options_for_select(@select_entry_year,:selected => @user.entry_year),
-         {class: "select-default"})%>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>学年</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= select_tag("entry_year",
+                        options_for_select(@select_entry_year,:selected => @user.entry_year),
+                        {class: "form-element"})%>
+                    </div>
 
-         <p>性別</p>
-         <%= select_tag("gender",
-         options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }, :selected => User.genders[@user.gender]),
-         {class: "select-default"})%>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>性別</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= select_tag("gender",
+                        options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }, :selected => User.genders[@user.gender]),
+                        {class: "form-element"})%>
+                    </div>
 
-         <p>アイコン</p>
-         <%= file_field_tag( 'icon', :class =>'page_fine_name') %>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>アイコン</label>
+                        <%= file_field_tag( 'icon', :class =>'form-element') %>
 
-         <%= submit_tag("確認画面へ") %>
-<% end %>
+                        <%= submit_tag("確認画面へ", :class =>'form-element button button-Primary') %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </main>
+</div>
