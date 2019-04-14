@@ -1,35 +1,5 @@
 class ApplicationController < ActionController::Base
-<<<<<<< HEAD
-  # before_action :set_current_user
-
-  # def set_current_user
-  #   @current_account_id = current_account.id
-  #   @current_user = User.find_by(account_id: @current_account_id)
-  # end
-=======
-  before_action :set_current_user
-  #
-  def set_current_user
-    if current_account then
-      @current_account_id = current_account.id
-      @current_user = User.find_by(account_id: @current_account_id)
-    end
-  end
->>>>>>> 726b13e15af85050251246e5335905f0bdfe77af
-  #
-  # def authenticate_user
-  #   if @current_user == nil
-  #     flash[:notice] = "ログインが必要です"
-  #     redirect_to("/login")
-  #   end
-  # end
-  #
-  # def forbid_login_user
-  #   if @current_user
-  #     flash[:notice] = "すでにログインしています"
-  #     redirect_to("/")
-  #   end
-  # end
+  before_action :authenticate_user!
 
 #deviseのリダイレクト設定
   def after_sign_in_path_for(resource)
