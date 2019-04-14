@@ -1,12 +1,28 @@
 class ApplicationController < ActionController::Base
+
+  before_action :set_current_account_id
   before_action :set_current_user
-  #
-  def set_current_user
+
+  def set_current_account_id
     if current_account then
       @current_account_id = current_account.id
+    end
+  end
+
+  #
+  def set_current_user
+    if @current_account_id then
       @current_user = User.find_by(account_id: @current_account_id)
     end
   end
+
+  #ユーザ情報が登録されていないなら、登録画面に飛ばす。
+  def check_current_user
+    if !@current_user then
+      redirect_to("/signup3")
+    end
+  end
+
   #
   # def authenticate_user
   #   if @current_user == nil

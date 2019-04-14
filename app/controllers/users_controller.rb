@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   include Common
 
+  before_action :authenticate_account!
+  before_action :check_current_user, except: [:signup3, :signup4, :create]
+
 
   def show
     @user = User.find_by(id: params[:id])
@@ -41,8 +44,6 @@ class UsersController < ApplicationController
       @user.icon = params[:icon]
       @user.icon.cache!
     end
-
-
 
     user_course = Course.find_by(course_id: @user.course_id)
     @course_name = user_course.name
@@ -134,28 +135,5 @@ class UsersController < ApplicationController
 
   end
 
-
-  def login_form
-  end
-
-  def login
-    @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      flash[:notice] = "ログインしました"
-      redirect_to("/")
-    else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
-      @email = params[:email]
-      @password = params[:password]
-      render("users/login_form")
-    end
-  end
-
-  def logout
-    session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
-    redirect_to("/login")
-  end
 
 end

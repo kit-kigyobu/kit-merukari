@@ -1,7 +1,9 @@
 <div class="wrapper">
     <main class="container">
     <div class= "contents">
-            <h2>新規登録</h2>
+      <div class="cttHead">
+            <h2>新規会員登録</h2>
+      </div>
       <div class="mainForm">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -15,7 +17,7 @@
     <label for="UserPassword">パスワード</label>
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(最小<%= @minimum_password_length %>文字)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", :class=>"form-element form-field" %>
   </div>
@@ -27,8 +29,23 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "登録する" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+
+</main>
+<footer class="pageFoot">
+<div class="footer-bottom">
+    <div class="kigyologo">
+        <a href="/top"><img src="#" alt="OSAGARI"></a>
+    </div>
+    <div class="copyright">
+        <small>&copy; <span>2019</span>京都学生起業部</small>
+    </div>
+</div>
+</footer>
+</div>
