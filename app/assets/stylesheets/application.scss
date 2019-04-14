@@ -33,6 +33,9 @@ body {
 a {
     text-decoration: none;
 }
+.header-menus{
+  float: left;
+}
 ul {
     margin: 5px 0px;
     list-style: none;
@@ -179,7 +182,7 @@ section {
     padding: 10px;
     height: 50px;
     text-align: left;
-    
+
 }
 .serch-form {
     margin: auto;

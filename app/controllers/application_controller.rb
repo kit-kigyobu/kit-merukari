@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
-  #
-  def set_current_user
-    @current_account_id = current_account.id
-    @current_user = User.find_by(account_id: @current_account_id)
-  end
+  # before_action :set_current_user
+
+  # def set_current_user
+  #   @current_account_id = current_account.id
+  #   @current_user = User.find_by(account_id: @current_account_id)
+  # end
   #
   # def authenticate_user
   #   if @current_user == nil
