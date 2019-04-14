@@ -36,7 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Reduces boot times through caching; required in config/boot.rb
+# Reduces boot times through caching; required in config/boot.
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -60,7 +61,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'activesupport'
+
 gem 'bcrypt'
 gem 'enum_help'
 gem 'devise'
