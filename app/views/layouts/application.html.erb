@@ -52,10 +52,12 @@
    <% end %>
 
   <body>
+    <div class="search-form">
     <%=form_tag("/posts/search") do%>
       <p>検索</p>
       <input name="search">
     <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>

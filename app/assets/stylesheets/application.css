@@ -1,0 +1,587 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/** {
+  box-sizing: border-box;
+}
+*/
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+* {
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+body {
+    /*background-color: #212121;*/
+    width: auto;
+    margin: 0px;
+    font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
+}
+a {
+    text-decoration: none;
+}
+ul {
+    margin: 5px 0px;
+    list-style: none;
+}
+li {
+    padding: 4px 8px;
+}
+li a:hover {
+    opacity: 0.8;
+}
+a img {
+    border: none;
+}
+section {
+    text-align: center;
+}
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.logo {
+    margin: 0px;
+    padding: 3px;
+}
+.logo a:hover {
+}
+.button {
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.button:hover {
+    opacity: 0.8;
+}
+.button-NoBorderSmall {
+    display: block;
+    color: black;
+    height: 32px;
+    padding: 5px 8px;
+}
+.button-smallPrimary {
+    display: block;
+    background: #45c8ff;
+    color: #fff;
+    height: 32px;
+    padding: 5px 8px;
+}
+.button-NoBorder {
+    display: block;
+    color: black;
+    height: 50px;
+    padding: 15px 12px;
+}
+.button-borderAlert {
+    display: block;
+    color: #ffb259;
+    height: 50px;
+    padding: 15px 12px;
+    border: 1px solid #ffb259;
+}
+.button-Primary {
+    display: block;
+    background: #45c8ff;
+    color: #fff;
+    height: 50px;
+    padding: 15px 12px;
+    border: 1px solid transparent;
+}
+.button-Alert {
+    display: block;
+    background: #ffb259;
+    color: #fff;
+    height: 50px;
+    padding: 15px 12px;
+    border: 1px solid transparent;
+}
+.bg-sub {
+    background: #F5F5F5;
+}
+.wrapper {
+    background-color: #212121;
+    /*background-color: white;*/
+    width: 100%;
+}
+/*-----slim head----*/
+
+.slimHead {
+    margin: 0px;
+    padding-top: 10px;
+    width: auto;
+    background-color: #F5F5F5;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+}
+.slimHead .logo {
+    text-align: center;
+}
+/*-----nom head----*/
+
+.nomHead {
+    margin: 0px;
+    padding-top: 10px;
+    width: auto;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background-color: #fff;
+    z-index: 10;
+}
+.nomHead a {
+    font-size: 12px;
+}
+.header-wrapper {
+    margin: 0px;
+    padding: 8px 0 0;
+}
+.header-wrapper .logo {
+    padding: 0px 16px;
+    text-align: left;
+}
+.header-loginButton {
+    position: absolute;
+    font-weight: bold;
+    right: 16px;
+    top: 4px;
+    font-size: 0;
+}
+.header-loginButton .button {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.7;
+}
+/*-----serch-----*/
+
+.search {
+    padding: 10px;
+    height: 50px;
+    text-align: left;
+    
+}
+.serch-form {
+    margin: auto;
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.search-field {
+    position: absolute;
+    left: 0;
+    top: 0;
+    outline: 0;
+    background: #eee;
+    border: 1px solid transparent;
+    border-radius: 4px 0px 0px 4px;
+    height: 40px;
+    width: 250px;
+    padding: 0px 10px;
+}
+.search-button {
+    height: 40px;
+    line-height: 38px;
+    position: absolute;
+    left: 250px;
+    top: 0px;
+    width: 40px;
+    z-index: 1;
+    border: none;
+    border-radius: 0px 4px 4px 0px;
+    background: #eee;
+}
+.search-button .fa-search {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    color: #323232;
+}
+/*-----breadCrumbs-----*/
+
+/*.breadCrumbs {
+    margin: auto;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background: #fff;
+    text-align: center;
+    z-index: 1;
+}*/
+/*-----container-----*/
+
+.container {
+    background-color: white;
+    min-height: 600px;
+}
+/*-----banner-----*/
+
+.banner-wrapper{
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid #F5F5F5;
+    text-align: center;
+    background-position: center;
+}
+.banner{
+    width: 100%;
+}
+.banner-wrapper .button {
+    margin: 0 auto;
+    width: 300px;
+    border-radius: 25px;
+}
+/*-----contents-----*/
+
+.contents {
+    margin: auto;
+    padding: 20px 0px;
+    width: auto;
+    text-align: center;
+}
+/*-----registerStyle-----*/
+.reghead {
+    padding: 15px 0px;
+    text-align: center;
+    background-position: center;
+    background-color: #F5F5F5;
+}
+.cttHead {
+    margin-top: 0px;
+    padding: 20px 8px;
+    font-size: 20px;
+    color: black;
+    border-bottom: 1px solid #F5F5F5;
+    text-align: center;
+}
+/*-----mainForm-----*/
+
+.mainForm {
+    margin: 0px auto;
+    padding: 10px;
+    width: 300px;
+}
+.mainForm form {
+    text-align: left;
+    margin: auto;
+    padding-bottom: 21px;
+}
+.form-element-wrapper {
+    margin: 26px 0px;
+}
+.mainForm label {
+    font-size: 16px;
+    color: #777;
+}
+.mainForm strong {
+    margin-left: 8px;
+    padding: 2px 4px;
+    font-size: 13px;
+    color: white;
+    background-color: red;
+    border-radius: 2px;
+}
+.form-field {
+    height: 48px;
+    color: black;
+    border: 1px solid #B7B7B7;
+}
+.form-element {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 15px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-element-wrapper .button {
+    margin: 10px 0px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.form-radio-wrapper {
+    margin-top: 10px;
+    padding: 4px 0px;
+}
+.form-radio {
+    margin-left: 15px;
+    margin-right: 0px;
+    background: white;
+}
+.form-radio:hover {
+    cursor: pointer;
+}
+.caution {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.caution a {
+    color: #4DB0DC;
+}
+.caution a:hover {
+    border-bottom: 2px solid #4DB0DC;
+}
+.loginhelp {
+    text-align: left;
+    margin: auto;/*    width: 295px;
+    padding-bottom: 21px;*/
+}
+.loginhelp ul {
+    list-style: square;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+}
+.loginhelp li {
+    margin: 4px;
+    padding: 4px 8px;
+}
+.loginhelp a {
+    color: #777;
+}
+/*-----contents-itemBox-----*/
+
+.contents-itemCard {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.itemCard {
+    width: 33.3%;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    font-size: 13px;
+    float: left;
+}
+.itemCard-wrapper {
+    margin: 2px;
+    background: #fff;
+    text-align: left;
+    box-sizing: content-box;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+}
+.item-img {
+    position: relative;
+    padding: 0 0 100%;
+    filter: saturate(120%);
+    overflow: hidden;
+}
+.item-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+.item-body {
+    padding: 8px;
+    height: 80px;
+    color: black;
+}
+.item-name {
+    padding: 2px 0px;
+    height: 50px;
+}
+.item-price {
+    padding: 2px 0px;
+    height: 10px;
+    font-weight: bold;
+}
+/*-----listCard-----*/
+
+.listCard {
+    width: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.listCard-list {
+    display: block;
+    width: auto;
+    height: 50px;
+    margin: 2px;
+    padding: 0;
+    background: #fff;
+    color: black;
+    font-size: 20px;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+}
+.listCard-list a {
+    display: block;
+    padding: 15px 15px;
+    text-align: left;
+    color: black;
+}
+.listCard-list i {
+    position: absolute;
+    bottom: 30%;
+    right: 24px;
+}
+/*-----footer css-----*/
+
+.pageFoot {
+    padding: 40px 10px;
+    text-align: center;
+    width: auto;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #212121;
+}
+.pageFoot h2 {
+    font-size: 14px;
+}
+.pageFoot a {
+    color: white;
+}
+.pageFoot a:hover {
+    color: orange;
+}
+.pageFoot .footer-upper {
+    display: list-item;
+    text-align: left;
+}
+.pageFoot .footer-upper ul {
+    padding-left: 10px;
+    text-align: left;
+}
+.pageFoot .footer-bottom {
+    padding-top: 10px;
+    margin: 0px 20px;
+    text-align: center;
+}
+.pageFoot .logo_mono {
+    margin: auto;
+}
+.pageFoot .copyright {
+    margin: auto;
+    font-size: 10px;
+}
+/*-----floatSallButton*/
+
+.floatSallButton {
+    display: block;
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+    z-index: 99;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #45c8ff;
+    color: #fff;
+    box-shadow: 0px 0px 24px -6px rgba(0,0,0,0.6);
+    text-align: center;
+}
+.floatSallButton:hover {
+}
+.floatSallButton span {
+    display: block;
+    margin: 16px 0 0;
+}
+.floatSallButton .fa-camera {
+    display: block;
+    margin: 4px 0 0;
+    font-size: 32px;
+}
+
+@media screen and (min-width:960px) {
+.visible-sp {
+    display: none;
+}
+.visible-pc {
+    display: block;
+}
+.header-wrapper .logo {
+    text-align: center;
+}
+/*-----serch-----*/
+.serch-form {
+    width: 600px;
+}
+.search-field {
+    width: 550px;
+}
+.search-button {
+    width: 80px;
+    left: 550px;
+    background: #45c8ff;
+}
+.search-button .fa-search {
+    left: 40%;
+    color: white;
+}
+/*-----contents-----*/
+.contents {
+    width: 960px;
+}
+.itemCard {
+    width: 20%;
+    font-size: 16px;
+}
+.item-body {
+    padding: 16px;
+    height: 100px;
+}
+.item-text {
+    padding: 4px 0px;
+    height: 60px;
+}
+.item-price {
+    padding: 4px 0px;
+    height: 20px;
+    font-weight: bold;
+}
+/*-----footer-----*/
+
+.pageFoot .footer-upper nav {
+    text-align: center;
+}
+.pageFoot .footer-upper nav > ul {
+    display: inline-flex;
+}
+.pageFoot .footer-upper .footer-cell {
+    margin: 0px 50px;
+}
+/*-----floatSallButton*/
+
+.floatSallButton {
+    bottom: 10%;
+    right: 32px;
+    width: 150px;
+    height: 150px;
+    font-size: 26px;
+}
+.floatSallButton span {
+    margin: 24px 0 0;
+}
+.floatSallButton .fa-camera {
+    margin: 8px 0 0;
+    font-size: 54px;
+}
+}

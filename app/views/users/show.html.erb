@@ -25,4 +25,4 @@
 <%= form_tag("/chats/1001/start") do %>
   取引相手：<%= select_tag("exhibit_user_id",options_for_select(User.all.map {|item| [item.name, item.id]})) %>
   <%= submit_tag("新規チャット開始!") %>
-<% end %>
+<% end %> --> %>
