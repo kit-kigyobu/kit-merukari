@@ -57,6 +57,7 @@ class UsersController < ApplicationController
 
   end
 
+  #新規登録実行
   def create
     @user = User.new
     @user.name = params[:name]
@@ -119,11 +120,11 @@ class UsersController < ApplicationController
 
 
 
-    if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}", image.read)
-    end
+    #if params[:image]
+    #  @user.image_name = "#{@user.id}.jpg"
+    #  image = params[:image]
+    #  File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    #end
 
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
