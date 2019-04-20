@@ -54,7 +54,7 @@ module Common
     select_category = Hash.new
     categorys = Category.all
     categorys.each do |category|
-      select_category.store(category.name, category.course_id)
+      select_category.store(category.name, category.category_id)
     end
 
     return select_category

@@ -28,6 +28,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(
+      price:,
+      image_name1:,
+      image_name2:,
+      image_name3:,
       book_name: params[:book_name],
       content: params[:content],
       user_id: @current_user.id,

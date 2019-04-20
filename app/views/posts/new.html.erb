@@ -9,9 +9,24 @@
               <%= message %>
             </div>
           <% end %>
-          <% select_tag("category",select_option(@select_category))%>
-          <input name="book_name">
-          <textarea name="content"><%= @post.content %></textarea>
+          <div class="book-images">
+
+          </div>
+          <div class="book-name">
+          本の名前
+            <input name="book_name">
+          </div>
+          <div class="book-price">
+            <%= number_field_tag%>
+          </div>
+          <div class = "book-category">
+            カテゴリー
+            <%= select_tag("category",options_for_select(@select_category))%>
+          </div>
+          <div class="book-content">
+          本の内容など
+            <textarea name="content"><%= @post.content %></textarea>
+          </div>
           <input type="submit" value="登録">
         </div>
       </div>
