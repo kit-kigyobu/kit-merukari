@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include Common
   # before_action :ensure_correct_user
   #
   # def ensure_correct_user
