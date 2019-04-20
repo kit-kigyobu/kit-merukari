@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+  # before_action :ensure_correct_user
+  #
   # def ensure_correct_user
   #   @post = Post.find_by(id: params[:id])
   #   if @post.user_id != @current_user.id
@@ -8,18 +9,20 @@ class PostsController < ApplicationController
   #   end
   # end
 
-  def search
-   @posts = Post.where('book_name LIKE ?', "%#{params[:search]}%")
-  end
+  # def search
+  #  @posts = Post.where('book_name LIKE ?', "%#{params[:search]}%")
+  # end
 
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
+    category = Category.find_by(name: @post.category.name)
   end
 
   def new
     @post = Post.new
+    @select_category = get_select_category()
   end
 
   def create
@@ -27,7 +30,7 @@ class PostsController < ApplicationController
       book_name: params[:book_name],
       content: params[:content],
       user_id: @current_user.id,
-      subject: params[:subject]
+      category:params[:category]
     )
     if @post.save
       flash[:notice] = "投稿を作成しました"
