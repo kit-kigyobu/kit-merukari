@@ -27,16 +27,26 @@
         </li>
 
         <% if @current_account_id %>
+
           <% if @current_user %>
-            こんにちわ<%= @current_user.name %>さん!
-            <%=link_to("マイページ","/users/#{@current_user.id}")%>
+
+            <li>
+              <%=link_to("#{@current_user.name}","/users/#{@current_user.id}")%>
+            </li>
+            <li>
+              <%=link_to("出品","/posts/new")%>
+            </li>
           <% else %>
-            まだユーザ登録が完了していません！<br/>
+            <li>
+              まだユーザ登録が完了していません！<br/>
+            </li>
             <%= link_to("ユーザ登録", "/signup3") %>
           <% end %>
+
           <li>
             <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
           </li>
+
         <% else %>
           <li>
             <%= link_to("ログイン", "/login") %>

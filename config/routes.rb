@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "signup4"            => "users#signup4"
 
   get "posts/search" => "posts#search"
+  post "posts/search" => "posts#search"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
