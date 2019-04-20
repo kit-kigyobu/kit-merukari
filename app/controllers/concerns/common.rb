@@ -38,6 +38,7 @@ module Common
     return select_entry_year
   end
 
+  #select_tagのオプション用
   def get_select_course()
     select_course = Hash.new
     courses = Course.all
@@ -46,6 +47,17 @@ module Common
     end
 
     return select_course
+  end
+
+  #select_tagのオプション用
+  def get_select_category()
+    select_category = Hash.new
+    categorys = Category.all
+    categorys.each do |category|
+      select_category.store(category.name, category.course_id)
+    end
+
+    return select_category
   end
 
   private

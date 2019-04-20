@@ -35,12 +35,14 @@ Rails.application.routes.draw do
   get "chats/:transaction_id/chat"        => "chats#chat"
   post "chats/:transaction_id/cansel_exhibit"  => "chats#cansel_exhibit"
   post "chats/:transaction_id/cansel_parchase" => "chats#cansel_parchase"
+  get "chats/:transaction_id/buy_complete_comfirm" => "chats#buy_complete_comfirm"
 
   get "admin/user" => "admin#user"
   post "admin/user" => "admin#user"
   post "admin/user/:user_id/ban" =>"admin#userBan"
 
   root 'home#top'
+  get 'home/top' => 'home#top'
   get "/about" => 'home#about'
   get "/policy" => 'home#policy'
 
