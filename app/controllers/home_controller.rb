@@ -16,4 +16,7 @@ class HomeController < ApplicationController
     redirect_to("/home/top")
   end
 
+  def logout
+    redirect_to("/home/top")
+  end
 end

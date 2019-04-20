@@ -16,39 +16,31 @@
           <%= link_to("OSAGARY", "/") %>
       </div>
       <ul class="header-menus">
-        <% if @current_user %>
+        <li>
+          <%= link_to("OSAGARYとは", "/about") %>
+        </li>
+        <li>
+        <%=link_to("利用規約","/policy")%>
+        </li>
+        <li>
+          <%= link_to("新規登録", "/accounts/sign_up") %>
+        </li>
+
+        <% if @current_account_id %>
+          <% if @current_user %>
+            こんにちわ<%= @current_user.name %>さん!
+            <%=link_to("マイページ","/users/#{@current_user.id}")%>
+          <% else %>
+            まだユーザ登録が完了していません！<br/>
+            <%= link_to("ユーザ登録", "/signup3") %>
+          <% end %>
           <li>
-            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+            <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
           </li>
         <% else %>
           <li>
-            <%= link_to("OSAGARYとは", "/about") %>
+            <%= link_to("ログイン", "/login") %>
           </li>
-          <li>
-          <%=link_to("利用規約","/policy")%>
-          </li>
-          <li>
-            <%= link_to("新規登録", "/accounts/sign_up") %>
-          </li>
-
-          <% if @current_account_id %>
-            <% if @current_user %>
-              こんにちわ<%= @current_user.name %>さん!
-            <% else %>
-              まだユーザ登録が完了していません！<br/>
-              <%= link_to("ユーザ登録", "/signup3") %>
-            <% end %>
-            <li>
-              <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to("ログイン", "/login") %>
-            </li>
-          <% end %>
         <% end %>
       </ul>
     </header>
