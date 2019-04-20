@@ -19,3 +19,5 @@
   %>
   <%= submit_tag("send") %>
 <% end %>
+
+<%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm") %>
