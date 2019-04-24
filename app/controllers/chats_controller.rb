@@ -69,6 +69,6 @@ class ChatsController < ApplicationController
   end
 
   def buy_complete_comfirm_done
-
+    @love = param['love']
   end
 end
