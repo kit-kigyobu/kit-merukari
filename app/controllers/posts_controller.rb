@@ -17,8 +17,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
-    @likes_count = Like.where(post_id: @post.id).count
-    category = Category.find_by(name: @post.category.name)
+    # @likes_count = Like.where(post_id: @post.id).count
+    @category = Category.find_by(name: @post.category.name)
   end
 
   def new
@@ -28,10 +28,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(
-      price:,
-      image_name1:,
-      image_name2:,
-      image_name3:,
+      price:params[:book_price],
+      image_name1: params[:book_image1],
+      image_name2: params[:book_image2],
+      image_name3: params[:book_image3],
       book_name: params[:book_name],
       content: params[:content],
       user_id: @current_user.id,
@@ -53,7 +53,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.book_name = params[:book_name]
     @post.content = params[:content]
-    @post.subject = params[:subject]
+    @post.price = params[:book_price]
+    @post.category = params[:category]
 
     if @post.save
       flash[:notice] = "投稿を編集しました"

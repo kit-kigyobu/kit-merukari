@@ -10,14 +10,17 @@
             </div>
           <% end %>
           <div class="book-images">
-
+            本の画像
+            <input name="book_image1" type="file">
+            <input name="book_image2" type="file">
+            <input name="book_image3" type="file">
           </div>
           <div class="book-name">
           本の名前
             <input name="book_name">
           </div>
           <div class="book-price">
-            <%= number_field_tag%>
+            <input type="tel" name="book_price"/>
           </div>
           <div class = "book-category">
             カテゴリー
