@@ -1,5 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :user
+
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :book_image1, presence: true
+  validates :category, presence: true
+  validates :content, length: {minimum: 10}
+
   mount_uploader :image_name1, PictureUploader
   mount_uploader :image_name2, PictureUploader
   mount_uploader :image_name3, PictureUploader
