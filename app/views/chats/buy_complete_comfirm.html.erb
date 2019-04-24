@@ -3,9 +3,9 @@
 出品者の評価をしましょう！<br>
 ※取引終了後に評価してください。
 
-<%= form_tag("/chat/#{@transaction}/buy_complete_comfirm_done") %>
+<%= form_tag("/chat/#{@transaction}/buy_complete_comfirm_done") do %>
   <%= select_tag("love",
-  options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]], :selected => @user.course_id),
+  options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]], :selected => 3),
   {class: "form-element"})%>
   <%= submit_tag("取引完了") %>
 <% end %>

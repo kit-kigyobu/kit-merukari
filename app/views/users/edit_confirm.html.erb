@@ -1,0 +1,57 @@
+<h1>ユーザ編集確認画面</h1>
+<div class="wrapper">
+	<header class="slimHead"><!-- ボタン無しヘッダー -->
+        <div class="logo">
+			<a href="#"><img src="#" alt="OSAGARY"></a>
+			<!-- <%= link_to("OSAGARI", "/") %> -->
+        </div>
+  </header>
+  <main class="container">
+  	<div class="contents"><!-- ここまで定型 -->
+      <div class="cttHead"><!-- コンテンツの見出し -->
+			  <h2>登録情報確認</h2>
+	    </div>
+      <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+        <%= form_tag("/users/update",{:multipart => true}) do %>
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>ニックネーム</label>
+            <%= @user.name%>
+            <%= hidden_field_tag "name", @user.name, :class =>'form-element form-field' %>
+          </div>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>所属課程・専攻</label>
+            <%= @course_name %>
+            <%= hidden_field_tag "course_id", @user.course_id, :class =>'form-element form-field' %>
+          </div>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>サークル・部活動</label>
+              <% if @user.club.present? then %>
+                <%= @user.club %>
+                <%= hidden_field_tag "club", @user.club, :class =>'form-element form-field' %>
+              <% else %>
+                <p>選択されていません</p>
+              <% end %>
+
+                    <p>学年</p>
+                    <%= @user_great %>
+                    <%= hidden_field_tag "entry_year", @user.entry_year %>
+
+                    <p>性別</p>
+                    <%= @user.gender_i18n %>
+                    <%= hidden_field_tag "gender", User.genders[@user.gender] %>
+
+                    <p>アイコン</p>
+                    <% if @user.icon.url then %>
+                      <%= image_tag @user.icon.url %>
+                      <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name %>
+                    <% end %>
+
+                    <%= submit_tag("修正する",name: 'back') %>
+                    <%= submit_tag("登録") %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

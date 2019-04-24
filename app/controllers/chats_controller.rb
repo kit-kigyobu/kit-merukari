@@ -63,4 +63,12 @@ class ChatsController < ApplicationController
     chat.save
     redirect_to("/users/#{@current_user.id}")
   end
+
+  def buy_complete_comfirm
+
+  end
+
+  def buy_complete_comfirm_done
+
+  end
 end
