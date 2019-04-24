@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     @entry_year = today.year
     @course_id = 1001
 
-
     @select_course = get_select_course()
     @select_entry_year = get_select_entry_year()
   end
@@ -104,37 +103,68 @@ class UsersController < ApplicationController
   # end
   end
 
+  #[1]編集画面
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: @current_user.id)
+    @select_course = get_select_course()
+    @select_entry_year = get_select_entry_year()
   end
 
-  def update
-    @user = User.find_by(id: params[:id])
-
+  #[2]更新確認
+  def edit_confirm
+    @user = User.new
     @user.name = params[:name]
-    @user.email = params[:email]
-    @user.password = params[:password]
-    @user.content = params[:content]
+    @user.course_id = params[:course_id].to_i
+    @user.entry_year = params[:entry_year].to_i
+    @user_great = entry_year_to_great(@user.entry_year)
     @user.club = params[:club]
-    @user.entry_year = params[:entry_year]
+    @user.gender = params[:gender].to_i
+    if params[:icon] then
+      @user.icon = params[:icon]
+      @user.icon.cache!
+    end
 
+    user_course = Course.find_by(course_id: @user.course_id)
+    @course_name = user_course.name
 
+    @select_course = get_select_course()
+    @select_entry_year = get_select_entry_year()
 
-    #if params[:image]
-    #  @user.image_name = "#{@user.id}.jpg"
-    #  image = params[:image]
-    #  File.binwrite("public/user_images/#{@user.image_name}", image.read)
-    #end
-
-    if @user.save
-      flash[:notice] = "ユーザー情報を編集しました"
-      redirect_to("/users/#{@user.id}")
-    else
+    if !@user.valid? then
       render("users/edit")
-      flash[:notice] = "編集できていません"
     end
 
   end
 
+  #[3]更新登録実行
+  def update
+    @user = User.find_by(id: @current_user.id)
+    @user.name = params[:name]
+    @user.course_id = params[:course_id].to_i
+    @user.entry_year = params[:entry_year].to_i
+    @user.club = params[:club]
+    @user.gender = params[:gender].to_i
+    if params[:cache].present? && params[:cache][:icon].present? then
+      @user.icon.retrieve_from_cache! params[:cache][:icon]
+    end
 
+    #戻るボタン
+    if params[:back] then #[1]へ
+      @select_course = get_select_course()
+      @select_entry_year = get_select_entry_year()
+      render("users/edit")
+      return
+    end
+
+    @user.account_id = @current_account_id
+
+    if !@user.save then
+      flash[:notice] = @user.errors.full_messages
+      render("users/edit")
+      return
+    end
+
+    flash[:notice] = "ユーザー登録が完了しました"
+    redirect_to("/users/#{@current_user.id}")
+  end
 end

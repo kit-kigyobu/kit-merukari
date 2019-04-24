@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'admin/post'
   get 'admin/transaction'
   post "users/:id/update"  => "users#update"
-  get "users/:id/edit"     => "users#edit"
+  get "users/edit"     => "users#edit"
+  post "users/edit_confirm" => "users#edit_confirm"
+  post "users/update"      => "users#update"
   post "users/create"      => "users#create"
   get "users/index"        => "users#index"
   get "users/:id"          => "users#show"

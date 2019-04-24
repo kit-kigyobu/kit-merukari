@@ -1,16 +1,71 @@
 <h1>ユーザ編集画面</h1>
-<%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
-          <p>画像</p>
-          <input name="image" type="file">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
-          <p>サークル名</p>
-          <input name="club" value="<%= @user.club%>">
-          <p>入学年度</p>
-          <input name="entry_year" value="<%= @user.entry_year%>">
-          <p>自己紹介文</p>
-          <textarea name="content" rows="8" cols="80"><%=@user.content%></textarea>
-          <input type="submit" value="保存">
-<% end %>
+<div class="wrapper">
+	<header class="slimHead"><!-- ボタン無しヘッダー -->
+        <div class="logo">
+			<a href="#"><img src="#" alt="OSAGARY"></a>
+			<!-- <%= link_to("OSAGARI", "/") %> -->
+        </div>
+    </header>
+    <main class="container">
+  		<div class="contents"><!-- ここまで定型 -->
+            <div class="cttHead"><!-- コンテンツの見出し -->
+				<h2>ユーザー情報登録</h2>
+		  	</div>
+            <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+                <%= form_tag("/users/edit_confirm",{:multipart => true}) do %>
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>ニックネーム</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける -->
+                        <%= text_field_tag("name", @user.name, {:class =>'form-element form-field'})%>
+                    </div>
+
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>所属課程・専攻</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける -->
+                        <%= select_tag("course_id",
+                        options_for_select(@select_course,:selected => @user.course_id),
+                        {class: "form-element"})%>
+                    </div>
+
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>サークル・部活動</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= text_field_tag("club",@user.club, {:class =>'form-element form-field'})%>
+                    </div>
+
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>学年</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= select_tag("entry_year",
+                        options_for_select(@select_entry_year,:selected => @user.entry_year),
+                        {class: "form-element"})%>
+                    </div>
+
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>性別</label>
+                        <strong>必須</strong><!-- 必須マーク -->
+                        <%= select_tag("gender",
+                        options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }, :selected => User.genders[@user.gender]),
+                        {class: "form-element"})%>
+                    </div>
+
+                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                        <label>アイコン</label>
+                        <%= image_tag @user.icon.to_s %><br/>
+                        ↑ 元のアイコン
+                        <%= file_field_tag( 'icon', :class =>'form-element') %>
+
+                     <%= submit_tag("確認画面へ", :class =>'form-element button button-Primary') %>
+                <% end %>
+<footer class="pageFoot">
+    <div class="footer-bottom">
+        <div class="kigyologo">
+            <a href="/top"><img src="#" alt="OSAGARI"></a>
+        </div>
+        <div class="copyright">
+            <small>&copy; <span>2019</span>京都学生起業部</small>
+        </div>
+    </div>
+</footer>
