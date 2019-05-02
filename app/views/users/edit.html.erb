@@ -9,7 +9,7 @@
     <main class="container">
   		<div class="contents"><!-- ここまで定型 -->
             <div class="cttHead"><!-- コンテンツの見出し -->
-				<h2>ユーザー情報登録</h2>
+				<h2>ユーザー情報編集</h2>
 		  	</div>
             <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
                 <%= form_tag("/users/edit_confirm",{:multipart => true}) do %>
@@ -56,9 +56,14 @@
                         <%= image_tag @user.icon.to_s %><br/>
                         ↑ 元のアイコン
                         <%= file_field_tag( 'icon', :class =>'form-element') %>
+                    </div>
 
                      <%= submit_tag("確認画面へ", :class =>'form-element button button-Primary') %>
                 <% end %>
+            </div>
+        </div>
+    </main>
+
 <footer class="pageFoot">
     <div class="footer-bottom">
         <div class="kigyologo">
@@ -69,3 +74,4 @@
         </div>
     </div>
 </footer>
+</div>

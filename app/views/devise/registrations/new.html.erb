@@ -17,7 +17,7 @@
     <label for="UserPassword">パスワード</label>
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(最小<%= @minimum_password_length %>文字)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", :class=>"form-element form-field" %>
   </div>
@@ -29,12 +29,13 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "登録する" %>
+    <%= f.submit "登録する", :class=>"form-element button button-Primary" %>
   </div>
 <% end %>
 
+<div class="loginhelp">
 <%= render "devise/shared/links" %>
-
+</div>
 </div>
 
 </main>

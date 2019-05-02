@@ -31,7 +31,7 @@ html {
 body {
     /*background-color: #212121;*/
     width: auto;
-    margin: 0px;
+    margin: 0px !important;
     font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
 }
 a {
@@ -283,6 +283,7 @@ section {
     margin: 0px auto;
     padding: 10px;
     width: 300px;
+    font-size: 16px;
 }
 .mainForm form {
     text-align: left;
@@ -293,7 +294,10 @@ section {
     margin: 26px 0px;
 }
 .mainForm label {
-    font-size: 16px;
+    color: #777;
+}
+.mainForm em {
+
     color: #777;
 }
 .mainForm strong {
@@ -346,9 +350,9 @@ section {
     border-bottom: 2px solid #4DB0DC;
 }
 .loginhelp {
-    text-align: left;
-    margin: auto;/*    width: 295px;
-    padding-bottom: 21px;*/
+    text-align: center;
+    margin: auto;
+    padding-bottom: 21px;
 }
 .loginhelp ul {
     list-style: square;
@@ -361,6 +365,8 @@ section {
     padding: 4px 8px;
 }
 .loginhelp a {
+    margin: 4px;
+    padding: 4px 8px;
     color: #777;
 }
 /*-----contents-itemBox-----*/

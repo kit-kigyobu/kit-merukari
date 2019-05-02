@@ -15,42 +15,64 @@
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
             <label>ニックネーム</label>
             <%= @user.name%>
-            <%= hidden_field_tag "name", @user.name, :class =>'form-element form-field' %>
+            <%= hidden_field_tag "name", @user.name, :class =>'form-element' %>
           </div>
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
             <label>所属課程・専攻</label>
             <%= @course_name %>
-            <%= hidden_field_tag "course_id", @user.course_id, :class =>'form-element form-field' %>
+            <%= hidden_field_tag "course_id", @user.course_id, :class =>'form-element' %>
           </div>
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
             <label>サークル・部活動</label>
               <% if @user.club.present? then %>
                 <%= @user.club %>
-                <%= hidden_field_tag "club", @user.club, :class =>'form-element form-field' %>
+                <%= hidden_field_tag "club", @user.club, :class =>'form-element' %>
               <% else %>
                 <p>選択されていません</p>
               <% end %>
+          </div>
 
-                    <p>学年</p>
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <label>学年</label>
                     <%= @user_great %>
-                    <%= hidden_field_tag "entry_year", @user.entry_year %>
+                    <%= hidden_field_tag "entry_year", @user.entry_year, :class =>'form-element' %>
+          </div>
 
-                    <p>性別</p>
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <label>性別</label>
                     <%= @user.gender_i18n %>
-                    <%= hidden_field_tag "gender", User.genders[@user.gender] %>
+                    <%= hidden_field_tag "gender", User.genders[@user.gender], :class =>'form-element' %>
+          </div>
 
-                    <p>アイコン</p>
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <label>アイコン</label>
                     <% if @user.icon.url then %>
                       <%= image_tag @user.icon.url %>
-                      <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name %>
+                      <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name, :class =>'form-element' %>
                     <% end %>
+          </div>
+          
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <%= submit_tag("修正する",name: 'back', :class =>'form-element button button-Alert') %>
+          </div>
 
-                    <%= submit_tag("修正する",name: 'back') %>
-                    <%= submit_tag("登録") %>
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <%= submit_tag("登録", :class =>'form-element button button-Primary') %>
+          </div>
         <% end %>
       </div>
     </div>
   </main>
+  <footer class="pageFoot">
+    <div class="footer-bottom">
+        <div class="kigyologo">
+            <a href="/top"><img src="#" alt="OSAGARI"></a>
+        </div>
+        <div class="copyright">
+            <small>&copy; <span>2019</span>京都学生起業部</small>
+        </div>
+    </div>
+  </footer>
 </div>
