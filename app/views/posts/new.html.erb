@@ -1,7 +1,12 @@
+<% if @errors_full_messages then %>
+  <%= @errors_full_messages %>
+<% end %>
+
+
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">本を登録する</h1>
-    <%= form_tag("/posts/create") do %>
+    <%= form_tag("/posts/create",{:multipart => true}) do %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -11,9 +16,18 @@
           <% end %>
           <div class="book-images">
             本の画像
-            <input name="book_image1" type="file">
-            <input name="book_image2" type="file">
-            <input name="book_image3" type="file">
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                <label>画像1</label>
+                <%= file_field_tag( 'image_name1', :class =>'form-element') %>
+            </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                <label>画像2</label>
+                <%= file_field_tag( 'image_name2', :class =>'form-element') %>
+            </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                <label>画像3</label>
+                <%= file_field_tag( 'image_name3', :class =>'form-element') %>
+            </div>
           </div>
           <div class="book-name">
           本の名前
@@ -27,7 +41,7 @@
             <%= select_tag("category",options_for_select(@select_category))%>
           </div>
           <div class="book-content">
-          本の内容など
+          本の内容など(10文字以上)
             <textarea name="content"><%= @post.content %></textarea>
           </div>
           <input type="submit" value="登録">

@@ -1,2 +1,0 @@
-class TestKesite < ApplicationRecord
-end

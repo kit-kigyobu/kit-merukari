@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  validates :name, presence: true
+  validates :book_name, presence: true
   validates :price, presence: true
-  validates :book_image1, presence: true
+  validates :image_name1, presence: true
   validates :category, presence: true
   validates :content, length: {minimum: 10}
 

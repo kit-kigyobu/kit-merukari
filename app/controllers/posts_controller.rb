@@ -27,20 +27,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(
-      price:params[:book_price],
-      image_name1: params[:book_image1],
-      image_name2: params[:book_image2],
-      image_name3: params[:book_image3],
+    @post = Post.create(
+      price: params[:book_price],
+      image_name1: params[:image_name1],
+      image_name2: params[:image_name2],
+      image_name3: params[:image_name3],
       book_name: params[:book_name],
       content: params[:content],
       user_id: @current_user.id,
       category:params[:category]
     )
-    if @post.save
+    if @post.save then
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
     else
+      @errors_full_messages = @post.errors.full_messages
+      @post = Post.new
+      @select_category = get_select_category()
       render("posts/new")
     end
   end
@@ -60,7 +63,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      render("/posts/edit")
     end
   end
 

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   post "chats/:transaction_id/cansel_exhibit"  => "chats#cansel_exhibit"
   post "chats/:transaction_id/cansel_parchase" => "chats#cansel_parchase"
   get "chats/:transaction_id/buy_complete_comfirm" => "chats#buy_complete_comfirm"
+  get "chats/:transaction_id/buy_complete_comfirm_done" => "chats#buy_complete_comfirm_done"
 
   get "admin/user" => "admin#user"
   post "admin/user" => "admin#user"

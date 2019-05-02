@@ -30,7 +30,7 @@ class ChatsController < ApplicationController
       parchase_status: Transaction.parchase_statuses[:parchase_normal],
       exhibit_status: Transaction.exhibit_statuses[:exhibit_normal]
     )
-    if @transaction.save==false then
+    if !@transaction.save then
       redirect_to("/users/#{@current_user}")
     else
       redirect_to("/chats/#{@transaction.id}/chat")
@@ -65,10 +65,17 @@ class ChatsController < ApplicationController
   end
 
   def buy_complete_comfirm
-
+    @transaction = Transaction.find_by(id: params[:transaction_id])
   end
 
   def buy_complete_comfirm_done
     @love = param['love']
+    transaction = Transaction.find_by(id: params[:transaction_id])
+    transaction.love += @love.to_i
+    if !transaction.save then
+      redirect_to("/chats/#{params[:transaction_id]}/buy_complete_comfirm")
+    else
+      redirect_to("/users/#{@current_user.id}")
+    end
   end
 end
