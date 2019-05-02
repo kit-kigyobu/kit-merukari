@@ -2,11 +2,14 @@
   <%= @errors_full_messages %>
 <% end %>
 
+<main class="container">
+  <div class="contents"><!-- ここまで定型 -->
+        <div class="cttHead"><!-- コンテンツの見出し -->
+    <h2>ユーザー情報登録</h2>
+    </div>
+        <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
 
-<div class="main posts-new">
-  <div class="container">
-    <h1 class="form-heading">本を登録する</h1>
-    <%= form_tag("/posts/create",{:multipart => true}) do %>
+    <%= form_tag("/posts/create_confirm",{:multipart => true}) do %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -29,24 +32,45 @@
                 <%= file_field_tag( 'image_name3', :class =>'form-element') %>
             </div>
           </div>
-          <div class="book-name">
-          本の名前
-            <input name="book_name">
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>本の名前</label>
+              <strong>必須</strong><!-- 必須マーク -->
+              <%= text_field_tag("name", @post.name, :class =>'form-element form-field')%>
           </div>
-          <div class="book-price">
-            <input type="tel" name="book_price"/>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>価格</label>
+              <strong>必須</strong><!-- 必須マーク -->
+              <%= text_field_tag("price", @post.price, :class =>'form-element form-field')%>
           </div>
-          <div class = "book-category">
-            カテゴリー
-            <%= select_tag("category",options_for_select(@select_category))%>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>カテゴリ</label>
+              <strong>必須</strong><!-- 必須マーク -->
+              <%= select_tag("category_id",
+              options_for_select(@select_category,:selected => @post.category_id),
+              {class: "form-element"})%>
           </div>
-          <div class="book-content">
-          本の内容など(10文字以上)
-            <textarea name="content"><%= @post.content %></textarea>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>授業名</label>
+              <%= text_field_tag("class_name", @post.class_name, :class =>'form-element form-field')%>
           </div>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>著者</label>
+              <%= text_field_tag("author", @post.author, :class =>'form-element form-field')%>
+          </div>
+
+          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>説明</label>
+              <%= text_field_tag("content", @post.content, :class =>'form-element form-field')%>
+          </div>
+
           <input type="submit" value="登録">
         </div>
       </div>
     <% end %>
+    </div>
   </div>
-</div>

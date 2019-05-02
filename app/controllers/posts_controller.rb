@@ -16,8 +16,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @user = @post.user
-    # @likes_count = Like.where(post_id: @post.id).count
+    @user = User.find(@post.user_id)
     @category = Category.find_by(name: @post.category.name)
   end
 
@@ -26,23 +25,77 @@ class PostsController < ApplicationController
     @select_category = get_select_category()
   end
 
-  def create
-    @post = Post.create(
-      price: params[:book_price],
+  def create_confirm
+
+    @post = Post.new(
+      price: params[:price],
+      author: params[:author],
+      class_name: params[:class_name],
       image_name1: params[:image_name1],
       image_name2: params[:image_name2],
       image_name3: params[:image_name3],
-      book_name: params[:book_name],
+      name: params[:name],
       content: params[:content],
       user_id: @current_user.id,
-      category:params[:category]
+      category_id: params[:category_id]
     )
+
+    post_category = Category.find_by(category_id: @post.category_id)
+    @category_name = post_category.name
+
+    if params[:image1] then
+      @post.image_name1 = params[:image1]
+      @post.image_name1.cache!
+    end
+    if params[:image2] then
+      @post.image_name2 = params[:image2]
+      @post.image_name2.cache!
+    end
+    if params[:image3] then
+      @post.image_name3 = params[:image3]
+      @post.image_name3.cache!
+    end
+
+    if !@post.valid? then
+      flash[:notice] = "投稿失敗"
+      @errors_full_messages = @post.errors.full_messages
+      @select_category = get_select_category()
+      redirect_to("/posts/new")
+    end
+  end
+
+  def create
+    @post = Post.new(
+      price: params[:price],
+      author: params[:author],
+      class_name: params[:class_name],
+      name: params[:name],
+      content: params[:content],
+      user_id: @current_user.id,
+      category_id: params[:category_id]
+    )
+    if params[:cache].present? && params[:cache][:image_name1].present? then
+      @user.image_name1.retrieve_from_cache! params[:cache][:image_name1]
+    end
+    if params[:cache].present? && params[:cache][:image_name2].present? then
+      @user.image_name2.retrieve_from_cache! params[:cache][:image_name2]
+    end
+    if params[:cache].present? && params[:cache][:image_name3].present? then
+      @user.image3.retrieve_from_cache! params[:cache][:image_name3]
+    end
+
+    #戻るボタン
+    if params[:back] then #[1]へ
+      @select_category = get_select_category()
+      render("posts/new")
+      return
+    end
+
     if @post.save then
       flash[:notice] = "投稿を作成しました"
-      redirect_to("/posts/index")
+      redirect_to("/posts/serch")
     else
       @errors_full_messages = @post.errors.full_messages
-      @post = Post.new
       @select_category = get_select_category()
       render("posts/new")
     end
@@ -54,10 +107,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.book_name = params[:book_name]
+    @post.name = params[:name]
     @post.content = params[:content]
-    @post.price = params[:book_price]
-    @post.category = params[:category]
+    @post.price = params[:price]
+    @post.category_id = params[:category_id]
 
     if @post.save
       flash[:notice] = "投稿を編集しました"

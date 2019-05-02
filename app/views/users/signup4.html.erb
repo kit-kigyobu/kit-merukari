@@ -8,14 +8,14 @@
   <main class="container">
   	<div class="contents"><!-- ここまで定型 -->
       <div class="cttHead"><!-- コンテンツの見出し -->
-			  <h2>登録情報確認</h2>		  				
+			  <h2>登録情報確認</h2>
 	    </div>
       <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
         <%= form_tag("/users/create",{:multipart => true}) do %>
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
             <label>ニックネーム</label>
             <%= @user.name%>
-            <%= hidden_field_tag "name", @user.name, :class =>'form-element' %>
+            <%= hidden_field_tag "name", @user.name %>
           </div>
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -53,7 +53,7 @@
                       <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name, :class =>'form-element' %>
                     <% end %>
           </div>
-          
+
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                     <%= submit_tag("修正する",name: 'back', :class =>'form-element button button-Alert') %>
           </div>

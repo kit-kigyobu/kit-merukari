@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
+    post "posts/create_confirm" => "posts#create_confirm"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
