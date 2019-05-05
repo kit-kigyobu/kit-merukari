@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   include Common
-  # include CarrierWave::RMagick
 
   before_action :authenticate_account!
   before_action :check_current_user, except: [:signup, :signup_confirm, :create]

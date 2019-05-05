@@ -1,5 +1,5 @@
-<p>ようこそ！ <%= @email %>!</p>
+<p>ようこそ、OSAGARYへ！ <%= @email %>さん</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>下記リンクにアクセスして、あなたのアカウントを認証して下さい。</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
