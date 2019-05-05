@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include Common
 
-  before_action :authenticate_account!
-  before_action :check_current_user, except: [:signup, :signup_confirm, :create]
+  before_action :authenticate_account!, except: [:mail_confirm]
+  before_action :check_current_user, except: [:signup, :signup_confirm, :mail_confirm, :create]
 
 
   def show
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     today = get_today()
     @entry_year = today.year
     @course_id = 1001
-
     @select_course = get_select_course()
     @select_entry_year = get_select_entry_year()
   end

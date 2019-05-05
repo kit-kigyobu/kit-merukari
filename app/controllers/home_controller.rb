@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   before_action :authenticate_account!, only:[:login]
+  before_action :check_current_user, only: [:top]
 
   def top
     @posts = Post.all.order(created_at: :desc)

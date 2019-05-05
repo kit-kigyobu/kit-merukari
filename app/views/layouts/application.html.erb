@@ -12,16 +12,18 @@
   </head>
 
   <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="header-logo">
           <%= link_to("OSAGARY", "/") %>
       </div>
-      <ul class="header-menus">
-        <li>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
           <%= link_to("OSAGARYとは", "/about") %>
         </li>
-        <li>
+        <li class="nav-item active">
         <%=link_to("利用規約","/policy")%>
-        </li>
+        </li class="nav-item active">
         <li>
           <%= link_to("新規登録", "/accounts/sign_up") %>
         </li>
@@ -31,16 +33,16 @@
           <% if @current_user %>
 
             <li>
-              <%=link_to("#{@current_user.name}","/users/#{@current_user.id}")%>
+              <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
             </li>
             <li>
               <%=link_to("出品","/posts/new")%>
             </li>
           <% else %>
             <li>
-              まだユーザ登録が完了していません！<br/>
+              まだプロフィール設定が完了していません！<br/>
             </li>
-            <%= link_to("ユーザ登録", "/signup3") %>
+            <%= link_to("プロフィール設定", "/users/signup") %>
           <% end %>
 
           <li>
@@ -53,7 +55,9 @@
           </li>
         <% end %>
       </ul>
-    </header>
+      </div>
+    </nav>
+  </header>
 
     <% if flash[:notice] %>
      <div class="flash">
