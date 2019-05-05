@@ -15,6 +15,9 @@
  */
  @import "bootstrap";
 
+.bg-primary{
+    background: #45c8ff;
+}
 
  html {
     line-height: 1.15;
@@ -33,6 +36,7 @@ body {
     font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
 }
 a {
+    color: black;
     text-decoration: none;
 }
 ul {
@@ -51,6 +55,7 @@ a img {
 section {
     text-align: center;
 }
+
 .clearfix:after {
     display: block;
     clear: both;
