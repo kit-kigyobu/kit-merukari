@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
 
   #ユーザ情報が登録されていないなら、登録画面に飛ばす。
   def check_current_user
-    if !@current_user then
-      redirect_to("/signup3")
+    if @current_account_id && !@current_user then
+      redirect_to("/users/signup")
     end
   end
 

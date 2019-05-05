@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   include Common
-  # include CarrierWave::RMagick
 
-  before_action :authenticate_account!
-  before_action :check_current_user, except: [:signup, :signup_confirm, :create]
+  before_action :authenticate_account!, except: [:mail_confirm]
+  before_action :check_current_user, except: [:signup, :signup_confirm, :mail_confirm, :create]
 
 
   def show
     @user = User.find_by(id: params[:id])
+    @user_great = entry_year_to_great(@user.entry_year)
+    user_course = Course.find_by(course_id: @user.course_id)
+    @course_name = user_course.name
 
     #取引一覧表示用
     @parchase_transactions = Transaction
@@ -27,7 +29,6 @@ class UsersController < ApplicationController
     today = get_today()
     @entry_year = today.year
     @course_id = 1001
-
     @select_course = get_select_course()
     @select_entry_year = get_select_entry_year()
   end
@@ -166,6 +167,6 @@ class UsersController < ApplicationController
     end
 
     flash[:notice] = "ユーザー登録が完了しました"
-    redirect_to("/users/#{@current_user.id}")
+    redirect_to("/users/show/#{@current_user.id}")
   end
 end

@@ -16,8 +16,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @user = User.find(@post.user_id)
-    @category = Category.find_by(name: @post.category.name)
+    @exhibit_user = User.find(@post.user_id)
+    category = Category.find_by(category_id: @post.category_id)
+    @user_great = entry_year_to_great(@exhibit_user.entry_year)
+    user_course = Course.find_by(course_id: @exhibit_user.course_id)
+    @course_name = user_course.name
+    @category_name = category.name
   end
 
   def new
@@ -93,7 +97,7 @@ class PostsController < ApplicationController
 
     if @post.save then
       flash[:notice] = "投稿を作成しました"
-      redirect_to("/posts/serch")
+      redirect_to("/posts/show/#{@post.id}")
     else
       @errors_full_messages = @post.errors.full_messages
       @select_category = get_select_category()

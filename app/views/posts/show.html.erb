@@ -1,34 +1,122 @@
-<div class="main posts-show">
-  <div class="container">
-    <div class="posts-show-item">
-      <div class="post-user-name">
-        <img src="<%= "/user_images/#{@user.image_name}" %>">
-        <%=link_to(@user.name,"/user_images/#{@user.image_name}")%>
-      </div>
-      <p>
-        <%= @post.content %>
-      </p>
-      <div class="post-time">
-        <%= @post.created_at %>
-      </div>
+<div class="wrapper">
+	<header class="slimHead"><!-- ボタン無しヘッダー -->
+        <div class="logo">
+			<a href="#"><img src="#" alt="OSAGARY"></a>
+			<!-- <%= link_to("OSAGARI", "/") %> -->
+        </div>
+  </header>
+  <main class="container">
+  	<div class="contents"><!-- ここまで定型 -->
+      <div class="cttHead"><!-- コンテンツの見出し -->
+			  <h2>出品情報確認</h2>
+	    </div>
+      <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
 
-      <%if Like.find_by(user_id: @current_user.id, post_id: @post.id)%>
-        <%=link_to("/likes/#{@post.id}/destroy",{method: :post}) do%>
-          <span class="fa fa-heart like-btn-unlike"></span>
-        <%end%>
-      <%else%>
-        <%=link_to("/likes/#{@post.id}/create",{method: :post}) do%>
-          <span class="fa fa-heart like-btn"></span>
-        <%end%>
-      <%end%>
-      <%=@likes_count%>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>ニックネーム</label>
+          <%= @exhibit_user.name %>
+        </div>
 
-      <%if @current_user.id == @user.id%>
-      <div class="post-menus">
-        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-        <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-      </div>
-      <%end%>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>所属課程・専攻</label>
+          <%= @course_name %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>サークル・部活動</label>
+            <% if @exhibit_user.club.present? then %>
+              <%= @exhibit_user.club %>
+            <% else %>
+              <p>選択されていません</p>
+            <% end %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>学年</label>
+            <%= @user_great %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>性別</label>
+            <%= @exhibit_user.gender_i18n %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>アイコン</label>
+            <% if @exhibit_user.icon.url then %>
+              <%= image_tag @exhibit_user.icon.url %>
+            <% end %>
+        </div>
+
+
+        <div class="post-time">
+          出品時間：<%= @post.created_at %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <% if @post.image_name1 then %>
+            <%= image_tag @post.image_name1.to_s %>
+          <% end %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <% if @post.image_name2 then %>
+            <%= image_tag @post.image_name2.to_s %>
+          <% end %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <% if @post.image_name3 then %>
+            <%= image_tag @post.image_name3.to_s %>
+          <% end %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>本の名前</label>
+          <%= @post.name%>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>カテゴリ</label>
+          <%= @category_name %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>値段</label>
+          <%= @post.price %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>著者</label>
+          <%= @post.author %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>授業名</label>
+          <%= @post.class_name %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>説明</label>
+          <%= @post.content %>
+        </div>
+
+        <%if @current_user.id == @exhibit_user.id%>
+          <div class="post-menus">
+            <%= link_to("編集", "/posts/edit/#{@post.id}") %>
+            <%= link_to("削除", "/posts/destroy//#{@post.id}", {method: "post"}) %>
+          </div>
+        <%end%>
     </div>
-  </div>
+  </main>
+  <footer class="pageFoot">
+    <div class="footer-bottom">
+      <div class="kigyologo">
+        <a href="/top"><img src="#" alt="OSAGARI"></a>
+      </div>
+      <div class="copyright">
+        <small>&copy; <span>2019</span>京都学生起業部</small>
+      </div>
+    </div>
+  </footer>
 </div>

@@ -1,10 +1,58 @@
 <h1>マイページ</h1>
-<%= image_tag @user.icon.to_s %>
-<h2><%= @user.name %></h2>
-<p><%=@user.gender_i18n %></p>
+
+<main class="container">
+  <div class="contents"><!-- ここまで定型 -->
+    <div class="cttHead"><!-- コンテンツの見出し -->
+      <h2>登録情報確認</h2>
+    </div>
+    <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>ニックネーム</label>
+          <%= @user.name %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>所属課程・専攻</label>
+          <%= @course_name %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>サークル・部活動</label>
+            <% if @user.club.present? then %>
+              <%= @user.club %>
+            <% else %>
+              <p>選択されていません</p>
+            <% end %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>学年</label>
+            <%= @user_great %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>性別</label>
+            <%= @user.gender_i18n %>
+        </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+          <label>アイコン</label>
+            <% if @user.icon.url then %>
+              <%= image_tag @user.icon.url %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</main>
+
 <% if @user.id == @current_user.id %>
     <%= link_to("編集", "/users/edit") %>
 <% end %>
+
+<%= link_to(account_registration_path(id: @current_user.id), method: :delete, class: 'content col-md-4 col-md-offset-1') do %>
+    <strong>退会する</strong>
+<% end %>
+
 
 
 

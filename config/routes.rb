@@ -13,25 +13,25 @@ Rails.application.routes.draw do
   post "users/update"      => "users#update"
   post "users/create"      => "users#create"
   get "users/index"        => "users#index"
-  get "users/:id"          => "users#show"
+  get "users/show/:id"          => "users#show"
   post "login"             => "home#login"
   post "logout"            => "home#logout"
   get "login"              => "home#login"
-  get "mail_confirm"       => "users#mail_confirm", as: 'mail_confirm'
-  get "signup"             => "users#signup", as: 'signup'
-  get "signup_confirm"            => "users#signup_confirm"
-  post "signup_confirm"           => "users#signup_confirm"
+  get "users/mail_confirm"       => "users#mail_confirm", as: 'users_mail_confirm'
+  get "users/signup"             => "users#signup", as: 'users_signup'
+  get "users/signup_confirm"     => "users#signup_confirm"
+  post "users/signup_confirm"    => "users#signup_confirm"
 
   get "posts/search" => "posts#search"
   post "posts/search" => "posts#search"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
-  get "posts/:id" => "posts#show"
+  get "posts/show/:id" => "posts#show"
   post "posts/create" => "posts#create"
     post "posts/create_confirm" => "posts#create_confirm"
-  get "posts/:id/edit" => "posts#edit"
-  post "posts/:id/update" => "posts#update"
-  post "posts/:id/destroy" => "posts#destroy"
+  get "posts/edit/:id" => "posts#edit"
+  post "posts/update/:id" => "posts#update"
+  post "posts/destroy/:id" => "posts#destroy"
 
   post "chats/:book_id/start"             => "chats#start"
   post "chats/:transaction_id/send_chat"  => "chats#send_chat"

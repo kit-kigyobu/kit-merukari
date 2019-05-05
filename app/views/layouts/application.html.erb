@@ -34,16 +34,16 @@
           <% if @current_user %>
 
             <li>
-              <%=link_to("#{@current_user.name}","/users/#{@current_user.id}")%>
+              <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
             </li>
             <li>
               <%=link_to("出品","/posts/new")%>
             </li>
           <% else %>
             <li>
-              まだユーザ登録が完了していません！<br/>
+              まだプロフィール設定が完了していません！<br/>
             </li>
-            <%= link_to("ユーザ登録", "/signup3") %>
+            <%= link_to("プロフィール設定", "/users/signup") %>
           <% end %>
 
           <li>
