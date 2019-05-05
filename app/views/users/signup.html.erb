@@ -15,14 +15,11 @@
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>ニックネーム</label>
                         <strong>必須</strong><!-- 必須マーク -->
-                        <%# <input class="form-element form-field" name="username" type="email" id="#" required="required"><!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける --> %>
                         <%= text_field_tag("name",@user.name, :class =>'form-element form-field')%>
                     </div>
 
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>所属課程・専攻</label>
-                        <strong>必須</strong><!-- 必須マーク -->
-                        <%# <input class="form-element form-field" name="username" type="email" id="#" required="required"><!-- form内の要素にはform-elementをつける fieldの場合form-fieldをつける --> %>
                         <%= select_tag("course_id",
                         options_for_select(@select_course,:selected => @user.course_id),
                         {class: "form-element"})%>
@@ -30,7 +27,6 @@
 
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>サークル・部活動</label>
-                        <strong>必須</strong><!-- 必須マーク -->
                         <%= text_field_tag("club",@user.club, :class =>'form-element form-field')%>
                     </div>
 
