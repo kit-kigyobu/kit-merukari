@@ -75,13 +75,13 @@ class PostsController < ApplicationController
       category_id: params[:category_id]
     )
     if params[:cache].present? && params[:cache][:image_name1].present? then
-      @user.image_name1.retrieve_from_cache! params[:cache][:image_name1]
+      @post.image_name1.retrieve_from_cache! params[:cache][:image_name1]
     end
     if params[:cache].present? && params[:cache][:image_name2].present? then
-      @user.image_name2.retrieve_from_cache! params[:cache][:image_name2]
+      @post.image_name2.retrieve_from_cache! params[:cache][:image_name2]
     end
     if params[:cache].present? && params[:cache][:image_name3].present? then
-      @user.image3.retrieve_from_cache! params[:cache][:image_name3]
+      @post.image_name3.retrieve_from_cache! params[:cache][:image_name3]
     end
 
     #戻るボタン

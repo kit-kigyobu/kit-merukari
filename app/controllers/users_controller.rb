@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # include CarrierWave::RMagick
 
   before_action :authenticate_account!
-  before_action :check_current_user, except: [:signup3, :signup4, :create]
+  before_action :check_current_user, except: [:signup, :signup_confirm, :create]
 
 
   def show
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def signup3
+  def signup
     @user = User.new
     today = get_today()
     @entry_year = today.year
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @select_entry_year = get_select_entry_year()
   end
 
-  def signup4
+  def signup_confirm
     @user = User.new
     @user.name = params[:name]
     @user.course_id = params[:course_id].to_i
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     @select_entry_year = get_select_entry_year()
 
     if !@user.valid? then
-      render("users/signup3")
+      render("users/signup")
     end
 
   end
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     if params[:back] then
       @select_course = get_select_course()
       @select_entry_year = get_select_entry_year()
-      render("users/signup3")
+      render("users/signup")
       return
     end
 
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
 
     if !@user.save then
       flash[:notice] = @user.errors.full_messages
-      render("users/signup3")
+      render("users/signup")
       return
     end
 
@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   #   redirect_to("/users/#{@user.id}")
   # else
   #   flash[:notice] = @user.errors.full_messages
-  #   render("users/signup3")
+  #   render("users/signup")
   # end
   end
 

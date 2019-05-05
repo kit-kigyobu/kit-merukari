@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   post "login"             => "home#login"
   post "logout"            => "home#logout"
   get "login"              => "home#login"
-  get "signup2"            => "users#signup2", as: 'signup2'
-  get "signup3"            => "users#signup3", as: 'signup3'
-  get "signup4"            => "users#signup4"
-  post "signup4"           => "users#signup4"
+  get "mail_confirm"       => "users#mail_confirm", as: 'mail_confirm'
+  get "signup"             => "users#signup", as: 'signup'
+  get "signup_confirm"            => "users#signup_confirm"
+  post "signup_confirm"           => "users#signup_confirm"
 
   get "posts/search" => "posts#search"
   post "posts/search" => "posts#search"
