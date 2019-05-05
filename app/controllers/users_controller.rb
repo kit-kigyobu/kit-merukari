@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @user_great = entry_year_to_great(@user.entry_year)
+    user_course = Course.find_by(course_id: @user.course_id)
+    @course_name = user_course.name
 
     #取引一覧表示用
     @parchase_transactions = Transaction
