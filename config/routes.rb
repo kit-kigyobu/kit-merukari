@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   post "users/update"      => "users#update"
   post "users/create"      => "users#create"
   get "users/index"        => "users#index"
-  get "users/:id"          => "users#show"
+  get "users/show/:id"          => "users#show"
   post "login"             => "home#login"
   post "logout"            => "home#logout"
   get "login"              => "home#login"
-  get "mail_confirm"       => "users#mail_confirm", as: 'mail_confirm'
-  get "signup"             => "users#signup", as: 'signup'
-  get "signup_confirm"            => "users#signup_confirm"
-  post "signup_confirm"           => "users#signup_confirm"
+  get "users/mail_confirm"       => "users#mail_confirm", as: 'users_mail_confirm'
+  get "users/signup"             => "users#signup", as: 'users_signup'
+  get "users/signup_confirm"     => "users#signup_confirm"
+  post "users/signup_confirm"    => "users#signup_confirm"
 
   get "posts/search" => "posts#search"
   post "posts/search" => "posts#search"

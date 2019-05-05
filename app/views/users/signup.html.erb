@@ -11,7 +11,7 @@
 				<h2>ユーザー情報登録</h2>
 		  	</div>
             <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
-                <%= form_tag("/signup_confirm",{:multipart => true}) do %>
+                <%= form_tag("/users/signup_confirm",{:multipart => true}) do %>
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>ニックネーム</label>
                         <strong>必須</strong><!-- 必須マーク -->

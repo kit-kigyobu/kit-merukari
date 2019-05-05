@@ -61,9 +61,9 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    mail_confirm_path
+    users_mail_confirm_path
   end
   def after_inactive_sign_up_path_for(resource)
-    mail_confirm_path
+    users_mail_confirm_path
   end
 end

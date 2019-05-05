@@ -30,6 +30,6 @@ class Accounts::ConfirmationsController < Devise::ConfirmationsController
 
   #送信メール内の確認URLリダイレクト設定
   def after_confirmation_path_for(resource_name, resource)
-    signup_path
+    users_signup_path
   end
 end
