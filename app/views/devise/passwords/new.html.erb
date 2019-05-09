@@ -2,29 +2,31 @@
     <main class="container">
     <div class= "contents">
       <div class="cttHead">
-<h2>パスワードをお忘れの場合</h2>
-</div>
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <h2>パスワードをお忘れの場合</h2>
+      </div>
+    <div class="mainForm">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :emailのアドレスを入力して下さい %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="form-element-wrapper">
+          <%= f.label :emailのアドレスを入力して下さい %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "メールを送信" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
+        <div class="form-element-wrapper">
+          <%= f.submit "メールを送信", class: "form-element button button-Primary" %>
+        </div>
+      <% end %>
+      <div class="loginhelp">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
 
 </main>
 <footer class="pageFoot">
 <div class="footer-bottom">
     <div class="kigyologo">
-        <a href="/top"><img src="#" alt="OSAGARI"></a>
+        <%= link_to image_tag("/assets/logo_mt_w.png", :class=>"logo logo_mono"), "/" %>
     </div>
     <div class="copyright">
         <small>&copy; <span>2019</span>京都学生起業部</small>
