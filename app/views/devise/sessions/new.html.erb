@@ -1,38 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-10">
-      <h1 class="text-center font-weight-bold pt-5">Log in</h1>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field pt-3">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-12 form-control" %>
-        </div>
-
-        <div class="field pt-3">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "col-md-12" %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="field pt-3">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+<div class="wrapper">
+    <main class="container">
+  		<div class="contents">
+        <div class="cttHead">
+				  <h2>ログイン</h2>
+		  	</div>
+        <div class="mainForm">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-element-wrapper">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" %>
+            </div>
+            <div class="form-element-wrapper">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off", class: "form-element form-field" %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="form-element-wrapper">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+            <div class="form-element-wrapper">
+              <%= f.submit "Log in", class: "form-element button button-Primary" %>
+            </div>
+          <% end %>
+          <div class="loginhelp">
+            <%= render "devise/shared/links" %>
           </div>
-        <% end -%>
-
-        <div class="actions pt-3">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
-      <% end %>
-      <div class="pt-3">
       </div>
-      <%= render "devise/shared/links" %>
-    </div>
-    <div class="col-md-1">
-
-    </div>
+    </main>
+    <footer class="pageFoot">
+      <div class="footer-bottom">
+          <div class="kigyologo">
+              <%= link_to image_tag("/assets/logo_mt_w.png", :class=>"logo_mono logo"), "/" %>
+          </div>
+          <div class="copyright">
+              <small>&copy; <span>2019</span>京都学生起業部</small>
+          </div>
+      </div>
+    </footer>
   </div>
-</div>

@@ -4,6 +4,7 @@
   <head>
     <title>OSAGARY</title>
     <meta charset="UTF-8">
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,19 +13,24 @@
   </head>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <%= link_to("OSAGARY", "/", :class=>"navbar-brand" ) %>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-default nav-bg">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand"), "/" %>   
+<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span> 
 </button>
-      <div class="navbar-collapse collapse slid-down" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto nav">
-        <li class="nav-item">
-          <%= link_to("OSAGARYとは", "/about") %>
+    </div>
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to("OSAGARYとは", "/about" ) %>
         </li>
-        <li class="nav-item">
+        <li>
         <%=link_to("利用規約","/policy")%>
-        </li class="nav-item">
+        </li>
         <li>
           <%= link_to("新規登録", "/accounts/sign_up") %>
         </li>
@@ -55,12 +61,13 @@
             <%= link_to("ログイン", "/login") %>
           </li>
         <% end %>
-    <%=form_tag("/posts/search", :class=>"form-inline") do%>
-      <input name="search" class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="Search">
-    <%end%>
+
         </ul>
       </div>
-
+    <%=form_tag("/posts/search", :class=>"navbar-form inline-form") do%>
+      <input name="search" class="form-control" type="search" placeholder="検索..." aria-label="Search">
+    <%end%>
+    </div>
     </nav>
   </header>
 

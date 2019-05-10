@@ -15,9 +15,42 @@
  */
  @import "bootstrap";
 
+ // bootstrap 変更
 .bg-primary{
     background: #45c8ff;
 }
+
+.navbar-toggle{
+    border-radius: 0;
+}
+
+.navbar{
+    z-index: 99;
+    border: 0px solid transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    -webkit-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.12);
+    -moz-box-shadow:0px 4px 4px 1px rgba(0,0,0,0.12);
+    box-shadow:0px 4px 4px 1px rgba(0,0,0,0.12);
+}
+
+.navbar-brand {
+    margin-left: 15px;
+    padding: 5px 5px;
+}
+
+@media (min-width: 768px){
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 15px;
+}
+}
+
+.navbar-form {
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    margin-top: 4px;
+}
+// bootstrap 変更ここまで
 
  html {
     line-height: 1.15;
@@ -71,8 +104,11 @@ section {
     margin: 0px;
     padding: 3px;
 }
-.logo a:hover {
+
+.nav-bg {
+    background-color: #fafafa;
 }
+
 .button {
     border-radius: 5px;
     text-align: center;
@@ -180,65 +216,11 @@ section {
     font-size: 12px;
     line-height: 1.7;
 }
-/*-----serch-----*/
 
-.search {
-    padding: 10px;
-    height: 50px;
-    text-align: left;
-    
-}
-.serch-form {
-    margin: auto;
-    position: relative;
-    width: 300px;
-    margin-bottom: 20px;
-}
-.search-field {
-    position: absolute;
-    left: 0;
-    top: 0;
-    outline: 0;
-    background: #eee;
-    border: 1px solid transparent;
-    border-radius: 4px 0px 0px 4px;
-    height: 40px;
-    width: 250px;
-    padding: 0px 10px;
-}
-.search-button {
-    height: 40px;
-    line-height: 38px;
-    position: absolute;
-    left: 250px;
-    top: 0px;
-    width: 40px;
-    z-index: 1;
-    border: none;
-    border-radius: 0px 4px 4px 0px;
-    background: #eee;
-}
-.search-button .fa-search {
-    font-size: 16px;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    color: #323232;
-}
-/*-----breadCrumbs-----*/
-
-/*.breadCrumbs {
-    margin: auto;
-    border-top: 1px solid #eee;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-    background: #fff;
-    text-align: center;
-    z-index: 1;
-}*/
 /*-----container-----*/
 
 .container {
-    background-color: white;
+    background-color: #f8f8f8;
     margin: 0;
     width: 100%;
     min-height: 600px;
@@ -277,7 +259,7 @@ section {
 }
 .cttHead {
     margin-top: 0px;
-    padding: 20px 8px;
+    padding: 0px 8px;
     font-size: 20px;
     color: black;
     border-bottom: 1px solid #F5F5F5;
@@ -458,7 +440,7 @@ section {
 /*-----footer css-----*/
 
 .pageFoot {
-    padding: 40px 10px;
+    padding: 40px 10px 20px 10px;
     text-align: center;
     width: auto;
     font-size: 14px;
@@ -488,10 +470,14 @@ section {
     text-align: center;
 }
 .pageFoot .logo_mono {
+    width:50px;
     margin: auto;
 }
 .pageFoot .copyright {
     margin: auto;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #3c3c3c; 
     font-size: 10px;
 }
 /*-----floatSallButton*/
@@ -510,8 +496,7 @@ section {
     box-shadow: 0px 0px 24px -6px rgba(0,0,0,0.6);
     text-align: center;
 }
-.floatSallButton:hover {
-}
+
 .floatSallButton span {
     display: block;
     margin: 16px 0 0;
