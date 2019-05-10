@@ -106,7 +106,7 @@ section {
 }
 
 .nav-bg {
-    background-color: #fafafa;
+    background-color: #fff;
 }
 
 .button {
@@ -413,6 +413,33 @@ section {
     width: auto;
     margin: 0 auto;
     box-sizing: border-box;
+}
+.listCard-flatbox {
+    display: block;
+    width: auto;
+    margin: 4px;
+    padding: 4px 8px;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+.listCard-box {
+    display: block;
+    width: auto;
+    margin: 4px;
+    padding: 4px 8px;
+    background: #fff;
+    color: black;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+}
+.listCard-box h4 {
+    padding: 4px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.listCard-flatbox h4 {
+    padding: 4px;
+    border-bottom: 1px solid #e7e7e7;
 }
 .listCard-list {
     display: block;
