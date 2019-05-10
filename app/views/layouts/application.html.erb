@@ -4,6 +4,7 @@
   <head>
     <title>OSAGARY</title>
     <meta charset="UTF-8">
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,18 +13,24 @@
   </head>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="header-logo">
-          <%= link_to("OSAGARY", "/") %>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <%= link_to("OSAGARYとは", "/about") %>
+    <nav class="navbar navbar-expand-lg navbar-default nav-bg">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand"), "/" %>   
+<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span> 
+</button>
+    </div>
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to("OSAGARYとは", "/about" ) %>
         </li>
-        <li class="nav-item active">
+        <li>
         <%=link_to("利用規約","/policy")%>
-        </li class="nav-item active">
+        </li>
         <li>
           <%= link_to("新規登録", "/accounts/sign_up") %>
         </li>
@@ -54,8 +61,13 @@
             <%= link_to("ログイン", "/login") %>
           </li>
         <% end %>
-      </ul>
+
+        </ul>
       </div>
+    <%=form_tag("/posts/search", :class=>"navbar-form inline-form") do%>
+      <input name="search" class="form-control" type="search" placeholder="検索..." aria-label="Search">
+    <%end%>
+    </div>
     </nav>
   </header>
 
@@ -66,12 +78,7 @@
    <% end %>
 
   <body>
-    <div class="search-form">
-    <%=form_tag("/posts/search") do%>
-      <p>検索</p>
-      <input name="search">
-    <%end%>
-    </div>
+
     <%= yield %>
   </body>
 </html>
