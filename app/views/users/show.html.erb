@@ -1,49 +1,53 @@
-<h1>マイページ</h1>
-
+<div class="wrapper">
 <main class="container">
-  <div class="contents"><!-- ここまで定型 -->
-    <div class="cttHead"><!-- コンテンツの見出し -->
-      <h2>登録情報確認</h2>
+  <div class="contents">
+    <div class="cttHead">
+      <h2>あなたの会員情報</h2>
     </div>
-    <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-          <label>ニックネーム</label>
-          <%= @user.name %>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-          <label>所属課程・専攻</label>
-          <%= @course_name %>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-          <label>サークル・部活動</label>
-            <% if @user.club.present? then %>
-              <%= @user.club %>
-            <% else %>
-              <p>選択されていません</p>
-            <% end %>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-          <label>学年</label>
-            <%= @user_great %>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-          <label>性別</label>
-            <%= @user.gender_i18n %>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+    <div class="mainForm">
+         <div class="form-element-wrapper">
           <label>アイコン</label>
+          <div class="form-icon">
             <% if @user.icon.url then %>
               <%= image_tag @user.icon.url %>
             <% end %>
+          </div>
         </div>
+        <div class="form-element-wrapper">
+          <label>ニックネーム</label>
+          <p class="form-element"><%= @user.name %></p>
+        </div>
+
+        <div class="form-element-wrapper">
+          <label>所属課程・専攻</label>
+          <p class="form-element"><%= @course_name %></p>
+        </div>
+
+        <div class="form-element-wrapper">
+          <label>サークル・部活動</label>
+          <p class="form-element"><% if @user.club.present? then %>
+              <%= @user.club %>
+            <% else %>
+              <p class="form-element">選択されていません</p>
+            <% end %>
+          </p>
+        </div>
+
+        <div class="form-element-wrapper">
+          <label>学年</label>
+          <p class="form-element"><%= @user_great %></p>
+        </div>
+
+        <div class="form-element-wrapper">
+          <label>性別</label>
+          <p class="form-element"><%= @user.gender_i18n %></p>
+        </div>
+
+
     </div>
   </div>
 </main>
+
 
 <% if @user.id == @current_user.id %>
     <%= link_to("編集", "/users/edit") %>
@@ -76,3 +80,5 @@
   取引相手：<%= select_tag("exhibit_user_id",options_for_select(User.all.map {|item| [item.name, item.id]})) %>
   <%= submit_tag("新規チャット開始!") %>
 <% end %>
+
+</div>

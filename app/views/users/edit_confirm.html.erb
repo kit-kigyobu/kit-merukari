@@ -44,14 +44,16 @@
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
             <label>アイコン</label>
+            <div class="form-icon">
               <% if @user.icon.url then %>
                 <%= image_tag @user.icon.url %>
                 <%= hidden_field_tag :"cache[icon]", @user.icon.cache_name, :class =>'form-element' %>
               <% end %>
+            </div>
           </div>
+          <%= submit_tag("登録", :class =>'form-element button button-Primary') %>
+          <%= submit_tag("修正する",name: 'back', :class =>'form-element button button-Alert') %>
 
-                    <%= submit_tag("修正する",name: 'back', :class =>'form-element button button-Alert') %>
-                    <%= submit_tag("登録", :class =>'form-element button button-Primary') %>
         <% end %>
       </div>
     </div>
