@@ -1,11 +1,9 @@
 <h2>検索結果</h2>
-<ul><% @posts.each do |post| %>
-  <li>
-    <%= link_to post.title, post %>
-    <%= post.created_at %>
-    <%= post.status %>
-  </li>
-  <%= link_to "編集",edit_post_path(post) %>
-  <%= link_to "削除",post, method: :delete %>
-  <% end %>
-</ul>
+<% @posts.each do |post| %>
+  <%= post.name %><br/>
+  <%= post.price %>円<br/>
+  <a href="/posts/show/<%= post.id %>">
+    <%= image_tag post.image_name1.url %>
+  </a>
+  <br/>
+<% end %>
