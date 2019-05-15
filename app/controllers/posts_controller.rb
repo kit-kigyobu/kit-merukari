@@ -1,18 +1,13 @@
 class PostsController < ApplicationController
   include Common
-  # before_action :ensure_correct_user
-  #
-  # def ensure_correct_user
-  #   @post = Post.find_by(id: params[:id])
-  #   if @post.user_id != @current_user.id
-  #     flash[:notice] = "権限がありません"
-  #     redirect_to("/posts/index")
-  #   end
-  # end
 
-  # def search
-  #  @posts = Post.where('book_name LIKE ?', "%#{params[:search]}%")
-  # end
+  def search
+    if !params['search_word'] then
+      @posts = Post.all
+    else
+      @posts = Post.where()
+    end
+  end
 
   def show
     @post = Post.find_by(id: params[:id])
@@ -112,7 +107,6 @@ class PostsController < ApplicationController
   end
 
   def edit_confirm
-
     @post_id = params[:id]
     @post = Post.new(
       price: params[:price],
