@@ -1,6 +1,9 @@
 <h2>検索結果</h2>
 <% @posts.each do |post| %>
-  <%= link_to( post.name, "/posts/show/#{post.id}") %>
-  <%= post.created_at %>
-  <%= image_tag post.image_name1.url %>
+  <%= post.name %><br/>
+  <%= post.price %>円<br/>
+  <a href="/posts/show/<%= post.id %>">
+    <%= image_tag post.image_name1.url %>
+  </a>
+  <br/>
 <% end %>
