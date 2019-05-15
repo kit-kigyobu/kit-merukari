@@ -155,7 +155,7 @@ section {
 .button-Alert {
     display: block;
     background: #ffb259;
-    color: #fff;
+    color: #212121;
     height: 50px;
     padding: 15px 12px;
     border: 1px solid transparent;
@@ -300,6 +300,14 @@ section {
     height: 48px;
     color: black;
     border: 1px solid #B7B7B7;
+}
+.form-icon{
+    width:200px;
+    height:200px;
+    margin: auto;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #DCDCDC;
 }
 .form-element {
     width: 100%;
