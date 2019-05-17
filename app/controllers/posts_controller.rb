@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     if !params['search_word'] then
       @posts = Post.all
     else
-      @posts = Post.where()
+      @posts = Post.where("name LIKE %?%", params['search_word'])
     end
   end
 
