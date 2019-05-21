@@ -5,7 +5,7 @@
 <main class="container">
   <div class="contents"><!-- ここまで定型 -->
         <div class="cttHead"><!-- コンテンツの見出し -->
-    <h2>ユーザー情報登録</h2>
+    <h2>商品情報登録</h2>
     </div>
         <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
 
@@ -68,7 +68,9 @@
               <%= text_field_tag("content", @post.content, :class =>'form-element form-field')%>
           </div>
 
-          <input type="submit" value="登録">
+          <div class="form-element-wrapper">
+          <input type="submit" value="登録"　class="form-element button button-Primary">
+          </div>
         </div>
       </div>
     <% end %>
