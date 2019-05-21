@@ -8,7 +8,7 @@
   <main class="container">
   	<div class="contents"><!-- ここまで定型 -->
       <div class="cttHead"><!-- コンテンツの見出し -->
-			  <h2>出品情報確認</h2>
+			  <h2>出品情報</h2>
 	    </div>
       <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
 
@@ -106,7 +106,11 @@
             <%= link_to("編集", "/posts/edit/#{@post.id}") %>
             <%= link_to("削除", "/posts/destroy//#{@post.id}", {method: "post"}) %>
           </div>
-        <%end%>
+        <% else %>
+					<div class="post-menus">
+						<%= link_to("取引を始める", "/posts/chat_confirm/#{@post.id}") %>
+					</div>
+				<% end %>
     </div>
   </main>
   <footer class="pageFoot">

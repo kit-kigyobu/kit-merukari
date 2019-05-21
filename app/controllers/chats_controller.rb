@@ -9,24 +9,38 @@ class ChatsController < ApplicationController
 
   #chat文字送信時
   def send_chat
+    #送信先があっているか
+    @transaction = Transaction.find(params[:transaction_id])
+    message_type = nil
+    if @current_user.id == @transaction.parchase_user_id then
+      message_type = Chat.message_types['parchase']
+    elsif @current_user.id == @transaction.exhibit_user_id then
+      message_type = Chat.message_types['exhibit']
+    else
+      params['flash'] = "chatのメンバーではありません"
+      redirect_to('/')
+    end
+
     @chats = Chat.create(
       transaction_id: params[:transaction_id],
-      message_type: params[:message_type].to_i,
+      message_type: message_type,
       message: params[:message]
     )
     @chats.save
     redirect_to("/chats/#{params[:transaction_id]}/chat")
   end
 
-  #chat初開講時
+  #取引開始（chat初開講時）
   def start
-    #@book = Book.find(params[:book_id])
-    #@exhibit_user = @book.user
+    @book = Post.find(params[:book_id])
+    @exhibit_user = User.find(@book.user_id)
+
+    #id無かったりするerror処理
 
     @transaction = Transaction.create(
-      book_id: 1001,#@book.id,
+      book_id: @book.id,
       parchase_user_id: @current_user.id,
-      exhibit_user_id: params[:exhibit_user_id].to_i,
+      exhibit_user_id: @exhibit_user.id,
       parchase_status: Transaction.parchase_statuses[:parchase_normal],
       exhibit_status: Transaction.exhibit_statuses[:exhibit_normal]
     )

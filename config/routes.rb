@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "users/signup_confirm"     => "users#signup_confirm"
   post "users/signup_confirm"    => "users#signup_confirm"
 
+
   get "posts/search" => "posts#search"
   post "posts/search" => "posts#search"
   get "posts/index" => "posts#index"
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   post "posts/edit_confirm/:id" => "posts#edit_confirm"
   post "posts/update/:id" => "posts#update"
   post "posts/destroy/:id" => "posts#destroy"
+  get "posts/chat_confirm/:id" => "posts#chat_confirm"
 
   post "chats/:book_id/start"             => "chats#start"
   post "chats/:transaction_id/send_chat"  => "chats#send_chat"

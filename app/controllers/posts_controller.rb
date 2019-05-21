@@ -5,11 +5,21 @@ class PostsController < ApplicationController
     if !params['search_word'] then
       @posts = Post.all
     else
-      @posts = Post.where("name LIKE %?%", params['search_word'])
+      @posts = Post.where("name LIKE ?", "%"+params['search_word']+"%")
     end
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
+    @exhibit_user = User.find(@post.user_id)
+    category = Category.find_by(category_id: @post.category_id)
+    @user_great = entry_year_to_great(@exhibit_user.entry_year)
+    user_course = Course.find_by(course_id: @exhibit_user.course_id)
+    @course_name = user_course.name
+    @category_name = category.name
+  end
+
+  def chat_confirm
     @post = Post.find_by(id: params[:id])
     @exhibit_user = User.find(@post.user_id)
     category = Category.find_by(category_id: @post.category_id)
