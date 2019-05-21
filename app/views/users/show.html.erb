@@ -1,9 +1,10 @@
 <div class="wrapper">
 <main class="container">
-  <div class="contents">
+  <div class="contents row">
     <div class="cttHead">
       <h2>あなたの会員情報</h2>
     </div>
+    <div class="col-md-6">
     <div class="mainForm">
          <div class="form-element-wrapper">
           <label>アイコン</label>
@@ -43,23 +44,25 @@
           <p class="form-element"><%= @user.gender_i18n %></p>
         </div>
 
+        <% if @user.id == @current_user.id %>
+        <div class="form-element-wrapper">
+            <%= link_to("編集", "/users/edit", :class =>'form-element button button-Primary') %>
+
+        <% end %>
+        </div>
+
+        <div class="form-element-wrapper">
+        <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
+            退会する
+
+        <% end %>
+        </div>
+        </div>
 
     </div>
-  </div>
-</main>
 
-
-<% if @user.id == @current_user.id %>
-    <%= link_to("編集", "/users/edit") %>
-<% end %>
-
-<%= link_to(account_registration_path(id: @current_user.id), method: :delete, class: 'content col-md-4 col-md-offset-1') do %>
-    <strong>退会する</strong>
-<% end %>
-
-
-
-
+<div class="col-md-6">
+<div class="mainForm">
 <br/>
 <br/>
 <span style="background-color:black;color:white;">購入側取引</span><br/>
@@ -78,7 +81,14 @@
 
 <%= form_tag("/chats/1001/start") do %>
   取引相手：<%= select_tag("exhibit_user_id",options_for_select(User.all.map {|item| [item.name, item.id]})) %>
-  <%= submit_tag("新規チャット開始!") %>
+  <%= submit_tag("新規チャット開始!", :class =>'form-element button button-Primary') %>
 <% end %>
+</div>
+</div>
+  </div>
+</main>
+
+
+
 
 </div>
