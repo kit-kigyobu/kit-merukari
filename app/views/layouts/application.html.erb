@@ -16,73 +16,73 @@
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-default nav-bg">
-    <div class="container-fluid">
-    <div class="navbar-header">
-    <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand z-999"), "/" %>
-<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-</button>
-  </div>
-  <ul class="navbar-left nav navbar-nav my-xs-invisible">
-    <li>
-      <%=form_tag("/posts/search", :class=>"navbar-form inline-form z-999") do%>
-        <input name="search_word" class="form-control" type="search" placeholder="検索..." aria-label="Search">
-      <% end %>
-    </li>
-  </ul>
-      <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to("OSAGARYとは", "/about" ) %>
-        </li>
-        <li>
-          <%= link_to("ヘルプ", "/help") %>
-        </li>
-        <li>
-        <%=link_to("利用規約","/policy")%>
-        </li>
-        <li>
-          <%= link_to("新規登録", "/accounts/sign_up") %>
-        </li>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand z-999"), "/" %>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
+          <ul class="navbar-left nav navbar-nav my-xs-invisible">
+            <li>
+              <%=form_tag("/posts/search", :class=>"navbar-form inline-form z-999") do%>
+                <input name="search_word" class="form-control" type="search" placeholder="検索..." aria-label="Search">
+              <% end %>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to("OSAGARYとは", "/about" ) %>
+            </li>
+            <li>
+              <%= link_to("ヘルプ", "/help") %>
+            </li>
+            <li>
+            <%=link_to("利用規約","/policy")%>
+            </li>
+            <li>
+              <%= link_to("新規登録", "/accounts/sign_up") %>
+            </li>
 
-        <% if @current_account_id %>
+            <% if @current_account_id %>
 
-          <% if @current_user %>
+              <% if @current_user %>
 
-            <li>
-              <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
-            </li>
-            <li>
-              <%=link_to("出品","/posts/new")%>
-            </li>
-          <% else %>
-            <li>
-              まだプロフィール設定が完了していません！<br/>
-            </li>
-            <li>
-              <%= link_to("プロフィール設定", "/users/signup") %>
-            </li>
+                <li>
+                  <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
+                </li>
+                <li>
+                  <%=link_to("出品","/posts/new")%>
+                </li>
+              <% else %>
+                <li>
+                  まだプロフィール設定が完了していません！<br/>
+                </li>
+                <li>
+                  <%= link_to("プロフィール設定", "/users/signup") %>
+                </li>
+              <% end %>
+
+              <li>
+                <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
+              </li>
+
+            <% else %>
+              <li>
+                <%= link_to("ログイン", "/login") %>
+              </li>
+            <% end %>
+
+          </ul>
+        </div>
+
+          <%=form_tag("/posts/search", :class=>"navbar-form inline-form my-xs-visible") do%>
+            <input name="search_word" class="form-control" type="search" placeholder="検索..." aria-label="Search">
           <% end %>
-
-          <li>
-            <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
-          </li>
-
-        <% else %>
-          <li>
-            <%= link_to("ログイン", "/login") %>
-          </li>
-        <% end %>
-
-        </ul>
       </div>
-
-    <%=form_tag("/posts/search", :class=>"navbar-form inline-form my-xs-visible") do%>
-      <input name="search_word" class="form-control" type="search" placeholder="検索..." aria-label="Search">
-    <% end %>
-    </div>
     </nav>
   </header>
 
