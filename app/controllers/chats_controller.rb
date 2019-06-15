@@ -1,4 +1,8 @@
 class ChatsController < ApplicationController
+
+  before_action :authenticate_account!
+  before_action :check_current_user
+
   #chat画面
   def chat
     @transaction = Transaction.find(params[:transaction_id])
@@ -78,6 +82,7 @@ class ChatsController < ApplicationController
     redirect_to("/users/#{@current_user.id}")
   end
 
+
   def buy_complete_comfirm
     @transaction = Transaction.find_by(id: params[:transaction_id])
   end
@@ -86,6 +91,33 @@ class ChatsController < ApplicationController
     @love = param['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.love += @love.to_i
+    chat = Chat.create(
+      transaction_id: params[:transaction_id],
+      message_type: Chat.message_types[:exhibit],
+      message: "＊出品者が取引を完了しました。＊"
+    )
+    chat.save
+    if !transaction.save then
+      redirect_to("/chats/#{params[:transaction_id]}/buy_complete_comfirm")
+    else
+      redirect_to("/users/#{@current_user.id}")
+    end
+  end
+
+  def sale_complete_comfirm
+    @transaction = Transaction.find_by(id: params[:transaction_id])
+  end
+
+  def sale_complete_comfirm_done
+    @love = param['love']
+    transaction = Transaction.find_by(id: params[:transaction_id])
+    transaction.love += @love.to_i
+    chat = Chat.create(
+      transaction_id: params[:transaction_id],
+      message_type: Chat.message_types[:parchase],
+      message: "＊出品者が取引を完了しました。＊"
+    )
+    chat.save
     if !transaction.save then
       redirect_to("/chats/#{params[:transaction_id]}/buy_complete_comfirm")
     else

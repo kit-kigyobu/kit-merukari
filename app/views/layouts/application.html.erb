@@ -37,10 +37,7 @@
           <%= link_to("ヘルプ", "/help") %>
         </li>
         <li>
-        <%=link_to("利用規約","/policy")%>
-        </li>
-        <li>
-          <%= link_to("新規登録", "/accounts/sign_up") %>
+          <%=link_to("利用規約","/policy")%>
         </li>
 
         <% if @current_account_id %>
@@ -68,6 +65,9 @@
 
         <% else %>
           <li>
+            <%= link_to("新規登録", "/accounts/sign_up") %>
+          </li>
+          <li>
             <%= link_to("ログイン", "/login") %>
           </li>
         <% end %>
@@ -81,11 +81,11 @@
     </nav>
   </header>
 
-    <% if flash[:notice] %>
-     <div class="flash alert alert-success alert-dismissible fade in">
-       <%= flash[:notice] %>
-     </div>
-   <% end %>
+  <% if flash[:notice] %>
+    <div class="flash alert alert-success alert-dismissible fade in">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <body>
 
