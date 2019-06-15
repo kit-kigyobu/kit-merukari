@@ -57,6 +57,18 @@
     margin: 0;
 }
 
+.form-control {
+    border-radius: 17px;
+    :active {
+        box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
+    }
+    :hover {
+        box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
+
+    }
+}
+
+
 @media (min-width: 768px){
 .navbar > .container-fluid .navbar-brand {
     margin-left: 15px;
@@ -181,6 +193,33 @@ section {
 .bg-sub {
     background: #F5F5F5;
 }
+.z-999{
+    z-index: 999;
+}
+.my-xs-visible{
+    display: inline;
+}
+@media (min-width: 768px){
+    .my-xs-visible {
+        display: none;
+    }
+}
+.my-xs-invisible{
+    display: none;
+}
+@media (min-width: 768px){
+    .my-xs-invisible {
+        display: inline;
+    }
+}
+.my-xs-invisible > li {
+    height: 58px;
+}
+.my-xs-invisible .navbar-form {
+    position: relative;
+    top: 4px;
+}
+
 .wrapper {
     background-color: #212121;
     margin: 0;
