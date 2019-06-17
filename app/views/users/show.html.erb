@@ -78,14 +78,6 @@
             <%= link_to("[出品中止]","/chats/#{transaction.id}/cansel_exhibit",{method:"post"}) %><br/>
           <% end %>
         </div>
-        <div class="form-element-wrapper">
-          <%= form_tag("/chats/1001/start") do %>
-            取引相手：<%= select_tag("exhibit_user_id",options_for_select(User.all.map {|item| [item.name, item.id]})) %>
-            <div class="form-element-wrapper">
-              <%= submit_tag("新規チャット開始!", :class =>'form-element button button-Primary') %>
-            </div>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>

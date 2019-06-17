@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   include Common
 
+  before_action :authenticate_account!
+  before_action :check_current_user
+
   def search
     if !params['search_word'] then
       @posts = Post.all

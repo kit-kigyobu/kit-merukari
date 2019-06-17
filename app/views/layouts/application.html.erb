@@ -16,16 +16,17 @@
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-default nav-bg">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand z-999"), "/" %>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
+    <div class="container-fluid">
+    <div class="navbar-header">
+    <%= link_to image_tag("/assets/logo_mtr_c.png", :class=>"navbar-brand"), "/" %>
+<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</button>
+    </div>
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" aria-expanded="true">
+
           <ul class="navbar-left nav navbar-nav my-xs-invisible">
             <li>
               <%=form_tag("/posts/search", :class=>"navbar-form inline-form z-999") do%>
@@ -43,36 +44,33 @@
             <li>
             <%=link_to("利用規約","/policy")%>
             </li>
-            <li>
-              <%= link_to("新規登録", "/accounts/sign_up") %>
-            </li>
 
-            <% if @current_account_id %>
-
-              <% if @current_user %>
-
-                <li>
-                  <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
-                </li>
-                <li>
-                  <%=link_to("出品","/posts/new")%>
-                </li>
-              <% else %>
-                <li>
-                  まだプロフィール設定が完了していません！<br/>
-                </li>
-                <li>
-                  <%= link_to("プロフィール設定", "/users/signup") %>
-                </li>
-              <% end %>
-
+            <% if @current_user %>
+            <!-- ログイン後、ユーザ登録がされているとき -->
+              <li>
+                <%=link_to("#{@current_user.name}","/users/show/#{@current_user.id}")%>
+              </li>
+              <li>
+                <%=link_to("出品","/posts/new")%>
+              </li>
               <li>
                 <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
               </li>
-
+            <% elsif @current_account_id %>
+            <!-- ログイン後、ユーザ登録がされていないとき -->
+              <li>
+                <%= link_to("プロフィール設定", "/users/signup") %>
+              </li>
+              <li>
+                <%= link_to("ログアウト", destroy_account_session_path, {method: :delete}) %>
+              </li>
             <% else %>
+            <!-- ログインされていない時 -->
               <li>
                 <%= link_to("ログイン", "/login") %>
+              </li>
+              <li>
+                <%= link_to("新規登録", "/accounts/sign_up") %>
               </li>
             <% end %>
 
@@ -86,11 +84,11 @@
     </nav>
   </header>
 
-    <% if flash[:notice] %>
-     <div class="flash alert alert-success alert-dismissible fade in">
-       <%= flash[:notice] %>
-     </div>
-   <% end %>
+  <% if flash[:notice] %>
+    <div class="flash alert alert-success alert-dismissible fade in">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <body>
 

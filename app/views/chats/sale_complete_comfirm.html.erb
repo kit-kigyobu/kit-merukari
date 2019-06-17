@@ -1,0 +1,11 @@
+<h1>取引完了確認</h1>
+
+購入者の評価をしましょう！<br>
+※取引終了後に評価してください。
+
+<%= form_tag("/chat/#{@transaction}/sale_complete_comfirm_done", method: :delete) do %>
+  <%= select_tag("love",
+  options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]], :selected => 3),
+  {class: "form-element"})%>
+  <%= submit_tag("取引完了") %>
+<% end %>
