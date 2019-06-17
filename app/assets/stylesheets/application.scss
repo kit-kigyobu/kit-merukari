@@ -443,6 +443,7 @@ section {
     margin: 2px;
     background: #fff;
     text-align: left;
+    border-radius: 5px;
     box-sizing: content-box;
     box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
 }
@@ -460,12 +461,12 @@ section {
 }
 .item-body {
     padding: 8px;
-    height: 80px;
+    height: 60px;
     color: black;
 }
 .item-name {
     padding: 2px 0px;
-    height: 50px;
+    height: 30px;
 }
 .item-price {
     padding: 2px 0px;
