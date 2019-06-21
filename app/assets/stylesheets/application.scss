@@ -103,6 +103,9 @@ body {
  }
 a {
     color: black;
+    text-decoration: none; 
+}
+a:hover{
     text-decoration: none;
 }
 ul {
@@ -143,39 +146,11 @@ section {
 }
 
 .button {
+    z-index: 99;
     border-radius: 5px;
     text-align: center;
     box-sizing: border-box;
     cursor: pointer;
-}
-.button:hover {
-    opacity: 0.8;
-}
-.button-NoBorderSmall {
-    display: block;
-    color: black;
-    height: 32px;
-    padding: 5px 8px;
-}
-.button-smallPrimary {
-    display: block;
-    background: #45c8ff;
-    color: #fff;
-    height: 32px;
-    padding: 5px 8px;
-}
-.button-NoBorder {
-    display: block;
-    color: black;
-    height: 50px;
-    padding: 15px 12px;
-}
-.button-borderAlert {
-    display: block;
-    color: #ffb259;
-    height: 50px;
-    padding: 15px 12px;
-    border: 1px solid #ffb259;
 }
 .button-Primary {
     display: block;
@@ -185,13 +160,21 @@ section {
     padding: 15px 12px;
     border: 1px solid transparent;
 }
+.button-Primary:hover {
+    box-shadow:0px 1px 2px 0px rgba(0, 100, 128, 0.8), 0px 1px 3px 1px rgba(0, 110, 140, 0.204);
+    color: #FFFFFF
+}
 .button-Alert {
     display: block;
     background: #ffb259;
-    color: #212121;
+    color: #fff;
     height: 50px;
     padding: 15px 12px;
     border: 1px solid transparent;
+}
+.button-Alert:hover{
+    box-shadow:0px 1px 2px 0px rgba(128, 62, 0, 0.8), 0px 1px 3px 1px rgba(140, 68, 0, 0.204);
+    color: #FFFFFF;
 }
 .bg-sub {
     background: #F5F5F5;
@@ -242,20 +225,8 @@ section {
 .slimHead .logo {
     text-align: center;
 }
-/*-----nom head----*/
+/*-----head----*/
 
-.nomHead {
-    margin: 0px;
-    padding-top: 10px;
-    width: auto;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-    background-color: #fff;
-    z-index: 10;
-}
-.nomHead a {
-    font-size: 12px;
-}
 .header-wrapper {
     margin: 0px;
     padding: 8px 0 0;
@@ -263,18 +234,6 @@ section {
 .header-wrapper .logo {
     padding: 0px 16px;
     text-align: left;
-}
-.header-loginButton {
-    position: absolute;
-    font-weight: bold;
-    right: 16px;
-    top: 4px;
-    font-size: 0;
-}
-.header-loginButton .button {
-    display: inline-block;
-    font-size: 12px;
-    line-height: 1.7;
 }
 
 /*-----container-----*/
@@ -358,7 +317,7 @@ section {
 }
 .form-field {
     height: 48px;
-    color: black;
+    color: #555;
     border: 1px solid #B7B7B7;
 }
 .form-icon{
@@ -372,11 +331,21 @@ section {
 .form-element {
     width: 100%;
     margin: 10px 0px;
-    padding: 15px 12px;
+    padding: 15px 16px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 24px;
     box-sizing: border-box;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
 }
+.form-element:focus {
+    border-color: #45c8ff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  }
 .form-element-wrapper .button {
     margin: 10px 0px;
     cursor: pointer;
@@ -425,6 +394,7 @@ section {
     padding: 4px 8px;
     color: #777;
 }
+
 /*-----contents-itemBox-----*/
 
 .contents-itemCard {
