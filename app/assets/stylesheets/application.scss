@@ -98,6 +98,9 @@ body {
     margin: 0px !important;
     font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
 }
+.hovor-dropShadow :hover{
+    box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
+ }
 a {
     color: black;
     text-decoration: none;
@@ -446,12 +449,13 @@ section {
     border-radius: 5px;
     box-sizing: content-box;
     box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
+
 }
 .item-img {
     position: relative;
     padding: 0 0 100%;
     filter: saturate(120%);
-    overflow: hidden;
+    overflow: hidden; 
 }
 .item-img img {
     position: absolute;
