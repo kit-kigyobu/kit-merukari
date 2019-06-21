@@ -16,7 +16,7 @@
                         <label>所属課程・専攻</label>
                         <%= select_tag("course_id",
                         options_for_select(@select_course,:selected => @user.course_id),
-                        {class: "form-element"})%>
+                        {class: "form-element form-select"})%>
                     </div>
 
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -29,7 +29,7 @@
                         <strong>必須</strong><!-- 必須マーク -->
                         <%= select_tag("entry_year",
                         options_for_select(@select_entry_year,:selected => @user.entry_year),
-                        {class: "form-element"})%>
+                        {class: "form-element form-select"})%>
                     </div>
 
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -37,12 +37,14 @@
                         <strong>必須</strong><!-- 必須マーク -->
                         <%= select_tag("gender",
                         options_for_select(User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }, :selected => User.genders[@user.gender]),
-                        {class: "form-element"})%>
+                        {class: "form-element form-select"})%>
                     </div>
 
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>アイコン</label>
-                        <%= image_tag @user.icon.to_s %><br/>
+                        <div class="form-icon">
+                            <%= image_tag @user.icon.to_s %>
+                        </div>
                         ↑ 元のアイコン
                         <%= file_field_tag( 'icon', :class =>'form-element') %>
                     </div>
