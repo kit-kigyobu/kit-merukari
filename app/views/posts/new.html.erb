@@ -20,16 +20,25 @@
           <div class="book-images">
             本の画像
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-                <label>画像1</label>
+              <label>画像1</label>
+              <div class="btn-file button button-Gray form-element">
+                  ファイルを選択
                 <%= file_field_tag( 'image_name1', :class =>'form-element') %>
+              </div>
             </div>
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-                <label>画像2</label>
+              <label>画像2</label>
+              <div class="btn-file button button-Gray form-element">
+                  ファイルを選択
                 <%= file_field_tag( 'image_name2', :class =>'form-element') %>
+              </div>
             </div>
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-                <label>画像3</label>
+              <label>画像3</label>
+              <div class="btn-file button button-Gray form-element">
+                ファイルを選択
                 <%= file_field_tag( 'image_name3', :class =>'form-element') %>
+              </div>
             </div>
           </div>
 
@@ -50,7 +59,7 @@
               <strong>必須</strong><!-- 必須マーク -->
               <%= select_tag("category_id",
               options_for_select(@select_category,:selected => @post.category_id),
-              {class: "form-element"})%>
+              {class: "form-element form-select"})%>
           </div>
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -69,7 +78,7 @@
           </div>
 
           <div class="form-element-wrapper">
-          <input type="submit" value="登録"　class="form-element button button-Primary">
+            <input type="submit" value="登録"　class="form-element button button-Primary">
           </div>
         </div>
       </div>

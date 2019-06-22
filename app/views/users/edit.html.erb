@@ -40,13 +40,18 @@
                         {class: "form-element form-select"})%>
                     </div>
 
-                    <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                    <div class="form-element-wrapper">
                         <label>アイコン</label>
                         <div class="form-icon">
                             <%= image_tag @user.icon.to_s %>
                         </div>
-                        ↑ 元のアイコン
-                        <%= file_field_tag( 'icon', :class =>'form-element') %>
+                        <p>↑ 元のアイコン</p>
+                    </div>
+                    <div class="form-element-wrapper">
+                        <div class="btn-file button button-Gray form-element">
+                            ファイルを選択
+                            <%= file_field_tag( 'icon', :class =>'button') %>
+                        </div>
                     </div>
 
                      <%= submit_tag("確認画面へ", :class =>'form-element button button-Primary') %>

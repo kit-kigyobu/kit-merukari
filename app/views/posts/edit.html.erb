@@ -37,17 +37,24 @@
               <% end %>
             </div>
 
-            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-                <label>画像1</label>
+            <div class="form-element-wrapper">
+              <label>画像1</label>
+              <div class="btn-file button button-Gray form-element">
+                  ファイルを選択
                 <%= file_field_tag( 'image_name1', :class =>'form-element') %>
+              </div>
             </div>
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <div class="btn-file button button-Gray form-element">
                 <label>画像2</label>
                 <%= file_field_tag( 'image_name2', :class =>'form-element') %>
+              </div>
             </div>
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <div class="btn-file button button-Gray form-element">
                 <label>画像3</label>
                 <%= file_field_tag( 'image_name3', :class =>'form-element') %>
+              </div>
             </div>
           </div>
 
