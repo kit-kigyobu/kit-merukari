@@ -304,7 +304,7 @@ section {
 
 .contents {
     margin: auto;
-    padding: 20px 0px;
+    padding: 0px;
     width: auto;
     text-align: center;
 }
@@ -477,6 +477,9 @@ section {
     position: relative;
     font-size: 13px;
 }
+.itemCard img{
+    border-radius: 5px;
+}
 .itemCard-wrapper {
     margin: 6px;
     background: #fff;
@@ -500,17 +503,18 @@ section {
     object-fit: cover; 
 }
 .item-body {
-    padding: 8px;
-    height: 60px;
+    padding: 4px;
+    height: 72px;
     color: black;
 }
 .item-name {
     padding: 2px 0px;
-    height: 30px;
+    height: 40px;
+    overflow: hidden;
 }
 .item-price {
     padding: 2px 0px;
-    height: 10px;
+    height: 20px;
     font-weight: bold;
 }
 /*-----listCard-----*/
@@ -650,24 +654,9 @@ section {
 .header-wrapper .logo {
     text-align: center;
 }
-/*-----serch-----*/
-.serch-form {
-    width: 600px;
-}
-.search-field {
-    width: 550px;
-}
-.search-button {
-    width: 80px;
-    left: 550px;
-    background: #45c8ff;
-}
-.search-button .fa-search {
-    left: 40%;
-    color: white;
-}
 /*-----contents-----*/
 .contents {
+    padding: 20px 0px;
     width: 960px;
 }
 .itemCard {
@@ -675,16 +664,18 @@ section {
     font-size: 16px;
 }
 .item-body {
-    padding: 16px;
-    height: 100px;
+    padding: 8px;
+    height: 72px;
 }
-.item-text {
-    padding: 4px 0px;
-    height: 60px;
+.item-name {
+    padding: 2px 0px;
+    height: 40px;
+    overflow: hidden;
 }
 .item-price {
     padding: 4px 0px;
     height: 20px;
+    font-size: 12px;
     font-weight: bold;
 }
 /*-----footer-----*/
