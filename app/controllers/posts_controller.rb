@@ -69,10 +69,10 @@ class PostsController < ApplicationController
     end
 
     if !@post.valid? then
-      flash[:notice] = "投稿失敗"
+      flash[:notice] = "必須の欄が記入できている、間違いがないかお確かめください。"
       @errors_full_messages = @post.errors.full_messages
       @select_category = get_select_category()
-      redirect_to("/posts/new")
+      render("/posts/new")
     end
   end
 
