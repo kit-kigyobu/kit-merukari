@@ -5,11 +5,22 @@ class PostsController < ApplicationController
   before_action :check_current_user
 
   def search
-    if !params['search_word'] then
-      @posts = Post.all
-    else
-      @posts = Post.where("name LIKE ?", "%"+params['search_word']+"%")
+
+    @posts = Post.all
+    if params['search_word'].present? then      @posts = @posts.where("name LIKE ?", "%"+params['search_word']+"%");    @search_word      = params['search_word'] end
+    if params['search_class'].present? then     @posts = @posts.where("class LINE ?", "%"+params['search_class']+"%");  @search_class     = params['search_class'] end
+
+    if params['search_price_up'].present? then  @posts = @posts.where("price <= ?", params['search_price_up'].to_i);    @search_price_up  = params['search_price_up'].to_i end
+    if params['search_price_low'].present? then @posts = @posts.where("price >= ?", params['search_price_low'].to_i);   @search_price_low = params['search_price_low'].to_i end
+    if params['search_category'].present? then
+      if params['search_category'] >= 0 then
+        @posts = @posts.where("category_id = ?", params['search_category']);    @search_category = params['search_category'].to_i
+      else
+        @search_category  = -1
+      end
     end
+
+    @select_category = get_select_category_with_blank()
   end
 
   def show

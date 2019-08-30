@@ -56,7 +56,17 @@ module Common
     categorys.each do |category|
       select_category.store(category.name, category.category_id)
     end
+    return select_category
+  end
 
+  #select_tagのオプション用(検索時の空白「-1」あり)
+  def get_select_category_with_blank()
+    select_category = Hash.new
+    categorys = Category.all
+    select_category.store("", -1)
+    categorys.each do |category|
+      select_category.store(category.name, category.category_id)
+    end
     return select_category
   end
 

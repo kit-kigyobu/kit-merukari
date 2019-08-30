@@ -4,6 +4,31 @@
       <div class="cttHead">
         <h2>検索結果</h2>
       </div>
+
+      <%= form_tag("/posts/search") do %>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>本の名前</label>
+            <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
+        </div>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>カテゴリ</label>
+            <%= select_tag("select_category",
+            options_for_select(@select_category, :selected => @search_category),
+            {class: "form-element"})%>
+        </div>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>授業名</label>
+            <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
+        </div>
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>金額</label>
+            <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
+            <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
+        </div>
+        <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
+      <% end %>
+
+
       <section>
         <div class="contents-itemCard">
           <% @posts.each do |post| %>
