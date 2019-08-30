@@ -70,6 +70,17 @@ module Common
     return select_category
   end
 
+  def get_order_selection()
+    select_category = Hash.new
+    select_category.store("", -1)
+    select_category.store("出品が新しい順","new")
+    select_category.store("出品が古い順","old")
+    select_category.store("値段が安い順","price_low")
+    select_category.store("値段が高い順","price_high")
+    select_category.store("出品者の「いいね」が多い順","love")
+    return select_category
+  end
+
   private
 
   # privateメソッド

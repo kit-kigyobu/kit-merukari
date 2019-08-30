@@ -25,6 +25,14 @@
             <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
             <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
         </div>
+
+        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+            <label>並び替え</label>
+            <%= select_tag("order",
+            options_for_select(@order_selection, :selected => @order),
+            {class: "form-element"})%>
+        </div>
+
         <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
       <% end %>
 

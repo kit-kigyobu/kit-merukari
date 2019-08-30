@@ -18,6 +18,9 @@ class UsersController < ApplicationController
     @exhibit_transactions = Transaction
     .where(exhibit_user_id: @current_user.id)
     .where(exhibit_status: Transaction.exhibit_statuses[:exhibit_normal])
+
+    #自取引一覧
+    @posts = Post.where("user_id = ?", @current_user.id)
   end
 
   def new

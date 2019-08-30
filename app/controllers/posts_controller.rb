@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   include Common
 
-  before_action :authenticate_account!
-  before_action :check_current_user
+  before_action :authenticate_account!, except: [:search]
+  before_action :check_current_user, except: [:search]
 
   def search
 
     @posts = Post.all
+    #条件検索
     if params['search_word'].present? then      @posts = @posts.where("name LIKE ?", "%"+params['search_word']+"%");    @search_word      = params['search_word'] end
     if params['search_class'].present? then     @posts = @posts.where("class LINE ?", "%"+params['search_class']+"%");  @search_class     = params['search_class'] end
 
@@ -20,6 +21,20 @@ class PostsController < ApplicationController
       end
     end
 
+    #並び替え
+    if params['order'].present? then
+      @order = params['order']
+    else
+      @order = 'new'
+    end
+
+    if @order == 'new' then         @posts = @posts.order(updated_at: "DESC") end
+    if @order == 'old' then         @posts = @posts.order(updated_at: "ASC") end
+    if @order == 'price_high' then  @posts = @posts.order(price: "DESC") end
+    if @order == 'price_low' then   @posts = @posts.order(price: "ASC") end
+
+
+    @order_selection = get_order_selection()
     @select_category = get_select_category_with_blank()
   end
 

@@ -8,6 +8,10 @@ class ChatsController < ApplicationController
     @transaction = Transaction.find(params[:transaction_id])
     @parchase_user = User.find(@transaction.parchase_user_id)
     @exhibit_user = User.find(@transaction.exhibit_user_id)
+    #閲覧者のバリデーション
+    if @current_user.id != @parchase_user.id && != @current_user.id != @exhibit_user.id then
+      params['flash'] = "chatのメンバーではありません"
+      redirect_to('/')
     @chats = Chat.where(transaction_id: @transaction.id)
   end
 
@@ -55,6 +59,7 @@ class ChatsController < ApplicationController
     end
   end
 
+  #購入側のキャンセル
   def cansel_parchase
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.parchase_status = Transaction.parchase_statuses[:parchase_cansel]
@@ -69,6 +74,7 @@ class ChatsController < ApplicationController
     redirect_to("/users/#{@current_user.id}")
   end
 
+  #出品側のキャンセル
   def cansel_exhibit
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.exhibit_status = Transaction.exhibit_statuses[:exhibit_cansel]
@@ -82,11 +88,12 @@ class ChatsController < ApplicationController
     redirect_to("/users/#{@current_user.id}")
   end
 
-
+  #購入側の完了確認
   def buy_complete_comfirm
     @transaction = Transaction.find_by(id: params[:transaction_id])
   end
 
+  #購入側の完了
   def buy_complete_comfirm_done
     @love = param['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
@@ -104,10 +111,12 @@ class ChatsController < ApplicationController
     end
   end
 
+  #出品側の完了確認
   def sale_complete_comfirm
     @transaction = Transaction.find_by(id: params[:transaction_id])
   end
 
+  #出品側の完了
   def sale_complete_comfirm_done
     @love = param['love']
     transaction = Transaction.find_by(id: params[:transaction_id])

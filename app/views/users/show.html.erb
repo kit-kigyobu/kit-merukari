@@ -75,6 +75,36 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-6">
+        <div class="mainCard">
+          <div class="mainForm">
+            <section>
+              <div class="contents-itemCard">
+                <% @posts.each do |post| %>
+                <div class="itemCard">
+                  <div class="itemCard-wrapper">
+                    <a href="/posts/show/<%= post.id %>">
+                      <figure class="item-img">
+                        <%= image_tag post.image_name1.url %>
+                      </figure>
+                    </a>
+                    <div class="item-body">
+                      <div class="item-name">
+                        <span><%= post.name %></span>
+                      </div>
+                      <div class="item-price">
+                        <span><%= post.price %>円</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
