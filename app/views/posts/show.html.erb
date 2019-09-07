@@ -57,19 +57,25 @@
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
               <% if @post.image_name1 then %>
-                <%= image_tag @post.image_name1.to_s %>
+                <figure class="item-img">
+                  <%= image_tag @post.image_name1.to_s %>
+                </figure>
               <% end %>
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
               <% if @post.image_name2 then %>
-                <%= image_tag @post.image_name2.to_s %>
+                <figure class="item-img">
+                  <%= image_tag @post.image_name2.to_s %>
+                </figure>
               <% end %>
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
               <% if @post.image_name3 then %>
-                <%= image_tag @post.image_name3.to_s %>
+                <figure class="item-img">
+                  <%= image_tag @post.image_name3.to_s %>
+                </figure>
               <% end %>
             </div>
 
@@ -104,13 +110,13 @@
             </div>
 
             <%if @current_user.id == @exhibit_user.id%>
-              <div class="post-menus">
-                <%= link_to("編集", "/posts/edit/#{@post.id}") %>
-                <%= link_to("削除", "/posts/destroy//#{@post.id}", {method: "post"}) %>
+              <div class="form-element-wrapper">
+                <%= link_to("編集", "/posts/edit/#{@post.id}", :class=>"form-element button button-Primary") %>
+                <%= link_to "削除", "/posts/destroy//#{@post.id}", {method: "post", :class=>"form-element button button-Alert"} %>
               </div>
             <% else %>
-              <div class="post-menus">
-                <%= link_to("取引を始める", "/posts/chat_confirm/#{@post.id}") %>
+              <div class="form-element-wrapper">
+                <%= link_to("取引を始める", "/posts/chat_confirm/#{@post.id}", :class=>"form-element button button-Primary") %>
               </div>
             <% end %>
           </div>

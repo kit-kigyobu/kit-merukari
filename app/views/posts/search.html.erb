@@ -1,41 +1,49 @@
 <div class="wrapper">
   <main class="container">
     <div class="contents">
+      <h4 class="panel-title accordion-toggle">
+        <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">検索条件を絞り込む</button>
+      </h4>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="mainCard">
+          <div class="mainForm">
+            <%= form_tag("/posts/search") do %>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>本の名前</label>
+                  <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>カテゴリ</label>
+                  <%= select_tag("select_category",
+                  options_for_select(@select_category, :selected => @search_category),
+                  {class: "form-element"})%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>授業名</label>
+                  <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>金額</label>
+                  <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
+                  <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
+              </div>
+
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>並び替え</label>
+                  <%= select_tag("order",
+                  options_for_select(@order_selection, :selected => @order),
+                  {class: "form-element"})%>
+              </div>
+
+              <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
       <div class="cttHead">
         <h2>検索結果</h2>
       </div>
-
-      <%= form_tag("/posts/search") do %>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>本の名前</label>
-            <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>カテゴリ</label>
-            <%= select_tag("select_category",
-            options_for_select(@select_category, :selected => @search_category),
-            {class: "form-element"})%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>授業名</label>
-            <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>金額</label>
-            <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
-            <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>並び替え</label>
-            <%= select_tag("order",
-            options_for_select(@order_selection, :selected => @order),
-            {class: "form-element"})%>
-        </div>
-
-        <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
-      <% end %>
-
 
       <section>
         <div class="contents-itemCard">
@@ -62,4 +70,18 @@
       </section>
     </div>
   </main>
+  <footer class="pageFoot">
+        <div class="footer-bottom">
+            <div class="kigyologo">
+                <%= link_to image_tag("/assets/logo_mt_w.png", :class=>"logo_mono logo"), "/" %>
+            </div>
+            <div class="copyright">
+                <small>&copy; <span>2019</span>京都学生起業部</small>
+            </div>
+        </div>
+    </footer>
+    <%=link_to "/posts/new", :class=>"button-Primary floatSallButton button" do %>
+      <span>出品</span>
+
+    <% end %>
 </div>

@@ -47,7 +47,6 @@
             <div class="form-element-wrapper">
             <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
                 退会する
-
             <% end %>
             </div>
           </div>
@@ -57,19 +56,32 @@
       <div class="col-md-6">
         <div class="mainCard">
           <div class="mainForm">
+            <h3>購入取引一覧</h3>
             <div class="form-element-wrapper">
-              <span>購入側取引</span><br/>
               <% @parchase_transactions.each do |transaction| %>
-                <%= link_to("#{transaction.exhibit_user.name}さんとの取引","/chats/#{transaction.id}/chat") %> |
-                <%= link_to("[購入中止]","/chats/#{transaction.id}/cansel_parchase",{method:"post"}) %><br/>
+                <h4 class="panel-title accordion-toggle">
+                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
+                    <%= transaction.exhibit_user.name %>さんとの取引
+                  </button>
+                </h4>
+                <div id="<%= transaction.id %>" class="panel-collapse collapse">
+                  <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
+                  <%= link_to("購入中止","/chats/#{transaction.id}/cansel_parchase",{method:"post", :class=>"form-element button button-Alert"}) %>
+                </div>
               <% end %>
             </div>
+            <h3>出品取引一覧</h3>
             <div class="form-element-wrapper">
-              <span>出品側取引</span><br/>
               <% @exhibit_transactions.each do |transaction| %>
-                <%= link_to("#{transaction.parchase_user.name}さんとの取引",
-                  "/chats/#{transaction.id}/chat") %> |
-                <%= link_to("[出品中止]","/chats/#{transaction.id}/cansel_exhibit",{method:"post"}) %><br/>
+                <h4 class="panel-title accordion-toggle">
+                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
+                    <%= transaction.parchase_user.name %>さんとの取引
+                  </button>
+                </h4>
+                <div id="<%= transaction.id %>" class="panel-collapse collapse">
+                  <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
+                  <%= link_to("出品中止","/chats/#{transaction.id}/cansel_exhibit",{method:"post", :class=>"form-element button button-Alert"}) %>
+                </div>
               <% end %>
             </div>
           </div>
@@ -79,36 +91,31 @@
       <div class="col-md-6">
         <div class="mainCard">
           <div class="mainForm">
-            <section>
-              <div class="contents-itemCard">
-                <% @posts.each do |post| %>
-                <div class="itemCard">
-                  <div class="itemCard-wrapper">
-                    <a href="/posts/show/<%= post.id %>">
-                      <figure class="item-img">
-                        <%= image_tag post.image_name1.url %>
-                      </figure>
-                    </a>
-                    <div class="item-body">
-                      <div class="item-name">
-                        <span><%= post.name %></span>
-                      </div>
-                      <div class="item-price">
-                        <span><%= post.price %>円</span>
-                      </div>
+            <h3>出品物一覧</h3>
+            <div class="contents-itemCard">
+              <% @posts.each do |post| %>
+              <div class="itemCard">
+                <div class="itemCard-wrapper">
+                  <a href="/posts/show/<%= post.id %>">
+                    <figure class="item-img">
+                      <%= image_tag post.image_name1.url %>
+                    </figure>
+                  </a>
+                  <div class="item-body">
+                    <div class="item-name">
+                      <span><%= post.name %></span>
+                    </div>
+                    <div class="item-price">
+                      <span><%= post.price %>円</span>
                     </div>
                   </div>
                 </div>
-                <% end %>
               </div>
-            </section>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
-
-
-
-
 </div>
