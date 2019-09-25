@@ -104,7 +104,7 @@ html {
 body {
     width: auto;
     margin: 0px !important;
-    font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
+    font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic';
 }
 
 // .hovor-dropShadow :hover{
@@ -767,6 +767,7 @@ section {
     border-radius: 50%;
     color: #fff;
     text-align: center;
+    transition: all 0.35s ease-in-out;
 }
 
 .floatSallButton:hover {
@@ -775,7 +776,8 @@ section {
 
 .floatSallButton span {
     display: block;
-    margin: 16px 0 0;
+    margin: 2px 0 0;
+    font-family: 'MS PGothic', 'ＭＳ Ｐゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans';
 }
 
 .floatSallButton .fa-camera {
@@ -837,7 +839,7 @@ section {
         font-size: 26px;
     }
     .floatSallButton span {
-        margin: 24px 0 0;
+        margin: 8px 0 0;
     }
     .floatSallButton .fa-camera {
         margin: 8px 0 0;

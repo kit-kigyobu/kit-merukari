@@ -5,7 +5,7 @@
         <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">検索条件を絞り込む</button>
       </h4>
       <div id="collapseOne" class="panel-collapse collapse">
-        <div class="mainCard">
+        <div>
           <div class="mainForm">
             <%= form_tag("/posts/search") do %>
               <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -34,8 +34,9 @@
                   options_for_select(@order_selection, :selected => @order),
                   {class: "form-element"})%>
               </div>
-
-              <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
+              <div class="form-element-wrapper">
+                <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -82,6 +83,6 @@
     </footer>
     <%=link_to "/posts/new", :class=>"button-Primary floatSallButton button" do %>
       <span>出品</span>
-
+      <i class="fas fa-camera"></i> 
     <% end %>
 </div>

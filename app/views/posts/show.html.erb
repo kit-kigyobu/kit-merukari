@@ -112,7 +112,7 @@
             <%if @current_user.id == @exhibit_user.id%>
               <div class="form-element-wrapper">
                 <%= link_to("編集", "/posts/edit/#{@post.id}", :class=>"form-element button button-Primary") %>
-                <%= link_to "削除", "/posts/destroy//#{@post.id}", {method: "post", :class=>"form-element button button-Alert"} %>
+                <%= link_to("削除", "/posts/destroy//#{@post.id}", {method: "post", :class=>"form-element button button-Alert"}) %>
               </div>
             <% else %>
               <div class="form-element-wrapper">

@@ -2,7 +2,7 @@
   <main class="container">
   	<div class="contents"><!-- ここまで定型 -->
       <div class="cttHead"><!-- コンテンツの見出し -->
-			  <h2>出品情報確認</h2>
+			  <h2>登録情報確認</h2>
 	    </div>
       <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
         <%= form_tag("/posts/create",{:multipart => true}) do %>
@@ -11,24 +11,30 @@
 					<div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
 										<label>画像1</label>
 										<% if @post.image_name1.url then %>
-											<%= image_tag @post.image_name1.url %>
-											<%= hidden_field_tag :"cache[image_name1]", @post.image_name1.cache_name, :class =>'form-element' %>
+                      <figure class="item-img">
+											  <%= image_tag @post.image_name1.url %>
+											  <%= hidden_field_tag :"cache[image_name1]", @post.image_name1.cache_name, :class =>'form-element' %>
+                      </figure>
 										<% end %>
 					</div>
 
 					<div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
 										<label>画像2</label>
 										<% if @post.image_name2.url then %>
-											<%= image_tag @post.image_name2.url %>
-											<%= hidden_field_tag :"cache[image_name2]", @post.image_name2.cache_name, :class =>'form-element' %>
+                      <figure class="item-img">
+											  <%= image_tag @post.image_name2.url %>
+											  <%= hidden_field_tag :"cache[image_name2]", @post.image_name2.cache_name, :class =>'form-element' %>
+                      </figure>
 										<% end %>
 					</div>
 
 					<div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
 										<label>画像3</label>
 										<% if @post.image_name3.url then %>
-											<%= image_tag @post.image_name3.url %>
-											<%= hidden_field_tag :"cache[image_name3]", @post.image_name3.cache_name, :class =>'form-element' %>
+                      <figure class="item-img">
+											  <%= image_tag @post.image_name3.url %>
+											  <%= hidden_field_tag :"cache[image_name3]", @post.image_name3.cache_name, :class =>'form-element' %>
+                      </figure>
 										<% end %>
 					</div>
 
