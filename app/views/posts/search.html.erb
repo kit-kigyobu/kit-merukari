@@ -49,13 +49,12 @@
       <section>
         <div class="contents-itemCard">
           <% @posts.each do |post| %>
-          <div class="itemCard">
+                        <a href="/posts/show/<%= post.id %>">
+<div class="itemCard">
             <div class="itemCard-wrapper">
-              <a href="/posts/show/<%= post.id %>">
                 <figure class="item-img">
                   <%= image_tag post.image_name1.url %>
                 </figure>
-              </a>
               <div class="item-body">
                 <div class="item-name">
                   <span><%= post.name %></span>
@@ -66,6 +65,7 @@
               </div>
             </div>
           </div>
+              </a>
           <% end %>
         </div>
       </section>
@@ -81,7 +81,7 @@
             </div>
         </div>
     </footer>
-    <%=link_to "/posts/new", :class=>"button-Primary floatSallButton button" do %>
+    <%=link_to "/posts/new", :class=>"button-Primary postButton button" do %>
       <span>出品</span>
       <i class="fas fa-camera"></i> 
     <% end %>

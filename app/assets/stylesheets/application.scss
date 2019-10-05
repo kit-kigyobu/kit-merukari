@@ -69,6 +69,25 @@
     }
 }
 
+.nav-tabs {
+    border-bottom: transparent;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    background-color: #e7e7e7;
+    border: transparent;
+    cursor: default;
+}
+
+.nav-tabs>li>a {
+    border-radius: 0 0 4px 4px;
+     :hover {
+        border: transparent;
+    }
+}
+
 @media (min-width: 768px) {
     .navbar>.container-fluid .navbar-brand {
         margin-left: 15px;
@@ -323,7 +342,7 @@ section {
 /*-----container-----*/
 
 .container {
-    background-color: #f8f8f8;
+    background-color: #F5F5F5;
     margin: 0;
     width: 100%;
     min-height: 820px;
@@ -436,8 +455,8 @@ section {
 }
 
 .form-icon {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     margin: auto;
     border-radius: 50%;
     box-sizing: border-box;
@@ -445,9 +464,21 @@ section {
     overflow: hidden;
 }
 
+@media screen and (min-width:960px) {
+    .form-icon {
+        width: 160px;
+        height: 160px;
+        margin: auto;
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: #DCDCDC;
+        overflow: hidden;
+    }
+}
+
 .form-icon>img {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -541,15 +572,32 @@ section {
     margin: 20px 0px;
     padding: 0px;
     width: auto;
-    font-size: 13px;
+    font-size: 16px;
     background: #FFFFFF;
-    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
     border-radius: 3px;
 }
 
 @media (min-width: 768px) {
     .mainCard {
         margin: 20px;
+    }
+}
+
+.mainCard {
+    .mainForm {
+        .form-element-wrapper {
+            label {
+                @extend .form-element;
+                width: 20%;
+                text-align: center;
+            }
+            p {
+                @extend .form-element;
+                border-bottom: 1px #777 transparent;
+                background-color: #e7e7e7;
+            }
+        }
     }
 }
 
@@ -573,6 +621,7 @@ section {
     vertical-align: top;
     position: relative;
     font-size: 13px;
+    overflow: hidden;
 }
 
 .mainCard .contents-itemCard {
@@ -588,7 +637,7 @@ section {
 }
 
 .itemCard img {
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .itemCard-wrapper {
@@ -597,7 +646,7 @@ section {
     text-align: left;
     border-radius: 5px;
     box-sizing: content-box;
-    box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
+    box-shadow: 0 1px 8px rgba(32, 33, 36, 0.28);
 }
 
 .item-img {
@@ -754,35 +803,33 @@ section {
 }
 
 
-/*-----floatSallButton--------*/
+/*-----postButton--------*/
 
-.floatSallButton {
+.postButton {
     display: block;
     position: fixed;
-    bottom: 4px;
-    right: 4px;
+    bottom: 20px;
+    right: 16px;
     z-index: 99;
-    width: 90px;
-    height: 90px;
+    width: 72px;
+    height: 72px;
+    padding: 8px 12px;
     border-radius: 50%;
     color: #fff;
     text-align: center;
     transition: all 0.35s ease-in-out;
+    box-shadow: 0px 3px 18px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
 }
 
-.floatSallButton:hover {
-    box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
-}
-
-.floatSallButton span {
+.postButton span {
     display: block;
-    margin: 2px 0 0;
+    margin: 0px 0 0;
     font-family: 'MS PGothic', 'ＭＳ Ｐゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans';
 }
 
-.floatSallButton .fa-camera {
+.postButton .fa-camera {
     display: block;
-    margin: 4px 0 0;
+    margin: 2px 0 0;
     font-size: 32px;
 }
 
@@ -830,19 +877,25 @@ section {
     .pageFoot .footer-upper .footer-cell {
         margin: 0px 50px;
     }
-    /*-----floatSallButton*/
-    .floatSallButton {
-        bottom: 10%;
-        right: 32px;
-        width: 150px;
-        height: 150px;
-        font-size: 26px;
+    /*-----postButton*/
+    .postButton {
+        bottom: 120px;
+        right: 48px;
+        width: 108px;
+        height: 108px;
+        font-size: 18px;
+        border-radius: 50%;
     }
-    .floatSallButton span {
+    .postButton:hover {
+        transition: all 0.35s ease-in-out;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+    }
+    .postButton span {
         margin: 8px 0 0;
     }
-    .floatSallButton .fa-camera {
+    .postButton .fa-camera {
         margin: 8px 0 0;
-        font-size: 54px;
+        font-size: 42px;
     }
 }

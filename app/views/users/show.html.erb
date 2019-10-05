@@ -15,40 +15,46 @@
               </div>
             </div>
             <div class="form-element-wrapper">
-              <p class="form-element"><%= @user.name %></p>
+              <label>ニックネーム</label>
+              <p><%= @user.name %></p>
+            </div> 
+            <div class="form-element-wrapper">
+              <label>所属課程・専攻</label>
+              <p><%= @course_name %></p>
             </div>
             <div class="form-element-wrapper">
-              <p class="form-element"><%= @course_name %></p>
-            </div>
-            <div class="form-element-wrapper">
-              <p class="form-element">
+              <label>サークル・部活動</label>
+              <p>
                 <% if @user.club.present? then %>
                   <%= @user.club %>
                 <% else %>
-                  <p class="form-element">選択されていません</p>
+                  選択されていません
                 <% end %>
               </p>
             </div>
             <div class="form-element-wrapper">
-              <p class="form-element">
+              <label>学年</label>
+              <p>
                 <%= @user_great %>
               </p>
             </div>
             <div class="form-element-wrapper">
-              <p class="form-element">
+              <label>性別</label>
+              <p>
                 <%= @user.gender_i18n %>
               </p>
             </div>
             <% if @user.id == @current_user.id %>
-            <div class="form-element-wrapper">
-                <%= link_to("編集", "/users/edit", :class =>'form-element button button-Primary') %>
+              <div class="form-element-wrapper">
+                <%= link_to("編集", "/users/edit", :class =>'form-element button button-Primary') %>           
+              </div>
             <% end %>
-            </div>
+              
             <div class="form-element-wrapper">
-            <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
+              <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
                 退会する
-            <% end %>
-            </div>
+              <% end %>
+            </div>            
           </div>
         </div>
       </div>
@@ -73,11 +79,11 @@
             <h3>出品取引一覧</h3>
             <div class="form-element-wrapper">
               <% @exhibit_transactions.each do |transaction| %>
-                <h4 class="panel-title accordion-toggle">
-                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
+                <div class="panel-title accordion-toggle">
+                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">                    
                     <%= transaction.parchase_user.name %>さんとの取引
                   </button>
-                </h4>
+                </div>
                 <div id="<%= transaction.id %>" class="panel-collapse collapse">
                   <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
                   <%= link_to("出品中止","/chats/#{transaction.id}/cansel_exhibit",{method:"post", :class=>"form-element button button-Alert"}) %>
