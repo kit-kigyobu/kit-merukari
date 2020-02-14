@@ -1,52 +1,60 @@
 <div class="wrapper">
   <main class="container">
     <div class="contents">
+      <h4 class="panel-title accordion-toggle">
+        <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">検索条件を絞り込む</button>
+      </h4>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div>
+          <div class="mainForm">
+            <%= form_tag("/posts/search") do %>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>本の名前</label>
+                  <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>カテゴリ</label>
+                  <%= select_tag("select_category",
+                  options_for_select(@select_category, :selected => @search_category),
+                  {class: "form-element"})%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>授業名</label>
+                  <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
+              </div>
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>金額</label>
+                  <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
+                  <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
+              </div>
+
+              <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <label>並び替え</label>
+                  <%= select_tag("order",
+                  options_for_select(@order_selection, :selected => @order),
+                  {class: "form-element"})%>
+              </div>
+              <div class="form-element-wrapper">
+                <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
       <div class="cttHead">
         <h2>検索結果</h2>
       </div>
 
-      <%= form_tag("/posts/search") do %>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>本の名前</label>
-            <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>カテゴリ</label>
-            <%= select_tag("select_category",
-            options_for_select(@select_category, :selected => @search_category),
-            {class: "form-element"})%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>授業名</label>
-            <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
-        </div>
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>金額</label>
-            <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
-            <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
-        </div>
-
-        <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>並び替え</label>
-            <%= select_tag("order",
-            options_for_select(@order_selection, :selected => @order),
-            {class: "form-element"})%>
-        </div>
-
-        <%= submit_tag("検索", :class =>'form-element button button-Primary') %>
-      <% end %>
-
-
       <section>
         <div class="contents-itemCard">
           <% @posts.each do |post| %>
-          <div class="itemCard">
+                        <a href="/posts/show/<%= post.id %>">
+<div class="itemCard">
             <div class="itemCard-wrapper">
-              <a href="/posts/show/<%= post.id %>">
                 <figure class="item-img">
                   <%= image_tag post.image_name1.url %>
                 </figure>
-              </a>
               <div class="item-body">
                 <div class="item-name">
                   <span><%= post.name %></span>
@@ -57,9 +65,15 @@
               </div>
             </div>
           </div>
+              </a>
           <% end %>
         </div>
       </section>
     </div>
   </main>
+
+    <%=link_to "/posts/new", :class=>"button-Primary postButton button" do %>
+      <span>出品</span>
+      <i class="fas fa-camera"></i> 
+    <% end %>
 </div>
