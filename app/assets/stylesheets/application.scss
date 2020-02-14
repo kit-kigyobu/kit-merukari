@@ -107,6 +107,14 @@
     overflow: scroll;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 10px;
+}
+
 //--------------------
 html {
     line-height: 1.15;
@@ -389,7 +397,7 @@ section {
 }
 
 
-/*-----registerStyle-----*/
+/*-----register Style-----*/
 
 .reghead {
     padding: 15px 0px;
@@ -563,6 +571,33 @@ section {
     margin: 4px;
     padding: 4px 8px;
     color: #777;
+}
+
+
+/*----------sideForm---------*/
+
+.sideForm {
+    margin: 0px auto;
+    padding: 0px;
+    width: 100%;
+    font-size: 14px;
+    .form-element-wrapper {
+        .form-element {
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+        .form-field:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+        .form-select:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+    }
 }
 
 
