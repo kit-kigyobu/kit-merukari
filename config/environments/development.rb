@@ -67,7 +67,8 @@ Rails.application.configure do
   :domain => 'smtp.gmail.com',
   :user_name => "kigyobuproject@gmail.com", #gmailアドレス
   :password => ENV["KIGYOBU_GMAIL_PASS"], #gmailパスワード
-  :authentication => 'login',
+  :enable_starttls_auto => true,
+  :authentication => 'plain',
 }
 config.action_mailer.delivery_method = :smtp
 end
