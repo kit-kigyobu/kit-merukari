@@ -9,9 +9,10 @@ class ChatsController < ApplicationController
     @parchase_user = User.find(@transaction.parchase_user_id)
     @exhibit_user = User.find(@transaction.exhibit_user_id)
     #閲覧者のバリデーション
-    if @current_user.id != @parchase_user.id && != @current_user.id != @exhibit_user.id then
+    if @current_user.id != @parchase_user.id && @current_user.id != @exhibit_user.id then
       params['flash'] = "chatのメンバーではありません"
       redirect_to('/')
+    end
     @chats = Chat.where(transaction_id: @transaction.id)
   end
 
