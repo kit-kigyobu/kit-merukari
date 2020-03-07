@@ -8,18 +8,18 @@
             <p>チャットルーム</p>
           </div>
         </div>
-        <div class="chat">
+        <div class="">
           <div class="chatField">      
             <% @chats.each do |chat| %>
               <% if chat.parchase? %>
-                <div class="form-element chat" style="border-bottom: black;color:black;">
-                  <span>購入側：<%= @parchase_user.name %></span>
-                  <span class="form-element chat" style="border-bottom: black;;color:black;"><%= chat.message %></span>
+                <div class="chat">
+                  <h4 class="chatField-name">購入側：<%= @parchase_user.name %></h4>
+                  <span class="form-element chatField-body"><%= chat.message %></span>
                 </div>
               <% else %>
-                <div class="form-element chat" style="border-bottom: black;color:black;">
-                  <span>出品側：<%= @exhibit_user.name %></span>
-                  <span class="form-element chat" style="border-bottom: black;color:blac;"><%= chat.message %></span>
+                <div class="chat">
+                  <h4 class="chatField-name">出品側：<%= @exhibit_user.name %></h4>
+                  <span class="form-element chatField-body"><%= chat.message %></span>
                 </div>
               <% end %>
             <% end %>
@@ -33,7 +33,7 @@
             %>
             <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
             
-            <%= submit_tag("送信",:class =>'send-btn form-element button button-Alert') %>
+            <%= submit_tag("送信",:class =>'send-btn form-element button button-Primary') %>
         
           <% end %>
         
