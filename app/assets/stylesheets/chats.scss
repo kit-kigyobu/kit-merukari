@@ -1,3 +1,35 @@
-// Place all the styles related to the chats controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+    // Place all the styles related to the chats controller here.
+    // They will automatically be included in application.css.
+    // You can use Sass (SCSS) here: http://sass-lang.com/
+    .chat {
+        padding: 10px;
+    }
+    
+    .chatField {
+        margin: auto;
+        text-align: left;
+    }
+    
+    .send-container {
+        margin: auto;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    .send-message {
+        width: 100%;
+        line-height: 16px;
+        padding: 14px 6px 0px 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2) inset;
+    }
+    
+    .send-btn {
+        font-weight: bold;
+        width: 240px !important;
+    }
+    
+    .select-btn {
+        width: 100% !important;
+    }
