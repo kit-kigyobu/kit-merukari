@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :content
       t.belongs_to :user
+      t.string :author
       t.string :image_name1
       t.string :image_name2
       t.string :image_name3
