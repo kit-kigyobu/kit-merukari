@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
     t.string "name"
     t.text "content"
     t.bigint "user_id"
+    t.string "author"
     t.string "image_name1"
     t.string "image_name2"
     t.string "image_name3"
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
     t.integer "exhibit_user_id", null: false
     t.integer "parchase_status", default: 0, null: false
     t.integer "exhibit_status", default: 0, null: false
-    t.integer "love"
+    t.integer "love", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
