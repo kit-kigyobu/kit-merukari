@@ -99,6 +99,7 @@ class ChatsController < ApplicationController
     @love = params['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.love += @love.to_i
+    transaction.exhibit_status = Transaction.exhibit_statuses[:exhibit_done]
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:exhibit],
@@ -122,6 +123,7 @@ class ChatsController < ApplicationController
     @love = params['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.love += @love.to_i
+    transaction.exhibit_status = Transaction.exhibit_statuses[:parchase_done]
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:parchase],
