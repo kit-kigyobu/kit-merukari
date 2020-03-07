@@ -1,110 +1,146 @@
 <div class="wrapper">
   <main class="container">
-  	<div class="contents"><!-- ここまで定型 -->
+  	<div class="contents row"><!-- ここまで定型 -->
       <div class="cttHead"><!-- コンテンツの見出し -->
 			  <h2>取引情報確認</h2>
 	    </div>
-      <div class="mainCard">
-        <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+      <div class="col-md-6">
+        <div class="mainCard">
+          <div class="mainForm">
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>ニックネーム</label>
-            <%= @exhibit_user.name %>
+            <div class="post-time">
+              <p>出品時間：<%= @post.created_at %></p>
+            </div>
+            
+            <div class="tab-content">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a href="#Img1" data-toggle="tab">Img1</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Img2" data-toggle="tab">Img2</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Img3" data-toggle="tab">Img3</a>
+                </li>
+              </ul>            
+              <div id="Img1" class="tab-pane active">
+                <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <% if @post.image_name1 then %>
+                    <figure class="item-img">
+                      <%= image_tag @post.image_name1.to_s %>
+                    </figure>
+                  <% end %>
+                </div>
+              </div>
+
+              <div id="Img2" class="tab-pane">
+                <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <% if @post.image_name2 then %>
+                    <figure class="item-img">
+                      <%= image_tag @post.image_name2.to_s %>
+                    </figure>
+                  <% end %>
+                </div>
+              </div>
+
+              <div id="Img3" class="tab-pane">
+                <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+                  <% if @post.image_name3 then %>
+                    <figure class="item-img">
+                      <%= image_tag @post.image_name3.to_s %>
+                    </figure>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>本の名前</label>
+              <p><%= @post.name%></p>
+            </div>
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>カテゴリ</label>
+              <p><%= @category_name %></p>
+            </div>
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>値段</label>
+              <p><%= @post.price %></p>
+            </div>
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>著者</label>
+              <p><%= @post.author %></p>
+            </div>
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>授業名</label>
+              <p><%= @post.class_name %></p>
+            </div>
+
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>説明</label>
+              <p><%= @post.content %></p>
+            </div>
+
+            <%if @current_user.id != @exhibit_user.id%>
+              <div class="form-element-wrapper">
+                <%= link_to("チャットを開始", "/chats/#{@post.id}/start", {method: "post", :class=>"form-element button button-Primary"}) %>
+              </div>
+            <% else %>
+              あなたは投稿者です。
+            <% end %>
           </div>
+        </div>
+      </div>
+       <div class="col-md-6">
+        <div class="mainCard">
+          <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+            
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>アイコン</label>
+              <div class="form-icon">
+                <% if @exhibit_user.icon.url then %>
+                  <%= image_tag @exhibit_user.icon.url %>
+                <% end %>
+              </div>
+            </div>
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>所属課程・専攻</label>
-            <%= @course_name %>
-          </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>ニックネーム</label>
+              <p><%= @exhibit_user.name %></p>
+            </div>
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>サークル・部活動</label>
-              <% if @exhibit_user.club.present? then %>
-                <%= @exhibit_user.club %>
-              <% else %>
-                <p>選択されていません</p>
-              <% end %>
-          </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>所属課程・専攻</label>
+              <p><%= @course_name %></p>
+            </div>
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>学年</label>
-              <%= @user_great %>
-          </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>サークル・部活動</label>
+              <p>
+                <% if @exhibit_user.club.present? then %>
+                  <%= @exhibit_user.club %>
+                <% else %>
+                  <p>選択されていません</p>
+                <% end %>
+              </p>
+            </div>
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>性別</label>
-              <%= @exhibit_user.gender_i18n %>
-          </div>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>学年</label>
+              <p><%= @user_great %></p>
+            </div>
 
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>アイコン</label>
-            <div class="form-icon">
-              <% if @exhibit_user.icon.url then %>
-                <%= image_tag @exhibit_user.icon.url %>
-              <% end %>
+            <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
+              <label>性別</label>
+              <p><%= @exhibit_user.gender_i18n %></p>
             </div>
           </div>
-
-
-          <div class="post-time">
-            出品時間：<%= @post.created_at %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <% if @post.image_name1 then %>
-              <%= image_tag @post.image_name1.to_s %>
-            <% end %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <% if @post.image_name2 then %>
-              <%= image_tag @post.image_name2.to_s %>
-            <% end %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <% if @post.image_name3 then %>
-              <%= image_tag @post.image_name3.to_s %>
-            <% end %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>本の名前</label>
-            <%= @post.name%>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>カテゴリ</label>
-            <%= @category_name %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>値段</label>
-            <%= @post.price %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>著者</label>
-            <%= @post.author %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>授業名</label>
-            <%= @post.class_name %>
-          </div>
-
-          <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-            <label>説明</label>
-            <%= @post.content %>
-          </div>
-
-          <%if @current_user.id != @exhibit_user.id%>
-            <div class="post-menus">
-              <%= link_to("取引を始める", "/chats/#{@post.id}/start", {method: "post"}) %>
-            </div>
-          <% else %>
-            あなたは投稿者です。
-          <% end %>
         </div>
       </div>
     </div>

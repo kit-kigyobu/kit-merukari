@@ -13,6 +13,17 @@
             </div>
 
             <div class="tab-content">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a href="#Img1" data-toggle="tab">Img1</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Img2" data-toggle="tab">Img2</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Img3" data-toggle="tab">Img3</a>
+                </li>
+              </ul>
 
               <div id="Img1" class="tab-pane active">
                 <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -43,20 +54,7 @@
                   <% end %>
                 </div>
               </div>
-
             </div>
-
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a href="#Img1" data-toggle="tab">Img1</a>
-              </li>
-              <li class="nav-item">
-                <a href="#Img2" data-toggle="tab">Img2</a>
-              </li>
-              <li class="nav-item">
-                <a href="#Img3" data-toggle="tab">Img3</a>
-              </li>
-            </ul>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
               <label>本の名前</label>
@@ -102,13 +100,10 @@
         </div>
       </div>
 
-      <div class="cttHead"><!-- コンテンツの見出し -->
-			  <h2>出品者の情報</h2>
-	    </div>
-
       <div class="col-md-6">
         <div class="mainCard">
           <div class="mainForm"><!-- フォーム作るときはこれ　tagはdivがよさげ -->
+            <h2>出品者の情報</h2>
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
               <div class="form-icon">
                 <% if @exhibit_user.icon.url then %>
