@@ -1,4 +1,4 @@
-/*
+    /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,803 +13,781 @@
  *= require_tree .
  *= require_self
  */
-
-@import "bootstrap";
-// bootstrap 変更
-.bg-primary {
-    background: #45c8ff;
-}
-
-.navbar-default .navbar-toggle {
-    border-radius: 0;
-    border-color: transparent;
-}
-
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
-    background-color: #fff;
-}
-
-.navbar {
-    z-index: 99;
-    border: 0px solid transparent;
-    border-radius: 0;
-    margin-bottom: 0;
-    box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
-}
-
-.nav>li:active {
-    background-color: #f8f8f8;
-}
-
-.nav>li:hover {
-    background-color: #f8f8f8;
-}
-
-.navbar-brand {
-    margin-left: 15px;
-    padding: 5px 5px;
-}
-
-.col-md-6 {
-    padding: 0px;
-}
-
-.alert {
-    margin: 0;
-}
-
-.form-control {
-    border-radius: 4px;
-     :active {
+    
+    @import "bootstrap";
+    // bootstrap 変更
+    .bg-primary {
+        background: #45c8ff;
+    }
+    
+    .navbar-default .navbar-toggle {
+        border-radius: 0;
+        border-color: transparent;
+    }
+    
+    .navbar-default .navbar-toggle:focus,
+    .navbar-default .navbar-toggle:hover {
+        background-color: #fff;
+    }
+    
+    .navbar {
+        z-index: 99;
+        border: 0px solid transparent;
+        border-radius: 0;
+        margin-bottom: 0;
         box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
     }
-     :hover {
-        box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
+    
+    .nav>li:active {
+        background-color: #f8f8f8;
     }
-}
-
-.nav-tabs {
-    border-bottom: transparent;
-}
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:hover,
-.nav-tabs>li.active>a:focus {
-    background-color: #e7e7e7;
-    border: transparent;
-    cursor: default;
-}
-
-.nav-tabs>li>a {
-    border-radius: 0 0 4px 4px;
-     :hover {
-        border: transparent;
+    
+    .nav>li:hover {
+        background-color: #f8f8f8;
     }
-}
-
-@media (min-width: 768px) {
-    .navbar>.container-fluid .navbar-brand {
+    
+    .navbar-brand {
         margin-left: 15px;
+        padding: 5px 5px;
     }
-}
-
-.navbar-form {
-    border-top: 0px solid transparent;
-    border-bottom: 0px solid transparent;
-    margin-top: 4px;
-}
-
-// bootstrap 変更ここまで
-// rails のエラー表示
-#error_explanation {
-    width: 100%;
-    overflow: scroll;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    margin-top: 10px;
-}
-
-//--------------------
-html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-}
-
-* {
-    background-repeat: no-repeat;
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    width: auto;
-    margin: 0px !important;
-    font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic';
-}
-
-a,
-a:hover,
-a:active {
-    color: black;
-    text-decoration: none;
-}
-
-ul {
-    margin: 5px 0px;
-    list-style: none;
-}
-
-li {
-    padding: 4px 8px;
-}
-
-li a:hover,
-li a:active {
-    opacity: 0.8;
-}
-
-a img {
-    border: none;
-}
-
-section {
-    text-align: center;
-}
-
-.logo {
-    margin: 0px;
-    padding: 3px;
-}
-
-.nav-bg {
-    background-color: #fff;
-}
-
-//ファイルのアップロードボタン
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-}
-
-//ボタンのスタイル
-.button {
-    z-index: 99;
-    border-radius: 6px;
-    border: 0px solid transparent;
-    text-align: center;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-//灰色のボタン
-.button-Gray {
-    display: block;
-    color: #fff;
-    height: 50px;
-    padding: 15px 12px;
-    background: gray;
-    transition: .15s;
-}
-
-.button-Gray:hover {
-    outline: 0;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(96, 96, 96, 0.6);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(96, 96, 96, 0.6);
-    color: #FFFFFF
-}
-
-//白色のボタン
-.button-White {
-    display: block;
-    color: #777;
-    height: 50px;
-    padding: 15px 12px;
-    background: #FFFFFF;
-    transition: .15s;
-    border: 1px solid #B7B7B7;
-}
-
-//水色のボタン(一般用のボタン)
-.button-Primary {
-    display: block;
-    background: #45c8ff;
-    color: #FFFFFF;
-    height: 50px;
-    padding: 15px 12px;
-    transition: .15s;
-}
-
-.button-Primary:hover {
-    outline: 0;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    color: #FFFFFF
-}
-
-//オレンジ色のボタン(注意促す用のボタン。削除やキャンセルなど)
-.button-Alert {
-    display: block;
-    height: 50px;
-    padding: 15px 12px;
-    background: #ffb259;
-    color: #FFFFFF;
-    transition: .15s;
-}
-
-.button-Alert:hover {
-    outline: 0;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 181, 102, 0.6);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 181, 102, 0.6);
-    color: #FFFFFF;
-}
-
-//ヘッダーの背景色
-.bg-sub {
-    background: #F5F5F5;
-}
-
-//一番前に表示したいやつ
-.z-999 {
-    z-index: 999;
-}
-
-//スマホの画面サイズで見えるやつ
-.my-xs-visible {
-    display: inline;
-}
-
-@media (min-width: 768px) {
+    
+    .col-md-6 {
+        padding: 0px;
+    }
+    
+    .alert {
+        margin: 0;
+    }
+    
+    .form-control {
+        border-radius: 4px;
+         :active {
+            box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
+        }
+         :hover {
+            box-shadow: 0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
+        }
+    }
+    
+    .nav-tabs {
+        border-bottom: transparent;
+    }
+    
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:hover,
+    .nav-tabs>li.active>a:focus {
+        background-color: #e7e7e7;
+        border: transparent;
+        cursor: default;
+    }
+    
+    .nav-tabs>li>a {
+        border-radius: 0 0 4px 4px;
+         :hover {
+            border: transparent;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .navbar>.container-fluid .navbar-brand {
+            margin-left: 15px;
+        }
+    }
+    
+    .navbar-form {
+        border-top: 0px solid transparent;
+        border-bottom: 0px solid transparent;
+        margin-top: 4px;
+    }
+    
+    // bootstrap 変更ここまで
+    // rails のエラー表示
+    #error_explanation {
+        width: 100%;
+        overflow: scroll;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin-top: 10px;
+    }
+    
+    //--------------------
+    html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    * {
+        background-repeat: no-repeat;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        width: auto;
+        margin: 0px !important;
+        font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic';
+    }
+    
+    a,
+    a:hover,
+    a:active {
+        color: black;
+        text-decoration: none;
+    }
+    
+    ul {
+        margin: 5px 0px;
+        list-style: none;
+    }
+    
+    li {
+        padding: 4px 8px;
+    }
+    
+    li a:hover,
+    li a:active {
+        opacity: 0.8;
+    }
+    
+    a img {
+        border: none;
+    }
+    
+    section {
+        text-align: center;
+    }
+    
+    .logo {
+        margin: 0px;
+        padding: 3px;
+    }
+    
+    .nav-bg {
+        background-color: #fff;
+    }
+    
+    //ファイルのアップロードボタン
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+    }
+    
+    //ボタンのスタイル
+    .button {
+        z-index: 99;
+        border-radius: 6px;
+        border: 0px solid transparent;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    
+    //灰色のボタン
+    .button-Gray {
+        display: block;
+        color: #fff;
+        height: 50px;
+        padding: 15px 12px;
+        background: gray;
+        transition: .15s;
+    }
+    
+    .button-Gray:hover {
+        outline: 0;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(96, 96, 96, 0.6);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(96, 96, 96, 0.6);
+        color: #FFFFFF
+    }
+    
+    //白色のボタン
+    .button-White {
+        display: block;
+        color: #777;
+        height: 50px;
+        padding: 15px 12px;
+        background: #FFFFFF;
+        transition: .15s;
+        border: 1px solid #B7B7B7;
+    }
+    
+    //水色のボタン(一般用のボタン)
+    .button-Primary {
+        display: block;
+        background: #45c8ff;
+        color: #FFFFFF;
+        height: 50px;
+        padding: 15px 12px;
+        transition: .15s;
+    }
+    
+    .button-Primary:hover {
+        outline: 0;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        color: #FFFFFF
+    }
+    
+    //オレンジ色のボタン(注意促す用のボタン。削除やキャンセルなど)
+    .button-Alert {
+        display: block;
+        height: 50px;
+        padding: 15px 12px;
+        background: #ffb259;
+        color: #FFFFFF;
+        transition: .15s;
+    }
+    
+    .button-Alert:hover {
+        outline: 0;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 181, 102, 0.6);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 181, 102, 0.6);
+        color: #FFFFFF;
+    }
+    
+    //ヘッダーの背景色
+    .bg-sub {
+        background: #F5F5F5;
+    }
+    
+    //一番前に表示したいやつ
+    .z-999 {
+        z-index: 999;
+    }
+    
+    //スマホの画面サイズで見えるやつ
     .my-xs-visible {
-        display: none;
-    }
-}
-
-//スマホの画面サイズi以外で見えるやつ
-.my-xs-invisible {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .my-xs-invisible {
         display: inline;
     }
-}
-
-.my-xs-invisible>.form-control {
-    height: 58px;
-}
-
-.my-xs-invisible .navbar-form {
-    position: relative;
-    top: 4px;
-}
-
-//ラッパー
-.wrapper {
-    background-color: #212121;
-    margin: 0;
-    width: 100%;
-}
-
-
-/*-----container-----*/
-
-.container {
-    background-color: #F5F5F5;
-    margin: 0;
-    width: 100%;
-    min-height: 820px;
-}
-
-
-/*-----banner-----*/
-
-.banner-wrapper {
-    width: 100%;
-    height: 200px;
-    border-bottom: 1px solid #F5F5F5;
-    text-align: center;
-    background-position: center;
-    background-position: right bottom
-}
-
-.banner {
-    background-image: url("logo_mt_w.png");
-    background-repeat: repeat;
-    background-size: 50px;
-    background-position: 5px;
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.banner-wrapper .button {
-    top: 75px;
-    margin: auto;
-    width: 300px;
-    border-radius: 25px;
-    z-index: 99;
-}
-
-
-/*-----contents-----*/
-
-.contents {
-    margin: auto;
-    padding: 0px;
-    width: auto;
-    text-align: center;
-}
-
-@media screen and (min-width:960px) {
-    .contents {
-        padding: 20px 0px;
-        width: 960px;
+    
+    @media (min-width: 768px) {
+        .my-xs-visible {
+            display: none;
+        }
     }
-}
-
-//コンテンツのヘッダー（題名）
-.cttHead {
-    margin-top: 0px;
-    padding: 0px 8px;
-    font-size: 20px;
-    color: black;
-    text-align: center;
-}
-
-//mainForm ログインログアウトとかで使ってるやつ.幅が300pxになってる
-.mainForm {
-    margin: 0px auto;
-    padding: 10px;
-    width: 300px;
-    font-size: 16px;
-}
-
-.mainForm form {
-    text-align: left;
-    margin: auto;
-    padding-bottom: 21px;
-}
-
-//フォーム内の要素をまとめるやつ
-.form-element-wrapper {
-    margin: 26px 0px;
-}
-
-.form-element-wrapper .button {
-    margin: 10px 0px;
-}
-
-.mainForm label {
-    color: #777;
-}
-
-.mainForm em {
-    color: #777;
-}
-
-.mainForm strong {
-    margin-left: 8px;
-    padding: 2px 4px;
-    font-size: 13px;
-    color: white;
-    background-color: red;
-    border-radius: 2px;
-}
-
-//フォームのフィールドのスタイル
-.form-field {
-    height: 48px;
-    color: #555;
-    border: 1px solid #B7B7B7;
-}
-
-.form-field:focus {
-    border-color: #45c8ff;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-}
-
-//セレクタボタンのスタイル
-.form-select {
-    height: 48px;
-    color: #555;
-    border: 1px solid #B7B7B7;
-}
-
-.form-select:focus {
-    border-color: #45c8ff;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-}
-
-//ユーザーアイコン画像のスタイル
-.form-icon {
-    width: 120px;
-    height: 120px;
-    margin: auto;
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: #DCDCDC;
-    overflow: hidden;
-}
-
-@media screen and (min-width:960px) {
+    
+    //スマホの画面サイズi以外で見えるやつ
+    .my-xs-invisible {
+        display: none;
+    }
+    
+    @media (min-width: 768px) {
+        .my-xs-invisible {
+            display: inline;
+        }
+    }
+    
+    .my-xs-invisible>.form-control {
+        height: 58px;
+    }
+    
+    .my-xs-invisible .navbar-form {
+        position: relative;
+        top: 4px;
+    }
+    
+    //ラッパー
+    .wrapper {
+        background-color: #212121;
+        margin: 0;
+        width: 100%;
+    }
+    /*-----container-----*/
+    
+    .container {
+        background-color: #F5F5F5;
+        margin: 0;
+        width: 100%;
+        min-height: 820px;
+    }
+    /*-----mainVisual-----*/
+    
+    .mainVisual-wrapper {
+        width: 100%;
+        // height: 100px;
+        border-bottom: 1px solid #F5F5F5;
+        text-align: center;
+    }
+    
+    .mainVisual img {
+        width: 100%;
+        vertical-align: middle;
+        object-fit: fill;
+    }
+    /*-----contents-----*/
+    
+    .contents {
+        margin: auto;
+        padding: 0px;
+        width: auto;
+        text-align: center;
+    }
+    
+    @media screen and (min-width:960px) {
+        .contents {
+            padding: 20px 0px;
+            width: 960px;
+        }
+    }
+    
+    //コンテンツのヘッダー（題名）
+    .cttHead {
+        margin-top: 0px;
+        padding: 0px 8px;
+        font-size: 20px;
+        color: black;
+        text-align: center;
+    }
+    
+    //mainForm ログインログアウトとかで使ってるやつ.幅が300pxになってる
+    .mainForm {
+        margin: 0px auto;
+        padding: 10px;
+        width: 300px;
+        font-size: 16px;
+    }
+    
+    .mainForm form {
+        text-align: left;
+        margin: auto;
+        padding-bottom: 21px;
+    }
+    
+    //フォーム内の要素をまとめるやつ
+    .form-element-wrapper {
+        margin: 26px 0px;
+    }
+    
+    .form-element-wrapper .button {
+        margin: 10px 0px;
+    }
+    
+    .mainForm label {
+        color: #777;
+    }
+    
+    .mainForm em {
+        color: #777;
+    }
+    
+    .mainForm strong {
+        margin-left: 8px;
+        padding: 2px 4px;
+        font-size: 13px;
+        color: white;
+        background-color: red;
+        border-radius: 2px;
+    }
+    
+    //フォームのフィールドのスタイル
+    .form-field {
+        height: 48px;
+        color: #555;
+        border: 1px solid #B7B7B7;
+    }
+    
+    .form-field:focus {
+        border-color: #45c8ff;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+    
+    //セレクタボタンのスタイル
+    .form-select {
+        height: 48px;
+        color: #555;
+        border: 1px solid #B7B7B7;
+    }
+    
+    .form-select:focus {
+        border-color: #45c8ff;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+    
+    //ユーザーアイコン画像のスタイル
     .form-icon {
-        width: 160px;
-        height: 160px;
+        width: 120px;
+        height: 120px;
         margin: auto;
         border-radius: 50%;
         box-sizing: border-box;
         background-color: #DCDCDC;
         overflow: hidden;
     }
-}
-
-.form-icon>img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-//フォームの要素につけるやつ
-.form-element {
-    width: 100%;
-    margin: 10px 0px;
-    padding: 12px 16px;
-    vertical-align: middle;
-    border-radius: 6px;
-    box-sizing: border-box;
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-
-//ログインとかの下についてるっメニュー
-.loginhelp {
-    text-align: center;
-    margin: auto;
-    padding-bottom: 21px;
-    ul {
-        list-style: square;
+    
+    @media screen and (min-width:960px) {
+        .form-icon {
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            border-radius: 50%;
+            box-sizing: border-box;
+            background-color: #DCDCDC;
+            overflow: hidden;
+        }
+    }
+    
+    .form-icon>img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    //フォームの要素につけるやつ
+    .form-element {
+        width: 100%;
+        margin: 10px 0px;
+        padding: 12px 16px;
+        vertical-align: middle;
+        border-radius: 6px;
+        box-sizing: border-box;
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+    
+    //ログインとかの下についてるっメニュー
+    .loginhelp {
+        text-align: center;
+        margin: auto;
+        padding-bottom: 21px;
+        ul {
+            list-style: square;
+            font-size: 14px;
+            font-weight: bold;
+            color: #777;
+        }
+        li {
+            margin: 4px;
+            padding: 4px 8px;
+        }
+        a {
+            margin: 4px;
+            padding: 4px 8px;
+            color: #777;
+        }
+    }
+    
+    //sideForm サーチ画面の検索フォーム
+    .sideForm {
+        margin: 0px auto;
+        padding: 0px;
+        width: 100%;
         font-size: 14px;
-        font-weight: bold;
-        color: #777;
-    }
-    li {
-        margin: 4px;
-        padding: 4px 8px;
-    }
-    a {
-        margin: 4px;
-        padding: 4px 8px;
-        color: #777;
-    }
-}
-
-//sideForm サーチ画面の検索フォーム
-.sideForm {
-    margin: 0px auto;
-    padding: 0px;
-    width: 100%;
-    font-size: 14px;
-    .form-element-wrapper {
-        .form-element {
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            line-height: 1.5;
-            font-size: 16px;
-        }
-        .form-field:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-        .form-select:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-}
-
-
-/*----------mainCard----------*/
-
-.mainCard {
-    margin: 20px 0px;
-    padding: 0px;
-    width: auto;
-    font-size: 16px;
-    background: #ffffff;
-    border-radius: 3px;
-}
-
-@media (min-width: 768px) {
-    .mainCard {
-        margin: 20px;
-        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    }
-}
-
-.mainCard {
-    .mainForm {
         .form-element-wrapper {
-            label {
-                @extend .form-element;
-                width: 100%;
-                text-align: left;
-                font-size: 1rem;
-                margin: 0px;
-                padding: 0px 16px;
-                border-bottom: 1px #777 transparent;
-                z-index: 9;
-                display: inline-flex;
+            .form-element {
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                line-height: 1.5;
+                font-size: 16px;
             }
-            p {
-                @extend .form-element;
-                width: 100%;
-                text-align: left;
-                margin: 0px;
-                border-bottom: 1px #777 transparent;
-                background-color: #e7e7e7;
-                font-size: 1.2rem;
-                display: block;
+            .form-field:focus {
+                outline: 0;
+                box-shadow: none;
+            }
+            .form-select:focus {
+                outline: 0;
+                box-shadow: none;
             }
         }
     }
-}
-
-//商品一覧のカードのスタイル
-.contents-itemCard {
-    display: grid;
-    flex-wrap: wrap;
-    width: auto;
-    margin: 0 auto;
-    box-sizing: border-box;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    grid-gap: 0;
-    align-content: center;
-}
-
-.itemCard {
-    width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    font-size: 13px;
-    overflow: hidden;
-}
-
-.mainCard .contents-itemCard {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    grid-gap: 0;
-    align-content: center;
-}
-
-@media screen and (min-width:960px) {
-    .contents-itemCard {
-        grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    /*----------mainCard----------*/
+    
+    .mainCard {
+        margin: 20px 0px;
+        padding: 0px;
+        width: auto;
+        font-size: 16px;
+        background: #ffffff;
+        border-radius: 3px;
     }
+    
+    @media (min-width: 768px) {
+        .mainCard {
+            margin: 20px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        }
+    }
+    
+    .mainCard {
+        .mainForm {
+            .form-element-wrapper {
+                label {
+                    @extend .form-element;
+                    width: 100%;
+                    text-align: left;
+                    font-size: 1rem;
+                    margin: 0px;
+                    padding: 0px 16px;
+                    border-bottom: 1px #777 transparent;
+                    z-index: 9;
+                    display: inline-flex;
+                }
+                p {
+                    @extend .form-element;
+                    width: 100%;
+                    text-align: left;
+                    margin: 0px;
+                    border-bottom: 1px #777 transparent;
+                    background-color: #e7e7e7;
+                    font-size: 1.2rem;
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    //商品一覧のカードのスタイル
+    .contents-itemCard {
+        display: grid;
+        flex-wrap: wrap;
+        width: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        grid-gap: 0;
+        align-content: center;
+    }
+    
     .itemCard {
         width: 100%;
-        font-size: 16px;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        font-size: 13px;
+        overflow: hidden;
     }
+    
+    .mainCard .contents-itemCard {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        grid-gap: 0;
+        align-content: center;
+    }
+    
+    @media screen and (min-width:960px) {
+        .contents-itemCard {
+            grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+        }
+        .itemCard {
+            width: 100%;
+            font-size: 16px;
+        }
+        .item-body {
+            padding: 8px;
+            height: 72px;
+        }
+        .item-name {
+            padding: 2px 0px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .item-price {
+            padding: 4px 0px;
+            height: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+    
+    .itemCard img {
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .itemCard-wrapper {
+        margin: 6px;
+        background: #fff;
+        text-align: left;
+        border-radius: 5px;
+        box-sizing: content-box;
+        box-shadow: 0 1px 8px rgba(32, 33, 36, 0.28);
+    }
+    
+    .item-img {
+        position: relative;
+        padding: 0 0 100%;
+        filter: saturate(120%);
+        overflow: hidden;
+        text-align: left;
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            object-fit: cover;
+        }
+    }
+    
     .item-body {
-        padding: 8px;
+        padding: 4px;
         height: 72px;
+        color: black;
     }
+    
     .item-name {
         padding: 2px 0px;
         height: 40px;
         overflow: hidden;
     }
+    
     .item-price {
-        padding: 4px 0px;
+        padding: 2px 0px;
         height: 20px;
-        font-size: 12px;
         font-weight: bold;
     }
-}
-
-.itemCard img {
-    border-radius: 5px 5px 0px 0px;
-}
-
-.itemCard-wrapper {
-    margin: 6px;
-    background: #fff;
-    text-align: left;
-    border-radius: 5px;
-    box-sizing: content-box;
-    box-shadow: 0 1px 8px rgba(32, 33, 36, 0.28);
-}
-
-.item-img {
-    position: relative;
-    padding: 0 0 100%;
-    filter: saturate(120%);
-    overflow: hidden;
-    text-align: left;
-    img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
-        object-fit: cover;
+    
+    //ヘルプ画面のスタイル
+    .listCard {
+        width: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
-}
-
-.item-body {
-    padding: 4px;
-    height: 72px;
-    color: black;
-}
-
-.item-name {
-    padding: 2px 0px;
-    height: 40px;
-    overflow: hidden;
-}
-
-.item-price {
-    padding: 2px 0px;
-    height: 20px;
-    font-weight: bold;
-}
-
-//ヘルプ画面のスタイル
-.listCard {
-    width: auto;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.listCard-flatbox {
-    display: block;
-    width: auto;
-    margin: 4px;
-    padding: 4px 8px;
-    color: black;
-    border-radius: 4px;
-    border: 1px solid transparent;
-}
-
-//フッターのスタイル
-.pageFoot {
-    padding: 40px 10px 20px 10px;
-    text-align: center;
-    width: auto;
-    font-size: 14px;
-    color: #FFFFFF;
-    background-color: #212121;
-}
-
-.pageFoot h2 {
-    font-size: 14px;
-}
-
-.pageFoot a {
-    transition: all 0.28s ease-in-out;
-    color: white;
-    &:hover {
-        color: orange;
+    
+    .listCard-flatbox {
+        display: block;
+        width: auto;
+        margin: 4px;
+        padding: 4px 8px;
+        color: black;
+        border-radius: 4px;
+        border: 1px solid transparent;
     }
-    &:focus {
-        color: orange;
+    
+    //フッターのスタイル
+    .pageFoot {
+        padding: 40px 10px 20px 10px;
+        text-align: center;
+        width: auto;
+        font-size: 14px;
+        color: #FFFFFF;
+        background-color: #212121;
     }
-}
-
-.pageFoot .footer-upper {
-    display: list-item;
-    text-align: left;
-}
-
-.pageFoot .footer-upper ul {
-    padding-left: 10px;
-    text-align: left;
-}
-
-.pageFoot .footer-bottom {
-    padding-top: 10px;
-    margin: 0px 20px;
-    text-align: center;
-}
-
-.pageFoot .logo_mono {
-    width: 50px;
-    margin: auto;
-}
-
-.pageFoot .copyright {
-    margin: auto;
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px solid #3c3c3c;
-    font-size: 10px;
-}
-
-@media screen and (min-width:960px) {
-    /*-----footer-----*/
-    .pageFoot .footer-upper nav {
+    
+    .pageFoot h2 {
+        font-size: 14px;
+    }
+    
+    .pageFoot a {
+        transition: all 0.28s ease-in-out;
+        color: white;
+        &:hover {
+            color: orange;
+        }
+        &:focus {
+            color: orange;
+        }
+    }
+    
+    .pageFoot .footer-upper {
+        display: list-item;
+        text-align: left;
+    }
+    
+    .pageFoot .footer-upper ul {
+        padding-left: 10px;
+        text-align: left;
+    }
+    
+    .pageFoot .footer-bottom {
+        padding-top: 10px;
+        margin: 0px 20px;
         text-align: center;
     }
-    .pageFoot .footer-upper nav>ul {
-        display: inline-flex;
+    
+    .pageFoot .logo_mono {
+        width: 50px;
+        margin: auto;
     }
-    .pageFoot .footer-upper .footer-cell {
-        margin: 0px 50px;
+    
+    .pageFoot .copyright {
+        margin: auto;
+        margin-top: 5px;
+        padding-top: 5px;
+        border-top: 1px solid #3c3c3c;
+        font-size: 10px;
     }
-}
-
-//出品ボタンのスタイル
-.postButton {
-    display: block;
-    position: fixed;
-    bottom: 20px;
-    right: 16px;
-    z-index: 99;
-    width: 72px;
-    height: 72px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    color: #fff;
-    text-align: center;
-    transition: all 0.35s ease-in-out;
-    box-shadow: 0px 3px 18px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
-}
-
-.postButton span {
-    display: block;
-    margin: 0px 0 0;
-    font-family: 'MS PGothic', 'ＭＳ Ｐゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans';
-}
-
-.postButton .fa-camera {
-    display: block;
-    margin: 2px 0 0;
-    font-size: 32px;
-}
-
-@media screen and (min-width:960px) {
-    /*-----postButton*/
+    
+    @media screen and (min-width:960px) {
+        /*-----footer-----*/
+        .pageFoot .footer-upper nav {
+            text-align: center;
+        }
+        .pageFoot .footer-upper nav>ul {
+            display: inline-flex;
+        }
+        .pageFoot .footer-upper .footer-cell {
+            margin: 0px 50px;
+        }
+    }
+    
+    //出品ボタンのスタイル
     .postButton {
-        bottom: 120px;
-        right: 48px;
-        width: 108px;
-        height: 108px;
-        font-size: 18px;
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 16px;
+        z-index: 99;
+        width: 72px;
+        height: 72px;
+        padding: 8px 12px;
         border-radius: 50%;
-    }
-    .postButton:hover {
+        color: #fff;
+        text-align: center;
         transition: all 0.35s ease-in-out;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
+        box-shadow: 0px 3px 18px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60, 64, 68, 0.12);
     }
+    
     .postButton span {
-        margin: 8px 0 0;
+        display: block;
+        margin: 0px 0 0;
+        font-family: 'MS PGothic', 'ＭＳ Ｐゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans';
     }
+    
     .postButton .fa-camera {
-        margin: 8px 0 0;
-        font-size: 42px;
+        display: block;
+        margin: 2px 0 0;
+        font-size: 32px;
     }
-}
+    
+    @media screen and (min-width:960px) {
+        /*-----postButton*/
+        .postButton {
+            bottom: 120px;
+            right: 48px;
+            width: 108px;
+            height: 108px;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        .postButton:hover {
+            transition: all 0.35s ease-in-out;
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+        }
+        .postButton span {
+            margin: 8px 0 0;
+        }
+        .postButton .fa-camera {
+            margin: 8px 0 0;
+            font-size: 42px;
+        }
+    }
