@@ -68,11 +68,12 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
     t.string "image_name1"
     t.string "image_name2"
     t.string "image_name3"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.integer "price"
     t.string "class_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -94,13 +95,14 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
     t.text "content"
     t.string "club"
     t.integer "entry_year"
-    t.integer "course_id"
+    t.bigint "course_id"
     t.string "icon"
     t.boolean "is_ban", default: false, null: false
     t.boolean "is_suspend", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id"
+    t.index ["course_id"], name: "index_users_on_course_id"
   end
 
 end

@@ -68,7 +68,7 @@ class ChatsController < ApplicationController
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:parchase],
-      message: "＊購入者が取引をキャンセルしました。＊"
+      message: "＊購入者が取引をキャンセルしました。\n 取引を完了してください。＊"
     )
     chat.save
 
@@ -83,7 +83,7 @@ class ChatsController < ApplicationController
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:exhibit],
-      message: "＊出品者が取引をキャンセルしました。＊"
+      message: "＊出品者が取引をキャンセルしました。\n 取引を完了してください。＊"
     )
     chat.save
     redirect_to("/users/show/#{@current_user.id}")
@@ -103,7 +103,7 @@ class ChatsController < ApplicationController
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:exhibit],
-      message: "＊出品者が取引を完了しました。＊"
+      message: "＊出品者が取引を完了しました。＊\n 取引を完了してください。"
     )
     chat.save
     if !transaction.save then

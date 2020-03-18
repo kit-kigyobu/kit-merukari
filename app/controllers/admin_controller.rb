@@ -44,9 +44,16 @@ class AdminController < ApplicationController
 
   end
 
-  def userBan
+  def user_ban
     @user = User.find(params[:user_id])
     @user.is_ban = !@user.is_ban
+    @user.save
+    redirect_to("/admin/user")
+  end
+
+  def user_suspend
+    @user = User.find(params[:user_id])
+    @user.is_suspend = !@user.is_suspend
     @user.save
     redirect_to("/admin/user")
   end

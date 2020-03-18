@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     @select_entry_year = get_select_entry_year()
 
     if !@user.valid? then
+      flash[:notice] = @user.errors.full_messages
       render("users/signup")
     end
 
@@ -136,6 +137,7 @@ class UsersController < ApplicationController
     @select_entry_year = get_select_entry_year()
 
     if !@user.valid? then
+      flash[:notice] = @user.errors.full_messages
       render("users/edit")
     end
 
