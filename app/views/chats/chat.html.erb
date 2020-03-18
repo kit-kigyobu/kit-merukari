@@ -1,50 +1,52 @@
 <div class="wrapper">
-  <main class="container">
-    <div class="contents row"><!-- ここまで定型 -->
-      <div class="mainCard">
-        <div class="mainForm">
-          <div class="cttHead"><!-- コンテンツの見出し -->
-            <h2>取引ID：<%= @transaction.id %></h2>
-            <p>チャットルーム</p>
-          </div>
-        </div>
-        <div class="">
-          <div class="chatField">
-            <% @chats.each do |chat| %>
-              <% if chat.parchase? %>
-                <div class="chat">
-                  <h4 class="chatField-name">購入側：<%= @parchase_user.name %></h4>
-                  <span class="form-element chatField-body"><%= chat.message %></span>
+    <main class="container">
+        <div class="contents row">
+            <!-- ここまで定型 -->
+            <div class="mainCard">
+                <div class="mainForm">
+                    <div class="cttHead">
+                        <!-- コンテンツの見出し -->
+                        <h2>取引ID：<%= @transaction.id %></h2>
+                        <p>チャットルーム</p>
+                    </div>
                 </div>
-              <% else %>
-                <div class="chat">
-                  <h4 class="chatField-name">出品側：<%= @exhibit_user.name %></h4>
-                  <span class="form-element chatField-body"><%= chat.message %></span>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+                <div class="">
+                    <div class="chatField">
+                        <% @chats.each do |chat| %>
+                        <% if chat.parchase? %>
+                        <div class="chat">
+                            <h4 class="chatField-name">購入側：<%= @parchase_user.name %></h4>
+                            <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
+                        </div>
+                        <% else %>
+                        <div class="chat">
+                            <h4 class="chatField-name">出品側：<%= @exhibit_user.name %></h4>
+                            <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
+                        </div>
+                        <% end %>
+                        <% end %>
+                    </div>
 
-          <%= form_tag("/chats/#{@transaction.id}/send_chat", :class=>"send-container") do %>
+                    <%= form_tag("/chats/#{@transaction.id}/send_chat", :class=>"send-container") do %>
 
-            <%= select_tag("message_type",
+                    <%= select_tag("message_type",
               options_for_select(Chat.message_types.map{|k,v| [I18n.t("enums.chat.message_type.#{k}"),v]}),
                {class: "select-btn form-element button button-Alert"})
             %>
-            <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
+                    <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
 
-            <%= submit_tag("送信",:class =>'send-btn form-element button button-Primary') %>
+                    <%= submit_tag("送信",:class =>'send-btn form-element button button-Primary') %>
 
-          <% end %>
+                    <% end %>
 
-          <% if @transaction.id  %>
-            <!-- 購入者側　-->
-            <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
-          <% else %>
-              <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
-          <% end %>
+                    <% if @transaction.id  %>
+                    <!-- 購入者側　-->
+                    <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
+                    <% else %>
+                    <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
+                    <% end %>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </div>

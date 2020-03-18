@@ -1,127 +1,129 @@
 <div class="wrapper">
-  <main class="container">
-    <div class="contents row">
-      <div class="cttHead">
-        <h2>あなたの会員情報</h2>
-      </div>
-      <div class="col-md-6">
-        <div class="mainCard">
-          <div class="mainForm">
-            <div class="form-element-wrapper">
-              <div class="form-icon">
-                <% if @user.icon.url then %>
-                  <%= image_tag @user.icon.url %>
-                <% end %>
-              </div>
+    <main class="container">
+        <div class="contents row">
+            <div class="cttHead">
+                <h2>あなたの会員情報</h2>
             </div>
-            <div class="form-element-wrapper">
-              <label>ニックネーム</label>
-              <p><%= @user.name %></p>
-            </div> 
-            <div class="form-element-wrapper">
-              <label>所属課程・専攻</label>
-              <p><%= @course_name %></p>
-            </div>
-            <div class="form-element-wrapper">
-              <label>サークル・部活動</label>
-              <p>
-                <% if @user.club.present? then %>
-                  <%= @user.club %>
-                <% else %>
-                  選択されていません
-                <% end %>
-              </p>
-            </div>
-            <div class="form-element-wrapper">
-              <label>学年</label>
-              <p>
-                <%= @user_great %>
-              </p>
-            </div>
-            <div class="form-element-wrapper">
-              <label>性別</label>
-              <p>
-                <%= @user.gender_i18n %>
-              </p>
-            </div>
-            <% if @user.id == @current_user.id %>
-              <div class="form-element-wrapper">
-                <%= link_to("編集", "/users/edit", :class =>'form-element button button-Primary') %>           
-              </div>
-            <% end %>
-              
-            <div class="form-element-wrapper">
-              <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
-                退会する
-              <% end %>
-            </div>            
-          </div>
-        </div>
-      </div>
+            <div class="col-md-6">
+                <div class="mainCard">
+                    <div class="mainForm">
+                        <div class="form-element-wrapper">
+                            <div class="form-icon">
+                                <% if @user.icon.url then %>
+                                <%= image_tag @user.icon.url %>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="form-element-wrapper nick">
+                            <p><%= @user.name %></p>
+                            <span>平均評価</span><span class="hyoka">3.4</span>
+                            <span>出品取引数</span><span class="hyoka">1</span>
+                            <span>購入取引数</span><span class="hyoka">1</span>
+                        </div>
+                        <div class="form-element-wrapper">
+                            <label>所属課程・専攻</label>
+                            <p><%= @course_name %></p>
+                        </div>
+                        <div class="form-element-wrapper">
+                            <label>サークル・部活動</label>
+                            <p>
+                                <% if @user.club.present? then %>
+                                <%= @user.club %>
+                                <% else %>
+                                選択されていません
+                                <% end %>
+                            </p>
+                        </div>
+                        <div class="form-element-wrapper">
+                            <label>学年</label>
+                            <p>
+                                <%= @user_great %>
+                            </p>
+                        </div>
+                        <div class="form-element-wrapper">
+                            <label>性別</label>
+                            <p>
+                                <%= @user.gender_i18n %>
+                            </p>
+                        </div>
+                        <% if @user.id == @current_user.id %>
+                        <div class="form-element-wrapper">
+                            <%= link_to("編集", "/users/edit", :class =>'form-element button button-Primary') %>
+                        </div>
+                        <% end %>
 
-      <div class="col-md-6">
-        <div class="mainCard">
-          <div class="mainForm">
-            <h3>購入取引一覧</h3>
-            <div class="form-element-wrapper">
-              <% @parchase_transactions.each do |transaction| %>
-                <h4 class="panel-title accordion-toggle">
-                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
-                    <%= transaction.exhibit_user.name %>さんとの取引
-                  </button>
-                </h4>
-                <div id="<%= transaction.id %>" class="panel-collapse collapse">
-                  <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
-                  <%= link_to("購入中止","/chats/#{transaction.id}/cansel_parchase",{method:"post", :class=>"form-element button button-Alert"}) %>
+                        <div class="form-element-wrapper">
+                            <%= link_to(account_registration_path(id: @current_user.id), method: :delete, :class =>'form-element button button-Alert') do %>
+                            退会する
+                            <% end %>
+                        </div>
+                    </div>
                 </div>
-              <% end %>
             </div>
-            <h3>出品取引一覧</h3>
-            <div class="form-element-wrapper">
-              <% @exhibit_transactions.each do |transaction| %>
-                <div class="panel-title accordion-toggle">
-                  <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">                    
-                    <%= transaction.parchase_user.name %>さんとの取引
-                  </button>
-                </div>
-                <div id="<%= transaction.id %>" class="panel-collapse collapse">
-                  <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
-                  <%= link_to("出品中止","/chats/#{transaction.id}/cansel_exhibit",{method:"post", :class=>"form-element button button-Alert"}) %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-md-6">
-        <div class="mainCard">
-          <div class="mainForm">
-            <h3>出品物一覧</h3>
-            <div class="contents-itemCard">
-              <% @posts.each do |post| %>
-              <div class="itemCard">
-                <div class="itemCard-wrapper">
-                  <a href="/posts/show/<%= post.id %>">
-                    <figure class="item-img">
-                      <%= image_tag post.image_name1.url %>
-                    </figure>
-                  </a>
-                  <div class="item-body">
-                    <div class="item-name">
-                      <span><%= post.name %></span>
+            <div class="col-md-6">
+                <div class="mainCard">
+                    <div class="mainForm">
+                        <h3>購入取引一覧</h3>
+                        <div class="form-element-wrapper">
+                            <% @parchase_transactions.each do |transaction| %>
+                            <h4 class="panel-title accordion-toggle">
+                                <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
+                                    <%= transaction.exhibit_user.name %>さんとの取引
+                                </button>
+                            </h4>
+                            <div id="<%= transaction.id %>" class="panel-collapse collapse">
+                                <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
+                                <%= link_to("購入中止","/chats/#{transaction.id}/cansel_parchase",{method:"post", :class=>"form-element button button-Alert"}) %>
+                            </div>
+                            <% end %>
+                        </div>
+                        <h3>出品取引一覧</h3>
+                        <div class="form-element-wrapper">
+                            <% @exhibit_transactions.each do |transaction| %>
+                            <div class="panel-title accordion-toggle">
+                                <button class="form-element button button-White" data-toggle="collapse" data-parent="#accordion" href="#<%= transaction.id %>">
+                                    <%= transaction.parchase_user.name %>さんとの取引
+                                </button>
+                            </div>
+                            <div id="<%= transaction.id %>" class="panel-collapse collapse">
+                                <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
+                                <%= link_to("出品中止","/chats/#{transaction.id}/cansel_exhibit",{method:"post", :class=>"form-element button button-Alert"}) %>
+                            </div>
+                            <% end %>
+                        </div>
                     </div>
-                    <div class="item-price">
-                      <span><%= post.price %>円</span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-              <% end %>
             </div>
-          </div>
+
+            <div class="col-md-6">
+                <div class="mainCard">
+                    <div class="mainForm">
+                        <h3>出品物一覧</h3>
+                        <div class="contents-itemCard">
+                            <% @posts.each do |post| %>
+                            <div class="itemCard">
+                                <div class="itemCard-wrapper">
+                                    <a href="/posts/show/<%= post.id %>">
+                                        <figure class="item-img">
+                                            <%= image_tag post.image_name1.url %>
+                                        </figure>
+                                    </a>
+                                    <div class="item-body">
+                                        <div class="item-name">
+                                            <span><%= post.name %></span>
+                                        </div>
+                                        <div class="item-price">
+                                            <span><%= post.price %>円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </div>
