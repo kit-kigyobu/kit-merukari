@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_095045) do
+ActiveRecord::Schema.define(version: 2019_03_21_135556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 2019_05_02_095045) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "transaction_id", null: false
+    t.bigint "transaction_id", null: false
     t.integer "message_type", default: 0, null: false
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["transaction_id"], name: "index_chats_on_transaction_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -62,16 +63,17 @@ ActiveRecord::Schema.define(version: 2019_05_02_095045) do
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "author"
     t.string "image_name1"
     t.string "image_name2"
     t.string "image_name3"
     t.integer "category_id"
     t.integer "price"
-    t.string "author"
     t.string "class_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -80,24 +82,25 @@ ActiveRecord::Schema.define(version: 2019_05_02_095045) do
     t.integer "exhibit_user_id", null: false
     t.integer "parchase_status", default: 0, null: false
     t.integer "exhibit_status", default: 0, null: false
+    t.integer "love", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "love"
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "account_id"
     t.string "name"
+    t.integer "gender"
     t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "club"
     t.integer "entry_year"
     t.integer "course_id"
+    t.string "icon"
     t.boolean "is_ban", default: false, null: false
     t.boolean "is_suspend", default: false, null: false
-    t.integer "gender"
-    t.integer "account_id"
-    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_users_on_account_id"
   end
 
 end

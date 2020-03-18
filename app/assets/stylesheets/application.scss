@@ -107,6 +107,14 @@
     overflow: scroll;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 10px;
+}
+
 //--------------------
 html {
     line-height: 1.15;
@@ -126,15 +134,10 @@ body {
     font-family: 'Noto Sans Mono CJK JP', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic';
 }
 
-// .hovor-dropShadow :hover{
-//     box-shadow:0px 1px 2px 0px rgba(60, 63, 66, 0.3), 0px 1px 3px 1px rgba(60,64,68,0.12);
-//  }
-a {
+a,
+a:hover,
+a:active {
     color: black;
-    text-decoration: none;
-}
-
-a:hover {
     text-decoration: none;
 }
 
@@ -147,7 +150,8 @@ li {
     padding: 4px 8px;
 }
 
-li a:hover {
+li a:hover,
+li a:active {
     opacity: 0.8;
 }
 
@@ -159,20 +163,6 @@ section {
     text-align: center;
 }
 
-.clearfix:after {
-    display: block;
-    clear: both;
-    content: "";
-}
-
-.f-left {
-    float: left;
-}
-
-.f-right {
-    float: right;
-}
-
 .logo {
     margin: 0px;
     padding: 3px;
@@ -182,6 +172,7 @@ section {
     background-color: #fff;
 }
 
+//ファイルのアップロードボタン
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -198,6 +189,7 @@ section {
     opacity: 0;
 }
 
+//ボタンのスタイル
 .button {
     z-index: 99;
     border-radius: 6px;
@@ -207,6 +199,7 @@ section {
     cursor: pointer;
 }
 
+//灰色のボタン
 .button-Gray {
     display: block;
     color: #fff;
@@ -223,6 +216,7 @@ section {
     color: #FFFFFF
 }
 
+//白色のボタン
 .button-White {
     display: block;
     color: #777;
@@ -233,6 +227,7 @@ section {
     border: 1px solid #B7B7B7;
 }
 
+//水色のボタン(一般用のボタン)
 .button-Primary {
     display: block;
     background: #45c8ff;
@@ -249,6 +244,7 @@ section {
     color: #FFFFFF
 }
 
+//オレンジ色のボタン(注意促す用のボタン。削除やキャンセルなど)
 .button-Alert {
     display: block;
     height: 50px;
@@ -265,14 +261,17 @@ section {
     color: #FFFFFF;
 }
 
+//ヘッダーの背景色
 .bg-sub {
     background: #F5F5F5;
 }
 
+//一番前に表示したいやつ
 .z-999 {
     z-index: 999;
 }
 
+//スマホの画面サイズで見えるやつ
 .my-xs-visible {
     display: inline;
 }
@@ -283,6 +282,7 @@ section {
     }
 }
 
+//スマホの画面サイズi以外で見えるやつ
 .my-xs-invisible {
     display: none;
 }
@@ -302,40 +302,11 @@ section {
     top: 4px;
 }
 
+//ラッパー
 .wrapper {
     background-color: #212121;
     margin: 0;
-    /*background-color: white;*/
     width: 100%;
-}
-
-
-/*-----slim head----*/
-
-.slimHead {
-    margin: 0px;
-    padding-top: 10px;
-    width: auto;
-    background-color: #F5F5F5;
-    border: 1px solid #EEEEEE;
-    text-align: center;
-}
-
-.slimHead .logo {
-    text-align: center;
-}
-
-
-/*-----head----*/
-
-.header-wrapper {
-    margin: 0px;
-    padding: 8px 0 0;
-}
-
-.header-wrapper .logo {
-    padding: 0px 16px;
-    text-align: left;
 }
 
 
@@ -388,15 +359,14 @@ section {
     text-align: center;
 }
 
-
-/*-----registerStyle-----*/
-
-.reghead {
-    padding: 15px 0px;
-    text-align: center;
-    background-position: center;
+@media screen and (min-width:960px) {
+    .contents {
+        padding: 20px 0px;
+        width: 960px;
+    }
 }
 
+//コンテンツのヘッダー（題名）
 .cttHead {
     margin-top: 0px;
     padding: 0px 8px;
@@ -405,9 +375,7 @@ section {
     text-align: center;
 }
 
-
-/*-----mainForm-----*/
-
+//mainForm ログインログアウトとかで使ってるやつ.幅が300pxになってる
 .mainForm {
     margin: 0px auto;
     padding: 10px;
@@ -421,8 +389,13 @@ section {
     padding-bottom: 21px;
 }
 
+//フォーム内の要素をまとめるやつ
 .form-element-wrapper {
     margin: 26px 0px;
+}
+
+.form-element-wrapper .button {
+    margin: 10px 0px;
 }
 
 .mainForm label {
@@ -442,18 +415,35 @@ section {
     border-radius: 2px;
 }
 
+//フォームのフィールドのスタイル
 .form-field {
     height: 48px;
     color: #555;
     border: 1px solid #B7B7B7;
 }
 
+.form-field:focus {
+    border-color: #45c8ff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+//セレクタボタンのスタイル
 .form-select {
     height: 48px;
     color: #555;
     border: 1px solid #B7B7B7;
 }
 
+.form-select:focus {
+    border-color: #45c8ff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+//ユーザーアイコン画像のスタイル
 .form-icon {
     width: 120px;
     height: 120px;
@@ -482,6 +472,7 @@ section {
     object-fit: cover;
 }
 
+//フォームの要素につけるやつ
 .form-element {
     width: 100%;
     margin: 10px 0px;
@@ -494,75 +485,51 @@ section {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.form-field:focus {
-    border-color: #45c8ff;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-}
-
-.form-select:focus {
-    border-color: #45c8ff;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-}
-
-.form-element-wrapper .button {
-    margin: 10px 0px;
-}
-
-.form-radio-wrapper {
-    margin-top: 10px;
-    padding: 4px 0px;
-}
-
-.form-radio {
-    margin-left: 15px;
-    margin-right: 0px;
-    background: white;
-}
-
-.form-radio:hover {
-    cursor: pointer;
-}
-
-.caution {
-    padding: 20px;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.caution a {
-    color: #4DB0DC;
-}
-
-.caution a:hover {
-    border-bottom: 2px solid #4DB0DC;
-}
-
+//ログインとかの下についてるっメニュー
 .loginhelp {
     text-align: center;
     margin: auto;
     padding-bottom: 21px;
+    ul {
+        list-style: square;
+        font-size: 14px;
+        font-weight: bold;
+        color: #777;
+    }
+    li {
+        margin: 4px;
+        padding: 4px 8px;
+    }
+    a {
+        margin: 4px;
+        padding: 4px 8px;
+        color: #777;
+    }
 }
 
-.loginhelp ul {
-    list-style: square;
+//sideForm サーチ画面の検索フォーム
+.sideForm {
+    margin: 0px auto;
+    padding: 0px;
+    width: 100%;
     font-size: 14px;
-    font-weight: bold;
-    color: #777;
-}
-
-.loginhelp li {
-    margin: 4px;
-    padding: 4px 8px;
-}
-
-.loginhelp a {
-    margin: 4px;
-    padding: 4px 8px;
-    color: #777;
+    .form-element-wrapper {
+        .form-element {
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+        .form-field:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+        .form-select:focus {
+            outline: 0;
+            box-shadow: none;
+        }
+    }
 }
 
 
@@ -612,9 +579,7 @@ section {
     }
 }
 
-
-/*-----contents-itemBox-----*/
-
+//商品一覧のカードのスタイル
 .contents-itemCard {
     display: grid;
     flex-wrap: wrap;
@@ -685,14 +650,13 @@ section {
     filter: saturate(120%);
     overflow: hidden;
     text-align: left;
-}
-
-.item-img img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-    object-fit: cover;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        object-fit: cover;
+    }
 }
 
 .item-body {
@@ -713,9 +677,7 @@ section {
     font-weight: bold;
 }
 
-
-/*-----listCard-----*/
-
+//ヘルプ画面のスタイル
 .listCard {
     width: auto;
     margin: 0 auto;
@@ -732,9 +694,7 @@ section {
     border: 1px solid transparent;
 }
 
-
-/*-----footer css-----*/
-
+//フッターのスタイル
 .pageFoot {
     padding: 40px 10px 20px 10px;
     text-align: center;
@@ -788,9 +748,20 @@ section {
     font-size: 10px;
 }
 
+@media screen and (min-width:960px) {
+    /*-----footer-----*/
+    .pageFoot .footer-upper nav {
+        text-align: center;
+    }
+    .pageFoot .footer-upper nav>ul {
+        display: inline-flex;
+    }
+    .pageFoot .footer-upper .footer-cell {
+        margin: 0px 50px;
+    }
+}
 
-/*-----postButton--------*/
-
+//出品ボタンのスタイル
 .postButton {
     display: block;
     position: fixed;
@@ -820,24 +791,6 @@ section {
 }
 
 @media screen and (min-width:960px) {
-    .header-wrapper .logo {
-        text-align: center;
-    }
-    /*-----contents-----*/
-    .contents {
-        padding: 20px 0px;
-        width: 960px;
-    }
-    /*-----footer-----*/
-    .pageFoot .footer-upper nav {
-        text-align: center;
-    }
-    .pageFoot .footer-upper nav>ul {
-        display: inline-flex;
-    }
-    .pageFoot .footer-upper .footer-cell {
-        margin: 0px 50px;
-    }
     /*-----postButton*/
     .postButton {
         bottom: 120px;

@@ -54,7 +54,7 @@ class ChatsController < ApplicationController
       exhibit_status: Transaction.exhibit_statuses[:exhibit_normal]
     )
     if !@transaction.save then
-      redirect_to("/users/#{@current_user}")
+      redirect_to("/users/show/#{@current_user}")
     else
       redirect_to("/chats/#{@transaction.id}/chat")
     end
@@ -86,7 +86,7 @@ class ChatsController < ApplicationController
       message: "＊出品者が取引をキャンセルしました。＊"
     )
     chat.save
-    redirect_to("/users/#{@current_user.id}")
+    redirect_to("/users/show/#{@current_user.id}")
   end
 
   #購入側の完了確認
@@ -96,9 +96,10 @@ class ChatsController < ApplicationController
 
   #購入側の完了
   def buy_complete_comfirm_done
-    @love = param['love']
+    @love = params['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.love += @love.to_i
+    transaction.parchase_status = Transaction.parchase_statuses[:parchase_done]
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:exhibit],
@@ -108,7 +109,7 @@ class ChatsController < ApplicationController
     if !transaction.save then
       redirect_to("/chats/#{params[:transaction_id]}/buy_complete_comfirm")
     else
-      redirect_to("/users/#{@current_user.id}")
+      redirect_to("/users/show/#{@current_user.id}")
     end
   end
 
@@ -119,9 +120,10 @@ class ChatsController < ApplicationController
 
   #出品側の完了
   def sale_complete_comfirm_done
-    @love = param['love']
+    @love = params['love']
     transaction = Transaction.find_by(id: params[:transaction_id])
     transaction.love += @love.to_i
+    transaction.exhibit_status = Transaction.exhibit_statuses[:exhibit_done]
     chat = Chat.create(
       transaction_id: params[:transaction_id],
       message_type: Chat.message_types[:parchase],
@@ -131,7 +133,7 @@ class ChatsController < ApplicationController
     if !transaction.save then
       redirect_to("/chats/#{params[:transaction_id]}/buy_complete_comfirm")
     else
-      redirect_to("/users/#{@current_user.id}")
+      redirect_to("/users/show/#{@current_user.id}")
     end
   end
 end
