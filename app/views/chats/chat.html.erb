@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="">
-          <div class="chatField">      
+          <div class="chatField">
             <% @chats.each do |chat| %>
               <% if chat.parchase? %>
                 <div class="chat">
@@ -26,17 +26,17 @@
           </div>
 
           <%= form_tag("/chats/#{@transaction.id}/send_chat", :class=>"send-container") do %>
-                
+
             <%= select_tag("message_type",
               options_for_select(Chat.message_types.map{|k,v| [I18n.t("enums.chat.message_type.#{k}"),v]}),
                {class: "select-btn form-element button button-Alert"})
             %>
             <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
-            
+
             <%= submit_tag("送信",:class =>'send-btn form-element button button-Primary') %>
-        
+
           <% end %>
-        
+
           <% if @transaction.id  %>
             <!-- 購入者側　-->
             <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
@@ -44,7 +44,7 @@
               <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
           <% end %>
         </div>
-      </div>      
+      </div>
     </div>
   </main>
 </div>
