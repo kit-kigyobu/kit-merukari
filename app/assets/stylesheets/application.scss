@@ -70,7 +70,11 @@
     }
     
     .nav-tabs {
-        border-bottom: transparent;
+        border: none;
+        padding: 0;
+        >li {
+            padding: 0;
+        }
     }
     
     .nav-tabs>li.active>a,
@@ -82,9 +86,13 @@
     }
     
     .nav-tabs>li>a {
-        border-radius: 0 0 4px 4px;
-         :hover {
-            border: transparent;
+        margin-right: 2px;
+        line-height: 1.428571429;
+        border: 1px solid transparent;
+        border-radius: 0;
+        &:hover {
+            background: none;
+            border: none;
         }
     }
     
@@ -126,6 +134,11 @@
         position: relative;
         margin: 0;
         padding: 0;
+    }
+    
+    #error_explanation {
+        width: 100%;
+        overflow: auto;
     }
     
     body {
@@ -291,6 +304,16 @@
         .my-xs-invisible {
             display: inline;
         }
+    }
+    
+    @media (min-width: 768px) {
+        .sidebar {
+            @extend .collapsed !optional;
+        }
+    }
+    
+    .sidebar {
+        @extend .collapse !optional;
     }
     
     .my-xs-invisible>.form-control {
@@ -532,14 +555,19 @@
     .mainCard {
         .mainForm {
             .form-element-wrapper {
+                position: relative;
                 label {
+                    position: absolute;
+                    top: -5px;
+                    left: 8px;
                     @extend .form-element;
-                    width: 100%;
+                    width: auto;
                     text-align: left;
                     font-size: 1rem;
                     margin: 0px;
-                    padding: 0px 16px;
+                    padding: 0px 8px;
                     border-bottom: 1px #777 transparent;
+                    background-color: #FFFFFF;
                     z-index: 9;
                     display: inline-flex;
                 }
@@ -547,11 +575,28 @@
                     @extend .form-element;
                     width: 100%;
                     text-align: left;
+                    line-height: 1.6rem;
                     margin: 0px;
-                    border-bottom: 1px #777 transparent;
-                    background-color: #e7e7e7;
+                    border: 1px #777 dotted;
+                    background-color: #fff;
                     font-size: 1.2rem;
                     display: block;
+                }
+            }
+            .nick {
+                p {
+                    text-align: center;
+                    border: none;
+                    border-bottom: 1px #777;
+                    background-color: #fff;
+                    font-size: 1.8rem;
+                }
+                span {
+                    font-size: 1.2rem;
+                }
+                .hyoka {
+                    font-size: 1.6rem;
+                    color: #ffb259;
                 }
             }
         }
