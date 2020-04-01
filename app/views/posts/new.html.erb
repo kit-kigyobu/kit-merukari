@@ -58,7 +58,7 @@
               <label>カテゴリ</label>
               <strong>必須</strong><!-- 必須マーク -->
               <%= select_tag("category_id",
-              options_for_select(@select_category,:selected => @post.category_id),
+              options_for_select(Category.all.map {|v| [v.name, v.id]},:selected => @post.category_id),
               {class: "form-element form-select"})%>
           </div>
 

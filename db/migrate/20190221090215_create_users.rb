@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :content
       t.string :club
       t.integer :entry_year
-      t.integer :course_id
+      t.belongs_to :course, default: 1001, null: false
       t.string :icon
       t.boolean :is_ban, default: false, null: false
       t.boolean :is_suspend, default: false, null: false

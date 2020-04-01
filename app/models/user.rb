@@ -1,5 +1,9 @@
 class User < ApplicationRecord
+  belongs_to :account
+  belongs_to :course
   has_many :posts
+  has_many :parchase_transactions, class_name: 'Transaction', :foreign_key => 'parchase_user_id'
+  has_many :exhibit_transactions, class_name: 'Transaction', :foreign_key => 'exhibit_user_id'
   # 投稿とのアソシエーション
 
   mount_uploader :icon, PictureUploader

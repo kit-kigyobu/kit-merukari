@@ -1,2 +1,23 @@
 <h1>Admin#transaction</h1>
 <p>Find me in app/views/admin/transaction.html.erb</p>
+
+<%= form_tag(controller: "admin", action: "post") do %>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr><th>ID</th>         <td><%= text_field_tag( :serch_id ) %></td><tr/>
+  <tr><th>name</th>   <td><%= text_field_tag( :serch_name ) %></td><tr/>
+  <tr><th>user_id</th>   <td><%= text_field_tag( :serch_user_id ) %></td><tr/>
+  <tr><th>author</th>   <td><%= text_field_tag( :serch_author ) %></td><tr/>
+  <tr><th>content</th>     <td><%= select_tag("category_id",
+  options_for_select(@select_category,:selected => @post.category_id),
+  %></td><tr/>
+  <tr><th>exhibit_status</th>       <td><%= select_tag("serch_exhibit_status",
+    options_for_select(Transaction.exhibit_statuses),
+    {include_blank: true})
+  %></td><tr/>
+  <tr><th>parchase_status</th>       <td><%= select_tag("serch_parchase_status",
+    options_for_select(Transaction.parchase_statuses),
+    {include_blank: true})
+  %></td><tr/>
+  <tr><th></th>           <td><%= submit_tag("検索") %></td><tr/>
+</table>
+<% end %>

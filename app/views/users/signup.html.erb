@@ -15,7 +15,7 @@
                     <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
                         <label>所属課程・専攻</label>
                         <%= select_tag("course_id",
-                        options_for_select(@select_course,:selected => @user.course_id),
+                        options_for_select(Course.all.map {|v| [v.name, v.id]},:selected => @user.id),
                         {class: "form-element"})%>
                     </div>
 

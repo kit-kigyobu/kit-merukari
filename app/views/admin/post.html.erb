@@ -1,2 +1,42 @@
-<h1>Admin#post</h1>
-<p>Find me in app/views/admin/post.html.erb</p>
+<h3>出品管理画面</h3>
+<hr>
+
+<%= form_tag(controller: "admin", action: "post") do %>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr><th>ID</th>         <td><%= text_field_tag( :serch_id ) %></td><tr/>
+  <tr><th>name</th>   <td><%= text_field_tag( :serch_name ) %></td><tr/>
+  <tr><th>user_id</th>   <td><%= text_field_tag( :serch_user_id ) %></td><tr/>
+  <tr><th>author</th>   <td><%= text_field_tag( :serch_author ) %></td><tr/>
+  <tr><th>category</th>     <td><%= select_tag("category_id",
+  options_for_select(Category.all))
+  %></td><tr/>
+  <tr><th>create_date</th><td><%= date_field_tag( :serch_create_data_below ) %>~<%= date_field_tag( :serch_create_data_upper ) %></td><tr/>
+  <tr><th></th>           <td><%= submit_tag("検索") %></td><tr/>
+</table>
+<% end %>
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>name</th>
+    <th>user_id</th>
+    <th>user_name</th>
+    <th>author</th>
+    <th>category</th>
+    <th>create_time</th>
+    <th>[view]</th>
+  </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= post.id %></td>
+    <td><%= post.name %></td>
+    <td><%= post.user_id %></td>
+    <td><%= post.user.name %><td>
+    <td><%= post.author %></td>
+    <td><%= post.category.name %></td>
+    <td><%= post.created_at.year %>年<%= post.created_at.month %>月<%= post.created_at.day %>日</td>
+    <td><%= link_to("[view]","/posts/show/#{post.id}",{target: "_new"}) %></td>
+  </tr>
+  <% end %>
+</table>

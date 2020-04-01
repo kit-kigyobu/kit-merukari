@@ -4,8 +4,7 @@
 <%= form_tag(controller: "admin", action: "user") do %>
 <table border="1" cellpadding="5" cellspacing="0">
   <tr><th>ID</th>         <td><%= text_field_tag( :serch_id ) %></td><tr/>
-  <tr><th>nickname</th>   <td><%= text_field_tag( :serch_name ) %></td><tr/>
-  <tr><th>email</th>      <td><%= text_field_tag( :serch_email ) %></td><tr/>
+  <tr><th>name</th>   <td><%= text_field_tag( :serch_name ) %></td><tr/>
   <tr><th>gender</th>     <td><%= select_tag("message_type",
     options_for_select(User.genders.map{|k,v| [I18n.t("enums.user.gender.#{k}"),v]}),
     {class: "select-default",include_blank: true})
@@ -25,7 +24,7 @@
 <table border="1" cellpadding="5" cellspacing="0">
   <tr>
     <th>ID</th>
-    <th>nickname</th>
+    <th>name</th>
     <th>email</th>
     <th>gender</th>
     <th>club</th>
@@ -34,33 +33,25 @@
     <th>create_time</th>
     <th>BAN</th>
     <th>SUSPEND</th>
-    <th>exhibit_num</th>
-    <th>purchase_num</th>
-    <th>love_num</th>
     <th>[BAN]</th>
     <th>[SUSPEND]</th>
-    <th>[PASSRESET]</th>
     <th>[view]</th>
   </tr>
   <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
+    <td><%= user.account.email %></td>
     <td><%= user.name %></td>
-    <td><%= user.email %></td>
     <td><%= I18n.t("enums.user.gender.#{user.gender}") %></td>
     <td><%= user.club %></td>
     <td><%= user.entry_year %></td>
-    <td><%= user.course_id %></td>
+    <td><%= user.course.name %></td>
     <td><%= user.created_at.year %>年<%= user.created_at.month %>月<%= user.created_at.day %>日</td>
     <td><%= user.is_ban %></td>
     <td><%= user.is_suspend %></td>
-    <td><%= user.exhibition_num %></td>
-    <td><%= user.purchase_num %></td>
-    <td><%= user.love_num %></td>
     <td><%= link_to("[BAN]","/admin/user/#{user.id}/ban",{method: "post"}) %></td>
     <td><%= link_to("[SUSPEND]","/admin/user/#{user.id}/suspend",{method: "post"}) %></td>
-    <td><%= link_to("[PASSRESET]","/admin/user/#{user.id}/passreset",{method: "post"}) %></td>
-    <td><%= link_to("[view]","/users/#{user.id}",{target: "_new"}) %></td>
+    <td><%= link_to("[view]","/users/show/#{user.id}",{target: "_new"}) %></td>
   </tr>
   <% end %>
 </table>

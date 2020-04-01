@@ -4,9 +4,16 @@ Rails.application.routes.draw do
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
-  get 'admin/user'
-  get 'admin/post'
+
+
+  get "admin/user" => "admin#user"
+  post "admin/user" => "admin#user"
+  post "admin/user/:user_id/ban" =>"admin#user_ban"
+  post "admin/user/:user_id/suspend" =>"admin#user_suspend"
+  get 'admin/post' => "admin#post"
+  post 'admin/post' => "admin#post"
   get 'admin/transaction'
+
   post "users/:id/update"  => "users#update"
   get "users/edit"     => "users#edit"
   post "users/edit_confirm" => "users#edit_confirm"
@@ -47,9 +54,7 @@ Rails.application.routes.draw do
   post "chats/:transaction_id/sale_complete_comfirm_done" => "chats#sale_complete_comfirm_done"
 
 
-  get "admin/user" => "admin#user"
-  post "admin/user" => "admin#user"
-  post "admin/user/:user_id/ban" =>"admin#userBan"
+
 
   root 'home#top'
   get 'home/top' => 'home#top'

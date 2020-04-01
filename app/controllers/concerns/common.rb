@@ -38,37 +38,6 @@ module Common
     return select_entry_year
   end
 
-  #select_tagのオプション用
-  def get_select_course()
-    select_course = Hash.new
-    courses = Course.all
-    courses.each do |course|
-      select_course.store(course.name,course.course_id)
-    end
-
-    return select_course
-  end
-
-  #select_tagのオプション用
-  def get_select_category()
-    select_category = Hash.new
-    categorys = Category.all
-    categorys.each do |category|
-      select_category.store(category.name, category.category_id)
-    end
-    return select_category
-  end
-
-  #select_tagのオプション用(検索時の空白「-1」あり)
-  def get_select_category_with_blank()
-    select_category = Hash.new
-    categorys = Category.all
-    select_category.store("", -1)
-    categorys.each do |category|
-      select_category.store(category.name, category.category_id)
-    end
-    return select_category
-  end
 
   def get_order_selection()
     select_category = Hash.new

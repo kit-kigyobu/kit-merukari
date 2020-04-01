@@ -35,7 +35,6 @@ class PostsController < ApplicationController
 
 
     @order_selection = get_order_selection()
-    @select_category = get_select_category_with_blank()
   end
 
   def show
@@ -43,9 +42,6 @@ class PostsController < ApplicationController
     @exhibit_user = User.find(@post.user_id)
     category = Category.find_by(category_id: @post.category_id)
     @user_great = entry_year_to_great(@exhibit_user.entry_year)
-    user_course = Course.find_by(course_id: @exhibit_user.course_id)
-    @course_name = user_course.name
-    @category_name = category.name
   end
 
   def chat_confirm
@@ -60,7 +56,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @select_category = get_select_category()
   end
 
   def create_confirm
@@ -75,11 +70,10 @@ class PostsController < ApplicationController
       name: params[:name],
       content: params[:content],
       user_id: @current_user.id,
-      category_id: params[:category_id]
+      category_id: params[:category_id].to_i
     )
 
-    post_category = Category.find_by(category_id: @post.category_id)
-    @category_name = post_category.name
+
 
     if params[:image1] then
       @post.image_name1 = params[:image1]
@@ -97,7 +91,6 @@ class PostsController < ApplicationController
     if !@post.valid? then
       flash[:notice] = "必須の欄が記入できている、間違いがないかお確かめください。"
       @errors_full_messages = @post.errors.full_messages
-      @select_category = get_select_category()
       render("/posts/new")
     end
   end
@@ -159,9 +152,6 @@ class PostsController < ApplicationController
       user_id: @current_user.id,
       category_id: params[:category_id]
     )
-
-    post_category = Category.find_by(category_id: @post.category_id)
-    @category_name = post_category.name
 
     if params[:image1] then
       @post.image_name1 = params[:image1]
