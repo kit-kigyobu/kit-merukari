@@ -1,7 +1,9 @@
-<div class="banner-wrapper">
-    <div class="banner">
-        <%= link_to("OSAGARYとは", "/about", :class=>"button button-Primary" ) %>
+<div class="mainVisual-wrapper">
+    <%= link_to ("/about") do %>
+    <div class="mainVisual">
+        <%= image_tag  "2MainVisual@2x.png", :alt => 'OSAGARY 工繊生のためのフリマサイト 詳しく見る' %>
     </div>
+    <% end %>
 </div>
 <div class="wrapper">
     <main class="container">

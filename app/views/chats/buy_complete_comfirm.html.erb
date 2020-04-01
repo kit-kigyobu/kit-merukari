@@ -1,11 +1,33 @@
-<h1>取引完了確認</h1>
+<div class="wrapper">
+    <main class="container">
+        <div class="contents row">
+            <div class="cttHead">
+                <h1>取引完了確認</h1>
+            </div>
+            <div class="col-md-6">
+                <div class="mainCard">
+                    <div class="mainForm">
+                        <div class="form-element-wrapper">
+                            <p>
+                                出品者の評価をしましょう！<br>
+                                ※取引終了後に評価してください。
+                            </p>
+                        </div>
 
-出品者の評価をしましょう！<br>
-※取引終了後に評価してください。
-
-<%= form_tag("/chats/#{@transaction.id}/buy_complete_comfirm_done") do %>
-  <%= select_tag("love",
+                        <%= form_tag("/chats/#{@transaction.id}/buy_complete_comfirm_done") do %>
+                        <div class="form-element-wrapper">
+                            <%= select_tag("love",
   options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]], :selected => 3),
   {class: "form-element"})%>
-  <%= submit_tag("取引完了") %>
-<% end %>
+                        </div>
+                        <div class="form-element-wrapper">
+                            <%= submit_tag("取引完了", :class=>"form-element button button-Primary") %>
+                        </div>
+                        <% end %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,27 +1,26 @@
 <div class="wrapper">
     <main class="container">
-    <div class= "contents">
-      <div class="cttHead">
-        <h2>パスワードをお忘れの場合</h2>
-      </div>
-    <div class="mainForm">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="contents">
+            <div class="cttHead">
+                <h2>パスワードをお忘れの場合</h2>
+            </div>
+            <div class="mainForm">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="form-element-wrapper">
-          <%= f.label :emailのアドレスを入力して下さい %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" %>
-        </div>
+                <div class="form-element-wrapper">
+                    <%= f.label "メールアドレスを入力して下さい" %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" %>
+                </div>
 
-        <div class="form-element-wrapper">
-          <%= f.submit "メールを送信", class: "form-element button button-Primary" %>
-        </div>
-      <% end %>
-      <div class="loginhelp">
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
+                <div class="form-element-wrapper">
+                    <%= f.submit "メールを送信", class: "form-element button button-Primary" %>
+                </div>
+                <% end %>
+                <div class="loginhelp">
+                    <%= render "devise/shared/links" %>
+                </div>
+            </div>
 
-</main>
-
+    </main>
 </div>

@@ -1,25 +1,38 @@
-<h2>Change your password</h2>
+<div class="wrapper">
+    <main class="container">
+        <div class="contents">
+            <div class="cttHead">
+                <h2>パスワードを変更</h2>
+            </div>
+            <div class="mainForm">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="form-element-wrapper">
+                    <%= f.hidden_field :reset_password_token %>
+                </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                <div class="form-element-wrapper">
+                    <%= f.label :password, "新しいパスワード" %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> 文字以上)</em>
+                    <% end %>
+                    <%= f.password_field :password, autofocus: true, autocomplete: "new-password",:class=>"form-element form-field" %>
+                </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+                <div class="form-element-wrapper">
+                    <%= f.label :password_confirmation, "パスワード再入力" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off",:class=>"form-element form-field" %>
+                </div>
 
-<%= render "devise/shared/links" %>
+                <div class="form-element-wrapper">
+                    <%= f.submit "決定" , :class=>"form-element button button-Primary"%>
+                </div>
+                <% end %>
+
+                <%= render "devise/shared/links" %>
+            </div>
+        </div>
+    </main>
+</div>
