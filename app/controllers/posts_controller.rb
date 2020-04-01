@@ -39,8 +39,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    @exhibit_user = User.find(@post.user_id)
-    category = Category.find_by(category_id: @post.category_id)
+    @exhibit_user = @post.user
     @user_great = entry_year_to_great(@exhibit_user.entry_year)
   end
 
