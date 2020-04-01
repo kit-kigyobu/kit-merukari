@@ -14,6 +14,12 @@
  *= require_self
  */
     
+     ::selection {
+        background-color: #b3d4fc;
+        color: #fff;
+        text-shadow: none;
+    }
+    
     @import "bootstrap";
     // bootstrap 変更
     .bg-primary {
@@ -121,6 +127,12 @@
     h4,
     h5 {
         margin-top: 10px;
+    }
+    
+    h2 {
+        font-weight: 600;
+        font-size: 22px;
+        margin: 10px 0 8px;
     }
     
     //--------------------
@@ -369,6 +381,13 @@
         }
     }
     
+    @media screen and (min-width: 1068px) {
+        .contents {
+            margin: 40px auto 0;
+            width: 1020px;
+        }
+    }
+    
     //コンテンツのヘッダー（題名）
     .cttHead {
         margin-top: 0px;
@@ -512,13 +531,22 @@
     
     //sideForm サーチ画面の検索フォーム
     .sideForm {
+        input::placeholder {
+            color: lightgray;
+        }
         margin: 0px auto;
         padding: 0px;
         width: 100%;
         font-size: 14px;
+        i {
+            color: #888;
+        }
         .form-element-wrapper {
+            text-align: left;
+            margin: 5px auto 0;
             .form-element {
                 height: 48px;
+                margin-top: 5px;
                 padding: 10px 16px 8px;
                 border-radius: 4px;
                 line-height: 1.5;
@@ -571,6 +599,14 @@
                     z-index: 9;
                     display: inline-flex;
                 }
+                // .postPice {
+                //     border: 1px #777 dotted;
+                //     font-size: 24px;
+                //     font-weight: 600;
+                // }
+                // .postPiceLabel {
+                //     font-size: 1rem;
+                // }
                 p {
                     @extend .form-element;
                     width: 100%;

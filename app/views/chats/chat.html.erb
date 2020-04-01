@@ -13,17 +13,17 @@
                 <div class="">
                     <div class="chatField">
                         <% @chats.each do |chat| %>
-                        <% if chat.parchase? %>
-                        <div class="chat">
-                            <h4 class="chatField-name">購入側：<%= @parchase_user.name %></h4>
-                            <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
-                        </div>
-                        <% else %>
-                        <div class="chat">
-                            <h4 class="chatField-name">出品側：<%= @exhibit_user.name %></h4>
-                            <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
-                        </div>
-                        <% end %>
+                            <% if chat.parchase? %>
+                            <div class="chat">
+                                <h4 class="chatField-name">購入側：<%= @parchase_user.name %></h4>
+                                <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
+                            </div>
+                            <% else %>
+                            <div class="chat">
+                                <h4 class="chatField-name">出品側：<%= @exhibit_user.name %></h4>
+                                <span class="form-element chatField-body"><%=simple_format(chat.message)%></span>
+                            </div>
+                            <% end %>
                         <% end %>
                     </div>
 
@@ -35,16 +35,23 @@
             %>
                     <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
 
-                    <%= submit_tag("送信",:class =>'send-btn form-element button button-Primary') %>
-
+                    <%= button_tag :type => "submit",:class =>'send-btn form-element button button-Primary' do %>
+                    <i class="fa fa-paper-plane"></i>送信
                     <% end %>
 
-                    <% if @transaction.id  %>
-                    <!-- 購入者側　-->
-                    <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
-                    <% else %>
-                    <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
                     <% end %>
+                    <div class="mainForm">
+                        <% if @transaction.id  %>
+                        <!-- 購入者側　-->
+                        <div class="form-element-wrapper">
+                            <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
+                        </div>
+                        <% else %>
+                        <div class="form-element-wrapper">
+                            <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
+                        </div>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>

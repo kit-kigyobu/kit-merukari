@@ -73,7 +73,10 @@
                                 </button>
                             </h4>
                             <div id="<%= transaction.id %>" class="panel-collapse collapse">
-                                <%= link_to("チャットを開始","/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") %>
+                                <%= link_to("/chats/#{transaction.id}/chat", :class=>"form-element button button-Primary") do %>
+                                "チャットを開始",
+                                <%# 変更必要かも %>
+                                <%end%>
                                 <%= link_to("購入中止","/chats/#{transaction.id}/cansel_parchase",{method:"post", :class=>"form-element button button-Alert"}) %>
                             </div>
                             <% end %>
