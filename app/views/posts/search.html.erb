@@ -10,24 +10,24 @@
                         <div class="sideForm">
                             <%= form_tag("/posts/search") do %>
                             <div class="form-element-wrapper">
-                                <label>本の名前</label>
+                                <label><i class="fa fa-plus" aria-hidden="true"></i>本の名前</label>
                                 <%= text_field_tag("search_word", @search_word, :class =>'form-element form-field')%>
                             </div>
                             <div class="form-element-wrapper">
-                                <label>カテゴリ</label>
+                                <label><i class="fa fa-list" aria-hidden="true"></i>カテゴリ</label>
                                 <%= select_tag("select_category",
                                 options_for_select(Category.all.map{|v| [v.name, v.id]}, :selected => @search_category),
                                 {include_blank: true,class: "form-element"})%>
                             </div>
                             <div class="form-element-wrapper">
-                                <label>授業名</label>
+                                <label><i class="fa fa-graduation-cap" aria-hidden="true"></i>授業名</label>
                                 <%= text_field_tag("search_class", @search_class, :class =>'form-element form-field')%>
                             </div>
                             <div class="form-element-wrapper">
-                                <label>金額</label>
-                                <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field')%>
+                                <label><i class="fa fa-database" aria-hidden="true"></i>金額</label>
+                                <%= number_field_tag("search_price_low", @search_price_low, :class =>'form-element form-field', :placeholder => "Min")%>
                                 <p>から</p>
-                                <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field')%>
+                                <%= number_field_tag("search_price_up", @search_price_up, :class =>'form-element form-field', :placeholder => "Max")%>
                             </div>
 
                             <div class="form-element-wrapper">
@@ -77,12 +77,7 @@
     </main>
 
     <%=link_to "/posts/new", :class=>"button-Primary postButton button" do %>
-<<<<<<< HEAD
-      <span>出品</span>
-      <i class="fas fa-camera"></i>
-=======
     <span>出品</span>
     <i class="fas fa-camera"></i>
->>>>>>> 22645c0dd6ea4f07963db551520ad507b0ffa71c
     <% end %>
 </div>

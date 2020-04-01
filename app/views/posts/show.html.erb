@@ -62,13 +62,13 @@
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-              <label>カテゴリ</label>
-              <p><%= @category_name %></p>
+              <label>説明</label>
+              <p ><%= @post.content %></p>
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-              <label>値段</label>
-              <p><%= @post.price %></p>
+              <label>カテゴリ</label>
+              <p><%= @category_name %></p>
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
@@ -82,8 +82,8 @@
             </div>
 
             <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
-              <label>説明</label>
-              <p><%= @post.content %></p>
+              <label class="postPiceLabel">値段</label>
+              <p class="postPice">¥<%= @post.price %></p>
             </div>
 
             <%if @current_user.id == @exhibit_user.id%>
