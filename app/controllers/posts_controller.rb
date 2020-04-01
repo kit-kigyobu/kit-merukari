@@ -45,10 +45,10 @@ class PostsController < ApplicationController
 
   def chat_confirm
     @post = Post.find_by(id: params[:id])
-    @exhibit_user = User.find(@post.user_id)
-    category = Category.find_by(category_id: @post.category_id)
+    @exhibit_user = @post.user
+    category = @post.category
     @user_great = entry_year_to_great(@exhibit_user.entry_year)
-    user_course = Course.find_by(course_id: @exhibit_user.course_id)
+    user_course = @exhibit_user.course
     @course_name = user_course.name
     @category_name = category.name
   end
@@ -116,7 +116,6 @@ class PostsController < ApplicationController
 
     #戻るボタン
     if params[:back] then #[1]へ
-      @select_category = get_select_category()
       render("posts/new")
       return
     end
@@ -126,7 +125,6 @@ class PostsController < ApplicationController
       redirect_to("/posts/show/#{@post.id}")
     else
       @errors_full_messages = @post.errors.full_messages
-      @select_category = get_select_category()
       render("posts/new")
     end
   end
@@ -134,16 +132,20 @@ class PostsController < ApplicationController
   def edit
     @post_id = params[:id]
     @post = Post.find(params[:id])
-    @select_category = get_select_category()
   end
 
   def edit_confirm
+    @image_name1 = params[:image_name1]
+    if not @image_name1.present? then
+      @image_name1 = params[:prev_image_name1]
+    end
+
     @post_id = params[:id]
     @post = Post.new(
       price: params[:price],
       author: params[:author],
       class_name: params[:class_name],
-      image_name1: params[:image_name1],
+      image_name1: @image_name1,
       image_name2: params[:image_name2],
       image_name3: params[:image_name3],
       name: params[:name],
@@ -166,10 +168,10 @@ class PostsController < ApplicationController
     end
 
     if !@post.valid? then
-      flash[:notice] = "投稿失敗"
       @errors_full_messages = @post.errors.full_messages
-      @select_category = get_select_category()
-      redirect_to("/posts/edit/#{@params_id}")
+      flash[:notice] = "投稿失敗"
+      @post = Post.find(params[:id])
+      render("posts/edit")
     end
   end
 
@@ -195,7 +197,6 @@ class PostsController < ApplicationController
 
     #戻るボタン
     if params[:back] then #[1]へ
-      @select_category = get_select_category()
       render("posts/edit/#{@post_id}")
       return
     end

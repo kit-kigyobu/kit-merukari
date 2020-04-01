@@ -37,6 +37,10 @@
               <% end %>
             </div>
 
+            <%= hidden_field_tag :prev_image_name1, @post.image_name1, :class =>'form-element' %>
+            <%= hidden_field_tag :prev_image_name2, @post.image_name2, :class =>'form-element' %>
+            <%= hidden_field_tag :prev_image_name3, @post.image_name3, :class =>'form-element' %>
+
             <div class="form-element-wrapper">
               <label>画像1</label>
               <div class="btn-file button button-Gray form-element">
@@ -74,8 +78,8 @@
               <label>カテゴリ</label>
               <strong>必須</strong><!-- 必須マーク -->
               <%= select_tag("category_id",
-              options_for_select(@select_category, :selected => @post.category_id),
-              {class: "form-element"})%>
+              options_for_select(Category.all.map {|v| [v.name, v.id]},:selected => @post.category_id),
+              {class: "form-element form-select"})%>
           </div>
 
           <div class="form-element-wrapper"><!-- form内の要素の一塊にはform-element-wrapperをつける -->
