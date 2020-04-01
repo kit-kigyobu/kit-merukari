@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   post "admin/user" => "admin#user"
   post "admin/user/:user_id/ban" =>"admin#user_ban"
   post "admin/user/:user_id/suspend" =>"admin#user_suspend"
-
-
-
-  get 'admin/post'
+  get 'admin/post' => "admin#post"
+  post 'admin/post' => "admin#post"
   get 'admin/transaction'
 
   post "users/:id/update"  => "users#update"

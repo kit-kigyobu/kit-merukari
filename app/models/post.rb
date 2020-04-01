@@ -5,8 +5,6 @@ class Post < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :image_name1, presence: true
-  validates :category_id, presence: true
-  validates :content, length: {minimum: 10}
 
   mount_uploader :image_name1, PictureUploader
   mount_uploader :image_name2, PictureUploader

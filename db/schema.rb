@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,22 +53,21 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.integer "course_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "content"
     t.bigint "user_id"
     t.string "author"
     t.string "image_name1"
     t.string "image_name2"
     t.string "image_name3"
-    t.bigint "category_id"
-    t.integer "price"
+    t.bigint "category_id", default: 0, null: false
+    t.integer "price", null: false
     t.string "class_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,7 +93,7 @@ ActiveRecord::Schema.define(version: 2019_03_21_135556) do
     t.text "content"
     t.string "club"
     t.integer "entry_year"
-    t.bigint "course_id"
+    t.bigint "course_id", default: 1001, null: false
     t.string "icon"
     t.boolean "is_ban", default: false, null: false
     t.boolean "is_suspend", default: false, null: false

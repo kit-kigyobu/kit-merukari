@@ -16,8 +16,8 @@
                 <div class="form-element-wrapper">
                     <label>カテゴリ</label>
                     <%= select_tag("select_category",
-                    options_for_select(@select_category, :selected => @search_category),
-                    {class: "form-element"})%>
+                    options_for_select(Category.all.map{|v| [v.name, v.id]}, :selected => @search_category),
+                    {include_blank: true,class: "form-element"})%>
                 </div>
                 <div class="form-element-wrapper">
                     <label>授業名</label>
@@ -78,6 +78,6 @@
 
     <%=link_to "/posts/new", :class=>"button-Primary postButton button" do %>
       <span>出品</span>
-      <i class="fas fa-camera"></i> 
+      <i class="fas fa-camera"></i>
     <% end %>
 </div>
