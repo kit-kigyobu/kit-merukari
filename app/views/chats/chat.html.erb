@@ -29,15 +29,16 @@
 
                     <%= form_tag("/chats/#{@transaction.id}/send_chat", :class=>"send-container") do %>
 
-                    <%= select_tag("message_type",
-              options_for_select(Chat.message_types.map{|k,v| [I18n.t("enums.chat.message_type.#{k}"),v]}),
-               {class: "select-btn form-element button button-Alert"})
-            %>
-                    <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
+                        <%= select_tag("message_type",
+                        options_for_select(Chat.message_types.map{|k,v| [I18n.t("enums.chat.message_type.#{k}"),v]}),
+                        {class: "select-btn form-element button button-Alert"})
+                        %>
 
-                    <%= button_tag :type => "submit",:class =>'send-btn form-element button button-Primary' do %>
-                    <i class="fa fa-paper-plane"></i>送信
-                    <% end %>
+                        <%= text_area_tag("message","",{:cols=>"80", :rows=>"8", :class=>"send-message"}) %>
+
+                        <%= button_tag :type => "submit",:class =>'send-btn form-element button' do %>
+                            <i class="fa fa-paper-plane"></i> 送信
+                        <% end %>
 
                     <% end %>
                     <div class="mainForm">

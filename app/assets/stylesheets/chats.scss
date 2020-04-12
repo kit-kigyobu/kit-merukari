@@ -52,9 +52,15 @@
         bottom: 3px;
         right: 16px;
         position: absolute;
+        padding: 5px;
         font-weight: bold;
-        width: 120px !important;
-        height: 32px;
+        color: lightgray;
+        background-color: transparent;
+        width: 90px !important;
+        height: 36px !important;
+        &:hover {
+            color: black;
+        }
     }
     
     .select-btn {
