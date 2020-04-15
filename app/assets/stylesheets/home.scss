@@ -1,3 +1,64 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+    // Place all the styles related to the home controller here.
+    // They will automatically be included in application.css.
+    // You can use Sass (SCSS) here: http://sass-lang.com/
+    .about-contents {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .about-contents {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #fff;
+        .header-img {
+            position: relative;
+            .bg {
+                width: 100%;
+            }
+            .catch {
+                position: absolute;
+                margin: auto;
+                width: 60%;
+                min-width: 300px;
+                z-index: 99;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+            }
+        }
+        .main-sec {
+            margin: auto;
+            margin-bottom: 100px;
+            max-width: 90%;
+            // position: relative;
+            .catch {
+                // position: absolute;
+                margin: auto;
+                padding: 15px 0;
+                width: 60%;
+                min-width: 300px;
+                // z-index: 99;
+                // left: 50%;
+                // transform: translate(-50%, 0%);
+                // -webkit-transform: translate(-50%, 0%);
+                // -ms-transform: translate(-50%, 0%);
+            }
+            p {
+                width: 55%;
+                margin: auto;
+                padding-left: 10px;
+                text-align: left;
+                font-size: 28px;
+            }
+            @media (max-width: 768px) {
+                p {
+                    width: 80%;
+                    font-size: 8px;
+                }
+            }
+        }
+    }
