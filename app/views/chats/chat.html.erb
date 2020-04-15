@@ -2,6 +2,9 @@
     <main class="container">
         <div class="contents row">
             <!-- ここまで定型 -->
+            
+            
+            
             <div class="mainCard">
                 <div class="mainForm">
                     <div class="cttHead">
@@ -41,18 +44,25 @@
                         <% end %>
 
                     <% end %>
-                    <div class="mainForm">
-                        <% if @transaction.id  %>
+                    
+                </div>
+            </div>
+            <div class="mainCard">
+                <div class="mainForm">
+                    <div class="cttHead">
+                        <h2>取引は完了しましたか？</h2>
+                        <p>以下のボタンを押すと取引を完了し、ユーザー評価画面に移動します。</p>
+                    </div>
+                    <% if @transaction.id  %>
                         <!-- 購入者側　-->
                         <div class="form-element-wrapper">
                             <%= link_to("取引完了","/chats/#{@transaction.id}/buy_complete_comfirm",:class =>'form-element button button-Alert') %>
                         </div>
-                        <% else %>
+                    <% else %>
                         <div class="form-element-wrapper">
                             <%= link_to("取引完了","/chats/#{@transaction.id}/sale_complete_comfirm",:class =>'form-element button button-Alert') %>
                         </div>
-                        <% end %>
-                    </div>
+                    <% end %>
                 </div>
             </div>
         </div>
