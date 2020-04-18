@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   get 'home/top' => 'home#top'
   get "/about" => 'home#about'
   get "/policy" => 'home#policy'
+  get "/privacy" => 'home#privacy'
   get "/help" => 'home#help'
 
 

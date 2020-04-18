@@ -13,6 +13,9 @@ class HomeController < ApplicationController
   def policy
   end
 
+  def privacy
+  end
+
   def login
     redirect_to("/home/top")
   end
