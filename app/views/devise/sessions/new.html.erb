@@ -8,7 +8,7 @@
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="form-element-wrapper">
                 <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-element form-field" ,placeholder: "example@edu.kit.ac.jp" %>
               </div>
               <div class="form-element-wrapper">
                 <%= f.label :password %><br />
